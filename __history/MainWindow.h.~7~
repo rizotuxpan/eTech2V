@@ -1,0 +1,39 @@
+//---------------------------------------------------------------------------
+
+#ifndef MainWindowH
+#define MainWindowH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <FMX.Controls.hpp>
+#include <FMX.Forms.hpp>
+#include <FMX.Controls.Presentation.hpp>
+#include <FMX.StdCtrls.hpp>
+#include <FMX.Types.hpp>
+#include <FMX.TabControl.hpp>
+#include <FMX.Skia.hpp>
+#include <System.Skia.hpp>
+#include <FMX.ImgList.hpp>
+#include <System.ImageList.hpp>
+//---------------------------------------------------------------------------
+class TForm1 : public TForm
+{
+__published:	// IDE-managed Components
+	TPanel *PanelTop;
+	TStatusBar *StatusBarMain;
+	TPanel *PanelMain;
+	TTabControl *TabControl1;
+	TTabItem *TabItem1;
+	TTabItem *TabItem2;
+	TTabItem *TabCatalogos;
+	TPanel *Panel1;
+	TLabel *Label1;
+	TButton *Button1;
+	TImageList *ImageList1;
+private:	// User declarations
+public:		// User declarations
+	__fastcall TForm1(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TForm1 *Form1;
+//---------------------------------------------------------------------------
+#endif
