@@ -18,7 +18,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 void __fastcall TForm1::MenuCatalogosSwitchesMarcasClick(TObject *Sender)
 {
     // Crea una instancia del frame
-    TFrame1 *MyFrame = new TFrame1(this, "xxx");
+    TFrame1 *MyFrame = new TFrame1(this);
 
     // Configura el parent del frame al panel
     MyFrame->Parent = PanelMain;
@@ -31,4 +31,16 @@ void __fastcall TForm1::MenuCatalogosSwitchesMarcasClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TForm1::FormResize(TObject *Sender)
+{
+	int minWidth = 750; // Establece el ancho mínimo deseado
+    int minHeight = 600; // Establece la altura mínima deseada
+
+    if (Frame1->Width < minWidth)
+        Frame1->Width = minWidth;
+
+    if (Frame1->Height < minHeight)
+		Frame1->Height = minHeight;
+}
+//---------------------------------------------------------------------------
 

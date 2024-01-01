@@ -24,7 +24,7 @@ class TFrame1 : public TFrame
 {
 __published:	// IDE-managed Components
 	TPanel *Panel1;
-	TStringGrid *StringGrid;
+	TStringGrid *StringGrid1;
 	TPanel *Panel2;
 	TPanel *Panel3;
 	TLabel *ID;
@@ -39,7 +39,7 @@ __published:	// IDE-managed Components
 	TLabel *LabelClave;
 	TLabel *LabelDescr;
 	TEdit *EditClave;
-	TMemo *MemoDescr;
+	TMemo *Memo1;
 	TLabel *LabelMsg;
 	TLabel *Label2;
 	TLabel *Label3;
@@ -51,7 +51,7 @@ __published:	// IDE-managed Components
 private:	// User declarations
     bool resizing = false;
 public:		// User declarations
-	__fastcall TFrame1(TComponent* Owner, String parametro);
+	__fastcall TFrame1(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFrame1 *Frame1;

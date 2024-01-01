@@ -9,7 +9,7 @@
 #pragma resource "*.fmx"
 TFrame1 *Frame1;
 //---------------------------------------------------------------------------
-__fastcall TFrame1::TFrame1(TComponent* Owner, String parametro)
+__fastcall TFrame1::TFrame1(TComponent* Owner, unicodeString parametro)
 	: TFrame(Owner)
 {
 }

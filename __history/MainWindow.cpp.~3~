@@ -15,20 +15,3 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm1::MenuCatalogosSwitchesMarcasClick(TObject *Sender)
-{
-    // Crea una instancia del frame
-    TFrame1 *MyFrame = new TFrame1(this, "xxx");
-
-    // Configura el parent del frame al panel
-    MyFrame->Parent = PanelMain;
-
-    // Ajusta el tamaño y la posición del frame según tus necesidades
-    MyFrame->Align = TAlignLayout::Client;
-
-    // Muestra el frame
-    MyFrame->Visible = true;
-}
-//---------------------------------------------------------------------------
-
-

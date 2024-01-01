@@ -51,7 +51,7 @@ __published:	// IDE-managed Components
 private:	// User declarations
     bool resizing = false;
 public:		// User declarations
-	__fastcall TFrame1(TComponent* Owner, String parametro);
+	__fastcall TFrame1(TComponent* Owner, UnicodeString parametro);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFrame1 *Frame1;

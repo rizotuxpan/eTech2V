@@ -9,7 +9,7 @@
 #pragma resource "*.fmx"
 TFrame1 *Frame1;
 //---------------------------------------------------------------------------
-__fastcall TFrame1::TFrame1(TComponent* Owner, String parametro)
+__fastcall TFrame1::TFrame1(TComponent* Owner)
 	: TFrame(Owner)
 {
 }
@@ -23,8 +23,8 @@ void __fastcall TFrame1::Panel2Resized(TObject *Sender)
 		resizing = true;
 		try
 		{
-			if (Panel2->Width < 420) {
-				Panel2->Width = 420;
+			if (Frame1->Width < 750) {
+				Frame1->Width = 750;
 			}
 		}
 		__finally
