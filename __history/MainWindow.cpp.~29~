@@ -28,12 +28,11 @@ void __fastcall TForm1::MenuCatalogosSwitchesMarcasClick(TObject *Sender) {
 		// Si no existe, crearlo y almacenar la referencia
 		Frame1 = std::make_unique<TFrame1>(this, "xxx");
 		Frame1->Parent = PanelMain;
-		Frame1->Align = TAlignLayout::Client;
+		Frame1->Align = AlignLayout::Client;
 	}
 
 	// Mostrar el TFrame
 	Frame1->Visible = true;
-
 }
 //---------------------------------------------------------------------------
 

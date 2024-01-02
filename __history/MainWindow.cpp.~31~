@@ -22,7 +22,7 @@ void __fastcall TForm1::MenuCatalogosSwitchesMarcasClick(TObject *Sender) {
 	MyFrame->Align = TAlignLayout::Client;
 	MyFrame->Visible = true;
 	*/
-
+	/*
 	if (!Frame1)
 	{
 		// Si no existe, crearlo y almacenar la referencia
@@ -33,7 +33,7 @@ void __fastcall TForm1::MenuCatalogosSwitchesMarcasClick(TObject *Sender) {
 
 	// Mostrar el TFrame
 	Frame1->Visible = true;
-
+    */
 }
 //---------------------------------------------------------------------------
 

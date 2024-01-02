@@ -53,9 +53,3 @@ void TFrame1::PopulateStringGrid()
 	}
 
 }
-void __fastcall TFrame1::ButtonDeleteClick(TObject *Sender)
-{
-    PopulateStringGrid();
-}
-//---------------------------------------------------------------------------
-

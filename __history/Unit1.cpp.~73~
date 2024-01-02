@@ -40,22 +40,10 @@ void __fastcall TFrame1::ButtonCloseClick(TObject *Sender)
 
 void TFrame1::PopulateStringGrid()
 {
-	RESTClient1->BaseURL = "http://localhost/etech2v/";
-	RESTRequest1->Resource = "switchmodelomarca/";
+	RESTClient1->BaseURL = BaseURL;
+	RESTRequest1->Resource = Resource;
 	RESTRequest1->Response->ContentType = "application/json";
 	RESTRequest1->Response->ContentEncoding = "UTF-8";
 	RESTRequest1->Method= TRESTRequestMethod::rmGET;
-	try {
-		RESTRequest1->Execute();
-		LabelMsg->Text = RESTResponse1->Content;
-	} catch (Exception &e) {
-        ShowMessage("Error: " + e.Message);
-	}
-
+	RESTRequest1->Execute();
 }
-void __fastcall TFrame1::ButtonDeleteClick(TObject *Sender)
-{
-    PopulateStringGrid();
-}
-//---------------------------------------------------------------------------
-

@@ -33,7 +33,6 @@ void __fastcall TForm1::MenuCatalogosSwitchesMarcasClick(TObject *Sender) {
 
 	// Mostrar el TFrame
 	Frame1->Visible = true;
-
 }
 //---------------------------------------------------------------------------
 

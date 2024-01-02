@@ -1,13 +1,12 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'eTech2V'
+  Caption = 'eTech 2024'
   ClientHeight = 540
   ClientWidth = 752
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  OnCreate = FormCreate
   DesignerMasterStyle = 0
   object StatusBarMain: TStatusBar
     Position.Y = 518.000000000000000000

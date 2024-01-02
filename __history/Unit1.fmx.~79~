@@ -24,20 +24,8 @@ object Frame1: TFrame1
       StyleLookup = 'gridstyle'
       TabOrder = 0
       Options = [AlternatingRowBackground, ColumnResize, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
-      Viewport.Width = 283.000000000000000000
-      Viewport.Height = 311.000000000000000000
-      object StringColumn1: TStringColumn
-        Header = 'id'
-        HeaderSettings.TextSettings.WordWrap = False
-      end
-      object StringColumn2: TStringColumn
-        Header = 'clave'
-        HeaderSettings.TextSettings.WordWrap = False
-      end
-      object StringColumn3: TStringColumn
-        Header = 'descr'
-        HeaderSettings.TextSettings.WordWrap = False
-      end
+      Viewport.Width = 303.000000000000000000
+      Viewport.Height = 352.000000000000000000
     end
   end
   object Panel2: TPanel
@@ -47,6 +35,7 @@ object Frame1: TFrame1
     Size.PlatformDefault = False
     StyleLookup = 'pushpanel'
     TabOrder = 1
+    OnResized = Panel2Resized
     object Panel3: TPanel
       Align = Bottom
       Margins.Bottom = 10.000000000000000000
@@ -87,27 +76,27 @@ object Frame1: TFrame1
         ControlCollection = <
           item
             Column = 0
-            Control = ButtonNew
+            Control = ButtonNuevo
             Row = 0
           end
           item
             Column = 1
-            Control = ButtonEdit
+            Control = ButtonEditar
             Row = 0
           end
           item
             Column = 2
-            Control = ButtonSave
+            Control = ButtonGuardar
             Row = 0
           end
           item
             Column = 3
-            Control = ButtonDelete
+            Control = ButtonBorrar
             Row = 0
           end
           item
             Column = 4
-            Control = ButtonClose
+            Control = ButtonCerrar
             Row = 0
           end
           item
@@ -146,7 +135,7 @@ object Frame1: TFrame1
           item
             SizeStyle = Auto
           end>
-        object ButtonNew: TButton
+        object ButtonNuevo: TButton
           Align = HorzCenter
           Position.X = 10.000000000000000000
           Size.Width = 50.000000000000000000
@@ -156,9 +145,8 @@ object Frame1: TFrame1
           TabOrder = 0
           Text = 'Nuevo'
           TextSettings.Trimming = None
-          OnClick = ButtonNewClick
         end
-        object ButtonEdit: TButton
+        object ButtonEditar: TButton
           Align = HorzCenter
           Position.X = 80.000000000000000000
           Size.Width = 50.000000000000000000
@@ -169,7 +157,7 @@ object Frame1: TFrame1
           Text = 'Editar'
           TextSettings.Trimming = None
         end
-        object ButtonSave: TButton
+        object ButtonGuardar: TButton
           Align = HorzCenter
           Position.X = 150.000000000000000000
           Size.Width = 50.000000000000000000
@@ -180,7 +168,7 @@ object Frame1: TFrame1
           Text = 'Guardar'
           TextSettings.Trimming = None
         end
-        object ButtonDelete: TButton
+        object ButtonBorrar: TButton
           Align = HorzCenter
           Position.X = 220.000000000000000000
           Size.Width = 50.000000000000000000
@@ -190,9 +178,8 @@ object Frame1: TFrame1
           TabOrder = 3
           Text = 'Borrar'
           TextSettings.Trimming = None
-          OnClick = ButtonDeleteClick
         end
-        object ButtonClose: TButton
+        object ButtonCerrar: TButton
           Align = HorzCenter
           Position.X = 290.000000000000000000
           Size.Width = 50.000000000000000000
@@ -202,7 +189,6 @@ object Frame1: TFrame1
           TabOrder = 4
           Text = 'Cerrar'
           TextSettings.Trimming = None
-          OnClick = ButtonCloseClick
         end
         object Label2: TLabel
           Align = Client
@@ -280,7 +266,7 @@ object Frame1: TFrame1
         Text = 'Clave'
         TabOrder = 1
       end
-      object LabelId: TLabel
+      object ID: TLabel
         Position.X = 456.000000000000000000
         Position.Y = 8.000000000000000000
         Size.Width = 32.000000000000000000
@@ -313,8 +299,8 @@ object Frame1: TFrame1
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 4
-        Viewport.Width = 298.000000000000000000
-        Viewport.Height = 46.000000000000000000
+        Viewport.Width = 302.000000000000000000
+        Viewport.Height = 50.000000000000000000
       end
       object LabelMsg: TLabel
         Anchors = [akLeft, akTop, akRight]
@@ -350,34 +336,5 @@ object Frame1: TFrame1
       Text = 'Tipos de switches'
       TabOrder = 1
     end
-  end
-  object RESTClient1: TRESTClient
-    Params = <>
-    SynchronizedEvents = False
-    Left = 40
-    Top = 160
-  end
-  object RESTRequest1: TRESTRequest
-    Client = RESTClient1
-    Params = <>
-    Response = RESTResponse1
-    SynchronizedEvents = False
-    Left = 104
-    Top = 168
-  end
-  object RESTResponse1: TRESTResponse
-    Left = 176
-    Top = 168
-  end
-  object FDMemTable1: TFDMemTable
-    FetchOptions.AssignedValues = [evMode]
-    FetchOptions.Mode = fmAll
-    ResourceOptions.AssignedValues = [rvSilentMode]
-    ResourceOptions.SilentMode = True
-    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
-    UpdateOptions.CheckRequired = False
-    UpdateOptions.AutoCommitUpdates = True
-    Left = 40
-    Top = 240
   end
 end

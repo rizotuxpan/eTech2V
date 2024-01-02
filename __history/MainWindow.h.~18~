@@ -16,7 +16,6 @@
 #include <System.ImageList.hpp>
 #include <FMX.Menus.hpp>
 
-#include <IniFiles.hpp>
 #include "Unit1.h"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
@@ -31,7 +30,6 @@ __published:	// IDE-managed Components
 	void __fastcall MenuCatalogosSwitchesMarcasClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 private:	// User declarations
-	std::unique_ptr<TFrame1> Frame1; // Puntero inteligente
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
 };

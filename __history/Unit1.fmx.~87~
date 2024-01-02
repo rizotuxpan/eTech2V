@@ -190,7 +190,6 @@ object Frame1: TFrame1
           TabOrder = 3
           Text = 'Borrar'
           TextSettings.Trimming = None
-          OnClick = ButtonDeleteClick
         end
         object ButtonClose: TButton
           Align = HorzCenter
