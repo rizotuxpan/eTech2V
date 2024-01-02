@@ -61,16 +61,11 @@ __published:	// IDE-managed Components
 	TLabel *Label5;
 	TLabel *Label1;
 	TLabel *Label6;
-	TRESTClient *RESTClient1;
-	TRESTRequest *RESTRequest1;
-	TRESTResponse *RESTResponse1;
-	TFDMemTable *FDMemTable1;
 	TStringColumn *StringColumn1;
 	TStringColumn *StringColumn2;
 	TStringColumn *StringColumn3;
 	void __fastcall ButtonNewClick(TObject *Sender);
 	void __fastcall ButtonCloseClick(TObject *Sender);
-	void __fastcall ButtonDeleteClick(TObject *Sender);
 private:	// User declarations
 	void Nuevo();
 	void PopulateStringGrid();

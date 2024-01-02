@@ -73,24 +73,12 @@ Coordinates=254,386,53,58
 [StringColumn1]
 Coordinates=456,454,100,36
 
-[RESTResponse1]
-Coordinates=10,10,113,366
-
 [StringColumn2]
 Coordinates=346,454,100,36
-
-[RESTRequest1]
-Coordinates=133,10,103,102
 
 [StringColumn3]
 Coordinates=236,454,100,36
 
-[RESTClient1]
-Coordinates=246,10,89,80
-
-[FDMemTable1]
-Coordinates=345,10,99,58
-
 []
-Coordinates=550,188,91,36
+Coordinates=345,10,99,58
 
