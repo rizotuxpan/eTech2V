@@ -81,6 +81,24 @@ object Form1: TForm1
           Text = 'Gabinete'
           OnClick = MenuCatalogosGabineteClick
         end
+        object MenuCatalogosPMIs: TMenuItem
+          Locked = True
+          Text = 'PMIs'
+          object MenuCatalogosPMIPostesMaterial: TMenuItem
+            Locked = True
+            Text = 'Material de postes'
+            OnClick = MenuCatalogosPMIPostesMaterialClick
+          end
+        end
+        object MenuCatalogosArcos: TMenuItem
+          Locked = True
+          Text = 'Arcos carreteros'
+          object MenuCatalogosArcosEstructuras: TMenuItem
+            Locked = True
+            Text = 'Estructuras'
+            OnClick = MenuCatalogosArcosEstructurasClick
+          end
+        end
       end
     end
   end

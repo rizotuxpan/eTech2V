@@ -1,0 +1,21 @@
+inherited Frame8: TFrame8
+  inherited Panel1: TPanel
+    inherited StringGrid: TStringGrid
+      Viewport.Width = 303.000000000000000000
+      Viewport.Height = 352.000000000000000000
+    end
+  end
+  inherited Panel2: TPanel
+    inherited Panel5: TPanel
+      inherited MemoDescr: TMemo
+        Viewport.Width = 302.000000000000000000
+        Viewport.Height = 50.000000000000000000
+      end
+    end
+  end
+  inherited Panel4: TPanel
+    inherited LabelTitulo: TLabel
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+  end
+end

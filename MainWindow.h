@@ -23,6 +23,8 @@
 #include "Unit4.h"
 #include "Unit5.h"
 #include "Unit6.h"
+#include "Unit7.h"
+#include "Unit8.h"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -42,6 +44,10 @@ __published:	// IDE-managed Components
 	TMenuItem *MenuCatalogosCamarasMarcas;
 	TMenuItem *MenuCatalogosCamarasTipos;
 	TMenuItem *MenuCatalogosGabinete;
+	TMenuItem *MenuCatalogosPMIs;
+	TMenuItem *MenuCatalogosArcos;
+	TMenuItem *MenuCatalogosPMIPostesMaterial;
+	TMenuItem *MenuCatalogosArcosEstructuras;
 	void __fastcall MenuCatalogosSwitchesMarcasClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall MenuCatalogosSwitchesTiposClick(TObject *Sender);
@@ -50,6 +56,8 @@ __published:	// IDE-managed Components
 	void __fastcall MenuCatalogosCamarasMarcasClick(TObject *Sender);
 	void __fastcall MenuCatalogosCamarasTiposClick(TObject *Sender);
 	void __fastcall MenuCatalogosGabineteClick(TObject *Sender);
+	void __fastcall MenuCatalogosPMIPostesMaterialClick(TObject *Sender);
+	void __fastcall MenuCatalogosArcosEstructurasClick(TObject *Sender);
 private:	// User declarations
 	String baseurl = "";
 	String resource = "";
@@ -58,8 +66,9 @@ private:	// User declarations
 	String RadioModeloMarca = "";
 	String CamaraModeloMarca = "";
 	String CamaraModeloTipo = "";
-    String Gabinete = "";
-
+	String Gabinete = "";
+    String PmiPosteMaterial = "";
+	String ArcoEstructura = "";
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
    void EnableMenu(bool enable);

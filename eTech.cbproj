@@ -6,9 +6,10 @@
         <MainSource>eTech.cpp</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
-        <Platform Condition="'$(Platform)'==''">Win64</Platform>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
+        <CC_Suffix Condition="'$(CC_Suffix)'==''">c</CC_Suffix>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -205,13 +206,29 @@
             <DependentOn>Unit6.h</DependentOn>
             <BuildOrder>8</BuildOrder>
         </CppCompile>
-        <FormResources Include="Unit2.fmx"/>
+        <CppCompile Include="Unit7.cpp">
+            <Form>Frame7</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+            <DependentOn>Unit7.h</DependentOn>
+            <BuildOrder>9</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="Unit8.cpp">
+            <Form>Frame8</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+            <DependentOn>Unit8.h</DependentOn>
+            <BuildOrder>10</BuildOrder>
+        </CppCompile>
         <FormResources Include="Unit3.fmx"/>
         <FormResources Include="Unit4.fmx"/>
         <FormResources Include="Unit5.fmx"/>
+        <FormResources Include="Unit6.fmx"/>
+        <FormResources Include="Unit2.fmx"/>
         <FormResources Include="MainWindow.fmx"/>
         <FormResources Include="Unit1.fmx"/>
-        <FormResources Include="Unit6.fmx"/>
+        <FormResources Include="Unit7.fmx"/>
+        <FormResources Include="Unit8.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
