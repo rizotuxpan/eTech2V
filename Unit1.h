@@ -69,13 +69,15 @@ __published:	// IDE-managed Components
 	void __fastcall StringGridSelectCell(TObject *Sender, const int ACol, const int ARow,
           bool &CanSelect);
 	void __fastcall ButtonSaveClick(TObject *Sender);
+	void __fastcall ButtonDeleteClick(TObject *Sender);
+	void __fastcall ButtonEditClick(TObject *Sender);
 private:	// User declarations
 	String baseurl = "";
 	String resource = "";
 	String titulo = "";
 	void PopulateStringGrid();
-    void NewRecord();
-	void InsertRecord();
+	void NewRecord();
+	void EditRecord();
 	void UpdateRecord();
 	void CreateRecord();
 	void DeleteRecord();

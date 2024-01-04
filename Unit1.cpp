@@ -77,11 +77,39 @@ void TFrame1::NewRecord() {
 	ButtonEdit->Enabled = false;
 }
 //---------------------------------------------------------------------------
-void TFrame1::InsertRecord() {
-
+void TFrame1::EditRecord() {
+    ButtonSave->Enabled = true;
+	ButtonDelete->Enabled = false;
+	ButtonNew->Enabled = true;
+	EditClave->Enabled = true;
+	MemoDescr->Enabled = true;
+    EditClave->SetFocus();
 }
 //---------------------------------------------------------------------------
 void TFrame1::UpdateRecord() {
+    TRESTClient *RESTClient = new TRESTClient(NULL);
+	TRESTRequest *RESTRequest = new TRESTRequest(NULL);
+	TRESTResponse *RESTResponse = new TRESTResponse(NULL);
+
+    RESTClient->BaseURL = baseurl;
+	RESTRequest->Response = RESTResponse;
+	RESTRequest->Client = RESTClient;
+	RESTRequest->Resource = resource+"?id="+LabelId->Text+"&clave="+EditClave->Text+"&descr="+MemoDescr->Text;
+	RESTRequest->Response->ContentType = "application/json";
+	RESTRequest->Response->ContentEncoding = "UTF-8";
+	RESTRequest->Method= TRESTRequestMethod::rmPUT;
+	RESTRequest->Execute();
+
+	TJSONValue *jValue = RESTResponse->JSONValue;
+	TJSONArray *JSONArray = dynamic_cast<TJSONArray*>(jValue);
+	LabelMsg->Text = JSONArray->Items[1]->ToString() == "\"ok\"" ? "Registro actualizado correctamente" : "El registro no se pudo actualizar";
+
+	EditClave->Enabled = false;
+	MemoDescr->Enabled = false;
+	ButtonSave->Enabled = false;
+	ButtonNew->Enabled = true;
+
+	PopulateStringGrid();
 }
 //---------------------------------------------------------------------------
 void TFrame1::CreateRecord() {
@@ -102,6 +130,8 @@ void TFrame1::CreateRecord() {
 	TJSONArray *JSONArray = dynamic_cast<TJSONArray*>(jValue);
 	LabelMsg->Text = JSONArray->Items[1]->ToString() == "\"ok\"" ? "Registro guardado correctamente" : "El registro no se pudo guardar";
 
+    EditClave->Text = "";
+    MemoDescr->Text = "";
 	EditClave->Enabled = false;
 	MemoDescr->Enabled = false;
 	ButtonSave->Enabled = false;
@@ -111,6 +141,32 @@ void TFrame1::CreateRecord() {
 }
 //---------------------------------------------------------------------------
 void TFrame1::DeleteRecord() {
+	TRESTClient *RESTClient = new TRESTClient(NULL);
+	TRESTRequest *RESTRequest = new TRESTRequest(NULL);
+	TRESTResponse *RESTResponse = new TRESTResponse(NULL);
+
+	RESTClient->BaseURL = baseurl;
+	RESTRequest->Response = RESTResponse;
+	RESTRequest->Client = RESTClient;
+
+	RESTRequest->Resource = resource+"?id="+LabelId->Text;
+	RESTRequest->Response->ContentType = "application/json";
+	RESTRequest->Response->ContentEncoding = "UTF-8";
+	RESTRequest->Method= TRESTRequestMethod::rmDELETE;
+	RESTRequest->Execute();
+
+	TJSONValue *jValue = RESTResponse->JSONValue;
+	TJSONArray *JSONArray = dynamic_cast<TJSONArray*>(jValue);
+	LabelMsg->Text = JSONArray->Items[1]->ToString() == "\"ok\"" ? "Registro borrado correctamente" : "El registro no se pudo guardar";
+
+	EditClave->Text = "";
+    MemoDescr->Text = "";
+	EditClave->Enabled = false;
+	MemoDescr->Enabled = false;
+	ButtonSave->Enabled = false;
+	ButtonNew->Enabled = true;
+
+	PopulateStringGrid();
 }
 //---------------------------------------------------------------------------
 void __fastcall TFrame1::StringGridSelectCell(TObject *Sender, const int ACol,
@@ -128,7 +184,25 @@ void __fastcall TFrame1::StringGridSelectCell(TObject *Sender, const int ACol,
 
 void __fastcall TFrame1::ButtonSaveClick(TObject *Sender)
 {
-    CreateRecord();
+	if (ButtonEdit->Enabled) {
+		UpdateRecord();
+	}
+	else {
+		CreateRecord();
+	}
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFrame1::ButtonDeleteClick(TObject *Sender)
+{
+    DeleteRecord();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFrame1::ButtonEditClick(TObject *Sender)
+{
+    EditRecord();
 }
 //---------------------------------------------------------------------------
 

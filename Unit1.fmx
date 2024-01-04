@@ -170,6 +170,7 @@ object Frame1: TFrame1
           TabOrder = 1
           Text = 'Editar'
           TextSettings.Trimming = None
+          OnClick = ButtonEditClick
         end
         object ButtonSave: TButton
           Align = HorzCenter
@@ -193,6 +194,7 @@ object Frame1: TFrame1
           TabOrder = 3
           Text = 'Borrar'
           TextSettings.Trimming = None
+          OnClick = ButtonDeleteClick
         end
         object ButtonClose: TButton
           Align = HorzCenter
