@@ -14,13 +14,10 @@ __fastcall TForm1::TForm1(TComponent* Owner) : TForm(Owner) {}
 
 void __fastcall TForm1::MenuCatalogosSwitchesMarcasClick(TObject* Sender)
 {
-    //if (!Frame1)
-    //{
-    resource = SwitchModeloMarca;
-    Frame1 = new TFrame1(PanelMain, baseurl, resource, "Marcas de Switches");
-    Frame1->Parent = PanelMain;
-    Frame1->Align = TAlignLayout::Client;
-    //}
+	resource = SwitchModeloMarca;
+	Frame1 = new TFrame1(PanelMain, baseurl, resource, "Marcas de Switches");
+	Frame1->Parent = PanelMain;
+	Frame1->Align = TAlignLayout::Client;
 
     Frame1->Visible = true;
     Menu->Enabled = false;
@@ -36,19 +33,17 @@ void __fastcall TForm1::FormCreate(TObject* Sender)
 	RadioModeloMarca  = iniFile->ReadString("REST", "RadioModeloMarca", "");
 	CamaraModeloMarca = iniFile->ReadString("REST", "CamaraModeloMarca", "");
 	CamaraModeloTipo  = iniFile->ReadString("REST", "CamaraModeloTipo", "");
+    Gabinete          = iniFile->ReadString("REST", "Gabinete", "");
     delete iniFile;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::MenuCatalogosSwitchesTiposClick(TObject* Sender)
 {
-    //if (!Frame2)
-    //{
-    resource = SwitchModeloTipo;
-    Frame2 = new TFrame2(this, baseurl, resource, "Tipos de Switches");
-    Frame2->Parent = PanelMain;
-    Frame2->Align = TAlignLayout::Client;
-    //}
+	resource = SwitchModeloTipo;
+	Frame2 = new TFrame2(this, baseurl, resource, "Tipos de Switches");
+	Frame2->Parent = PanelMain;
+	Frame2->Align = TAlignLayout::Client;
 
     Frame2->Visible = true;
     Menu->Enabled = false;
@@ -112,6 +107,18 @@ void __fastcall TForm1::MenuCatalogosCamarasTiposClick(TObject *Sender)
 	Frame5->Align = TAlignLayout::Client;
 
 	Frame5->Visible = true;
+	EnableMenu(false);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::MenuCatalogosGabineteClick(TObject *Sender)
+{
+    resource = Gabinete;
+	Frame6 = new TFrame6(this, baseurl, resource, "Gabinetes");
+	Frame6->Parent = PanelMain;
+	Frame6->Align = TAlignLayout::Client;
+
+	Frame6->Visible = true;
 	EnableMenu(false);
 }
 //---------------------------------------------------------------------------

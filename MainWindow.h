@@ -22,6 +22,7 @@
 #include "Unit3.h"
 #include "Unit4.h"
 #include "Unit5.h"
+#include "Unit6.h"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -40,6 +41,7 @@ __published:	// IDE-managed Components
 	TMenuItem *MenuCatalogosCamaras;
 	TMenuItem *MenuCatalogosCamarasMarcas;
 	TMenuItem *MenuCatalogosCamarasTipos;
+	TMenuItem *MenuCatalogosGabinete;
 	void __fastcall MenuCatalogosSwitchesMarcasClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall MenuCatalogosSwitchesTiposClick(TObject *Sender);
@@ -47,6 +49,7 @@ __published:	// IDE-managed Components
 	void __fastcall MenuArchivoSalirClick(TObject *Sender);
 	void __fastcall MenuCatalogosCamarasMarcasClick(TObject *Sender);
 	void __fastcall MenuCatalogosCamarasTiposClick(TObject *Sender);
+	void __fastcall MenuCatalogosGabineteClick(TObject *Sender);
 private:	// User declarations
 	String baseurl = "";
 	String resource = "";
@@ -55,6 +58,7 @@ private:	// User declarations
 	String RadioModeloMarca = "";
 	String CamaraModeloMarca = "";
 	String CamaraModeloTipo = "";
+    String Gabinete = "";
 
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);

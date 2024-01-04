@@ -76,6 +76,11 @@ object Form1: TForm1
             OnClick = MenuCatalogosCamarasTiposClick
           end
         end
+        object MenuCatalogosGabinete: TMenuItem
+          Locked = True
+          Text = 'Gabinete'
+          OnClick = MenuCatalogosGabineteClick
+        end
       end
     end
   end
