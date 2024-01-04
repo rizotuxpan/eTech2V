@@ -31,7 +31,10 @@ __published:	// IDE-managed Components
 	void __fastcall MenuCatalogosSwitchesMarcasClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 private:	// User declarations
-	std::unique_ptr<TFrame1> Frame1; // Puntero inteligente
+	String baseurl = "";
+	String resource = "";
+	String SwitchModeloMarca = "";
+    String SwitchModeloTipo = "";
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
 };

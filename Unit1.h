@@ -60,18 +60,29 @@ __published:	// IDE-managed Components
 	TLabel *Label4;
 	TLabel *Label5;
 	TLabel *Label1;
-	TLabel *Label6;
+	TLabel *LabelTitulo;
 	TStringColumn *StringColumn1;
 	TStringColumn *StringColumn2;
 	TStringColumn *StringColumn3;
 	void __fastcall ButtonNewClick(TObject *Sender);
 	void __fastcall ButtonCloseClick(TObject *Sender);
+	void __fastcall StringGridSelectCell(TObject *Sender, const int ACol, const int ARow,
+          bool &CanSelect);
+	void __fastcall ButtonSaveClick(TObject *Sender);
 private:	// User declarations
-	void Nuevo();
+	String baseurl = "";
+	String resource = "";
+	String titulo = "";
 	void PopulateStringGrid();
+    void NewRecord();
+	void InsertRecord();
+	void UpdateRecord();
+	void CreateRecord();
+	void DeleteRecord();
+
 
 public:		// User declarations
-	__fastcall TFrame1(TComponent* Owner, String parametro);
+	__fastcall TFrame1(TComponent* Owner, String baseurl, String resource, String titulo);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFrame1 *Frame1;

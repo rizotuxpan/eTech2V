@@ -19,9 +19,6 @@ Coordinates=408,386,85,58
 [Label5]
 Coordinates=597,10,53,58
 
-[Label6]
-Coordinates=173,454,53,58
-
 [LabelMsg]
 Coordinates=93,454,70,58
 
@@ -81,4 +78,7 @@ Coordinates=236,454,100,36
 
 []
 Coordinates=345,10,99,58
+
+[LabelTitulo]
+Coordinates=173,454,53,58
 

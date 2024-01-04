@@ -16,22 +16,14 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::MenuCatalogosSwitchesMarcasClick(TObject *Sender) {
-	/*
-	TFrame1 *MyFrame = new TFrame1(this, "xxx");
-	MyFrame->Parent = PanelMain;
-	MyFrame->Align = TAlignLayout::Client;
-	MyFrame->Visible = true;
-	*/
-
 	if (!Frame1)
 	{
-		// Si no existe, crearlo y almacenar la referencia
-		Frame1 = std::make_unique<TFrame1>(this, "xxx");
+        resource = SwitchModeloMarca;
+		Frame1 = new TFrame1(this, baseurl, resource, "Marcas de Switches");
 		Frame1->Parent = PanelMain;
 		Frame1->Align = TAlignLayout::Client;
 	}
 
-	// Mostrar el TFrame
 	Frame1->Visible = true;
 
 }
@@ -41,11 +33,10 @@ void __fastcall TForm1::MenuCatalogosSwitchesMarcasClick(TObject *Sender) {
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
 	TIniFile *iniFile = new TIniFile("etech2v.ini");
-	UnicodeString BaseURL = iniFile->ReadString("REST", "BaseURL", "");
-    UnicodeString SwitchModeloTipo = iniFile->ReadString("REST", "switchmodelotipo", "");
+	baseurl = iniFile->ReadString("REST", "BaseURL", "");
+	SwitchModeloMarca = iniFile->ReadString("REST", "SwitchModeloMarca", "");
+	SwitchModeloTipo = iniFile->ReadString("REST", "SwitchModeloTipo", "");
 	delete iniFile;
-	ShowMessage(BaseURL);
-    ShowMessage(SwitchModeloTipo);
 }
 //---------------------------------------------------------------------------
 
