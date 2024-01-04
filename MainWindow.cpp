@@ -18,14 +18,13 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 void __fastcall TForm1::MenuCatalogosSwitchesMarcasClick(TObject *Sender) {
 	if (!Frame1)
 	{
-        resource = SwitchModeloMarca;
+		resource = SwitchModeloMarca;
 		Frame1 = new TFrame1(this, baseurl, resource, "Marcas de Switches");
 		Frame1->Parent = PanelMain;
 		Frame1->Align = TAlignLayout::Client;
 	}
 
 	Frame1->Visible = true;
-
 }
 //---------------------------------------------------------------------------
 
@@ -37,6 +36,21 @@ void __fastcall TForm1::FormCreate(TObject *Sender)
 	SwitchModeloMarca = iniFile->ReadString("REST", "SwitchModeloMarca", "");
 	SwitchModeloTipo = iniFile->ReadString("REST", "SwitchModeloTipo", "");
 	delete iniFile;
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::MenuCatalogosSwitchesTiposClick(TObject *Sender)
+{
+	if (!Frame2)
+	{
+		resource = SwitchModeloTipo;
+		Frame2 = new TFrame2(this, baseurl, resource, "Tipos de Switches");
+		Frame2->Parent = PanelMain;
+		Frame2->Align = TAlignLayout::Client;
+	}
+
+	Frame2->Visible = true;
 }
 //---------------------------------------------------------------------------
 

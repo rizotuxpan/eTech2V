@@ -7,8 +7,9 @@
 #pragma hdrstop
 #include <System.StartUpCopy.hpp>
 //---------------------------------------------------------------------------
-USEFORM("MainWindow.cpp", Form1);
 USEFORM("Unit1.cpp", Frame1); /* TFrame: File Type */
+USEFORM("MainWindow.cpp", Form1);
+USEFORM("Unit2.cpp", Frame2); /* TFrame: File Type */
 //---------------------------------------------------------------------------
 extern "C" int FMXmain()
 {

@@ -18,6 +18,7 @@
 
 #include <IniFiles.hpp>
 #include "Unit1.h"
+#include "Unit2.h"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -28,8 +29,10 @@ __published:	// IDE-managed Components
 	TMenuItem *MenuCatalogos;
 	TMenuItem *MenuCatalogosSwitches;
 	TMenuItem *MenuCatalogosSwitchesMarcas;
+	TMenuItem *MenuCatalogosSwitchesTipos;
 	void __fastcall MenuCatalogosSwitchesMarcasClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
+	void __fastcall MenuCatalogosSwitchesTiposClick(TObject *Sender);
 private:	// User declarations
 	String baseurl = "";
 	String resource = "";

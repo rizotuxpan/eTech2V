@@ -38,6 +38,11 @@ object Form1: TForm1
             Text = 'Marcas'
             OnClick = MenuCatalogosSwitchesMarcasClick
           end
+          object MenuCatalogosSwitchesTipos: TMenuItem
+            Locked = True
+            Text = 'Tipos'
+            OnClick = MenuCatalogosSwitchesTiposClick
+          end
         end
       end
     end

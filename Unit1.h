@@ -75,16 +75,15 @@ private:	// User declarations
 	String baseurl = "";
 	String resource = "";
 	String titulo = "";
-	void PopulateStringGrid();
 	void NewRecord();
 	void EditRecord();
 	void UpdateRecord();
 	void CreateRecord();
 	void DeleteRecord();
 
-
 public:		// User declarations
 	__fastcall TFrame1(TComponent* Owner, String baseurl, String resource, String titulo);
+    void PopulateStringGrid();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFrame1 *Frame1;

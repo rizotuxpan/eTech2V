@@ -170,8 +170,16 @@
             <DependentOn>Unit1.h</DependentOn>
             <BuildOrder>3</BuildOrder>
         </CppCompile>
+        <CppCompile Include="Unit2.cpp">
+            <Form>Frame2</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+            <DependentOn>Unit2.h</DependentOn>
+            <BuildOrder>4</BuildOrder>
+        </CppCompile>
         <FormResources Include="Unit1.fmx"/>
         <FormResources Include="MainWindow.fmx"/>
+        <FormResources Include="Unit2.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
