@@ -8,8 +8,11 @@
 #include <System.StartUpCopy.hpp>
 //---------------------------------------------------------------------------
 USEFORM("Unit1.cpp", Frame1); /* TFrame: File Type */
-USEFORM("MainWindow.cpp", Form1);
 USEFORM("Unit2.cpp", Frame2); /* TFrame: File Type */
+USEFORM("Unit3.cpp", Frame3); /* TFrame: File Type */
+USEFORM("MainWindow.cpp", Form1);
+USEFORM("Unit4.cpp", Frame4); /* TFrame: File Type */
+USEFORM("Unit5.cpp", Frame5); /* TFrame: File Type */
 //---------------------------------------------------------------------------
 extern "C" int FMXmain()
 {

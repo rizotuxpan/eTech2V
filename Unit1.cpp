@@ -7,6 +7,8 @@
 #include <System.JSON.hpp>
 #include <System.SysUtils.hpp>
 #include <REST.Client.hpp>
+
+#include "MainWindow.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.fmx"
@@ -23,7 +25,23 @@ void __fastcall TFrame1::ButtonNewClick(TObject *Sender) {
 }
 //---------------------------------------------------------------------------
 void __fastcall TFrame1::ButtonCloseClick(TObject *Sender) {
-	this->Visible=false;
+	// Activa el menu
+	Form1->EnableMenu(true);
+	// Crear un hilo anónimo para cerrar la aplicación
+	TThread::CreateAnonymousThread(
+		[]()
+		{
+			// Dormir brevemente para permitir que la operación de clic del botón se complete
+			Sleep(100);
+
+			// Cierra el Frame de manera segura evitando problemas de concurrencia
+			TThread::Queue(NULL,
+				[]()
+				{
+					Frame1->DisposeOf();
+				});
+		}
+	)->Start();
 }
 //---------------------------------------------------------------------------
 void TFrame1::PopulateStringGrid() {

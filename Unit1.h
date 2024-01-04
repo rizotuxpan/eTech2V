@@ -33,6 +33,7 @@
 #include <FireDAC.Stan.Param.hpp>
 #include <REST.Client.hpp>
 #include <REST.Types.hpp>
+
 //---------------------------------------------------------------------------
 class TFrame1 : public TFrame
 {
@@ -83,7 +84,7 @@ private:	// User declarations
 
 public:		// User declarations
 	__fastcall TFrame1(TComponent* Owner, String baseurl, String resource, String titulo);
-    void PopulateStringGrid();
+	void PopulateStringGrid();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFrame1 *Frame1;

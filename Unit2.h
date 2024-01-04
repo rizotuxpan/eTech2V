@@ -19,15 +19,16 @@
 #include <FMX.Types.hpp>
 #include <System.Rtti.hpp>
 //---------------------------------------------------------------------------
-class TFrame2 : public TFrame1
-{
+class TFrame2 : public TFrame1 {
 __published:	// IDE-managed Components
+	void __fastcall ButtonCloseClick(TObject *Sender);
 private:	// User declarations
 	String baseurl = "";
 	String resource = "";
 	String titulo = "";
 public:		// User declarations
 	__fastcall TFrame2(TComponent* Owner, String baseurl, String resource, String titulo);
+
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TFrame2 *Frame2;
