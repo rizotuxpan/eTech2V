@@ -29,14 +29,23 @@ __published:	// IDE-managed Components
 	TLabel *LabelTipo;
 	TLabel *LabelMarcaDescr;
 	TLabel *LabelTipoDescr;
+	TStringColumn *StringColumn4;
+	TStringColumn *StringColumn5;
 	void __fastcall ButtonCloseClick(TObject *Sender);
 	void __fastcall ComboBoxMarcaChange(TObject *Sender);
 	void __fastcall ComboBoxTipoChange(TObject *Sender);
+	void __fastcall ButtonSaveClick(TObject *Sender);
+	void __fastcall ButtonNewClick(TObject *Sender);
+	void __fastcall StringGridSelectCell(TObject *Sender, const int ACol, const int ARow,
+          bool &CanSelect);
 private:	// User declarations
 	String baseurl  = "";
 	String resource = "";
 	String titulo   = "";
+    void PopulateStringGrid();
 	void RellenarComboBox(TComboBox *ComboBox, const UnicodeString &resource);
+    void NewRecord();
+	void CreateRecord();
 public:		// User declarations
 	__fastcall TFrame9(TComponent* Owner, String baseurl, String resource, String titulo);
 };
