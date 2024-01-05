@@ -16,8 +16,8 @@ TFrame9 *Frame9;
 __fastcall TFrame9::TFrame9(TComponent* Owner, String baseurl, String resource, String titulo)
 	: TFrame1(Owner, baseurl, resource, titulo), baseurl(baseurl), resource(resource), titulo(titulo)
 {
-	RellenarComboBox(ComboBoxMarca, Form1->getCamaraModeloMarca());
-	RellenarComboBox(ComboBoxTipo, Form1->getCamaraModeloTipo());
+	RellenarComboBox(ComboBoxMarca, "camaramodelomarca");
+	RellenarComboBox(ComboBoxTipo, "camaramodelotipo");
 	PopulateStringGrid();
 }
 //---------------------------------------------------------------------------
@@ -83,7 +83,7 @@ void __fastcall TFrame9::ComboBoxMarcaChange(TObject *Sender)
 
 			LabelMarcaDescr->Text=tagString;
 		}
-    }
+	}
 }
 //---------------------------------------------------------------------------
 
@@ -179,18 +179,37 @@ void __fastcall TFrame9::StringGridSelectCell(TObject *Sender, const int ACol,
 	LabelId->Text = StringGrid->Cells[0][ARow];
 	EditClave->Text = StringGrid->Cells[1][ARow];
 	MemoDescr->Text = StringGrid->Cells[2][ARow];
-	ComboBoxMarca->ItemIndex = -1;	
-	for (int i=0; i < ComboBoxMarca->Items->Count; ++i) {
-		if (ComboBoxMarca->Items[i]->Tag == i) {
-			ComboMarca->ItemIndex = i;
-			break;
+
+	try { // Al seleccionar un elemento del StrinGrid selecciona el ComboBoxMarca
+		int x = StrToInt(StringGrid->Cells[3][ARow]);
+
+		for (int i = 0; i < ComboBoxMarca->Items->Count; i++) {
+			TListBoxItem* selectedItem = static_cast<TListBoxItem*>(ComboBoxMarca->ListItems[i]);
+			if (selectedItem->Tag == x) {
+				ComboBoxMarca->ItemIndex = i;
+			}
 		}
+	} catch (...) {
 	}
+
+    try { // Al seleccionar un elemento del StringGrid selecciona el ComboBoxTipo
+		int x = StrToInt(StringGrid->Cells[4][ARow]);
+
+		for (int i = 0; i < ComboBoxTipo->Items->Count; i++) {
+			TListBoxItem* selectedItem = static_cast<TListBoxItem*>(ComboBoxTipo->ListItems[i]);
+			if (selectedItem->Tag == x) {
+				ComboBoxTipo->ItemIndex = i;
+			}
+		}
+	} catch (...) {
+	}
+
 
 	ButtonDelete->Enabled = true;
 	ButtonNew->Enabled = true;
 	ButtonSave->Enabled = false;
-	ButtonEdit->Enabled = true;	
+	ButtonEdit->Enabled = true;
+    LabelMsg->Text = "";
 }
 //---------------------------------------------------------------------------
 void TFrame9::PopulateStringGrid()
@@ -236,3 +255,21 @@ void TFrame9::PopulateStringGrid()
 		ShowMessage(e.Message);
 	}
 }
+//---------------------------------------------------------------------------
+void TFrame9::EditRecord()
+{
+    ButtonSave->Enabled = true;
+	ButtonDelete->Enabled = false;
+	ButtonNew->Enabled = true;
+	EditClave->Enabled = true;
+	MemoDescr->Enabled = true;
+	ComboBoxMarca->Enabled = true;
+    ComboBoxTipo->Enabled = true;
+	EditClave->SetFocus();
+}
+void __fastcall TFrame9::ButtonEditClick(TObject *Sender)
+{
+    EditRecord();
+}
+//---------------------------------------------------------------------------
+

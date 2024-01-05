@@ -38,6 +38,7 @@ __published:	// IDE-managed Components
 	void __fastcall ButtonNewClick(TObject *Sender);
 	void __fastcall StringGridSelectCell(TObject *Sender, const int ACol, const int ARow,
           bool &CanSelect);
+	void __fastcall ButtonEditClick(TObject *Sender);
 private:	// User declarations
 	String baseurl  = "";
 	String resource = "";
@@ -46,6 +47,7 @@ private:	// User declarations
 	void RellenarComboBox(TComboBox *ComboBox, const UnicodeString &resource);
     void NewRecord();
 	void CreateRecord();
+    void EditRecord();
 public:		// User declarations
 	__fastcall TFrame9(TComponent* Owner, String baseurl, String resource, String titulo);
 };

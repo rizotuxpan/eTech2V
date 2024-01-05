@@ -23,6 +23,13 @@ inherited Frame9: TFrame9
     end
   end
   inherited Panel2: TPanel
+    inherited Panel3: TPanel
+      inherited GridPanelLayout1: TGridPanelLayout
+        inherited ButtonEdit: TButton
+          Enabled = False
+        end
+      end
+    end
     inherited Panel5: TPanel
       inherited EditClave: TEdit
         MaxLength = 20
