@@ -34,7 +34,8 @@ void __fastcall TForm1::FormCreate(TObject* Sender)
 	CamaraModeloTipo  = iniFile->ReadString("REST", "CamaraModeloTipo", "");
 	Gabinete          = iniFile->ReadString("REST", "Gabinete", "");
 	PmiPosteMaterial  = iniFile->ReadString("REST", "PmiPosteMaterial", "");
-    ArcoEstructura    = iniFile->ReadString("REST", "ArcoEstructura", "");
+	ArcoEstructura    = iniFile->ReadString("REST", "ArcoEstructura", "");
+    CamaraModelo      = iniFile->ReadString("REST", "CamaraModelo", "");
 	delete iniFile;
 }
 //---------------------------------------------------------------------------
@@ -138,7 +139,26 @@ void __fastcall TForm1::MenuCatalogosArcosEstructurasClick(TObject *Sender)
 	Frame8->Parent = PanelMain;
 	Frame8->Align = TAlignLayout::Client;
 	Frame8->Visible = true;
-    EnableMenu(false);
+	EnableMenu(false);
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TForm1::MenuCatalogosCamarasModelosClick(TObject *Sender)
+{
+	resource = CamaraModelo;
+	Frame9 = new TFrame9(this, baseurl, resource, "Modelos de cámaras");
+	Frame9->Parent = PanelMain;
+	Frame9->Align = TAlignLayout::Client;
+	Frame9->Visible = true;
+    EnableMenu(false);
+}
+//---------------------------------------------------------------------------
+String TForm1::getCamaraModeloMarca()
+{
+    return CamaraModeloMarca;
+}
+//---------------------------------------------------------------------------
+String TForm1::getCamaraModeloTipo()
+{
+	return CamaraModeloTipo;
+}

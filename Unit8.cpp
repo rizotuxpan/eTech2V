@@ -4,7 +4,7 @@
 #pragma hdrstop
 
 #include "Unit8.h"
-#include "MainWindow.h";
+#include "MainWindow.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "Unit1"

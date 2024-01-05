@@ -133,6 +133,9 @@
         <LinkPackageImports>rtl.bpi;fmx.bpi;dbrtl.bpi;bindcomp.bpi;bindengine.bpi;RESTComponents.bpi;CustomIPTransport.bpi;FireDAC.bpi;FireDACCommonDriver.bpi;FireDACCommon.bpi;xmlrtl.bpi</LinkPackageImports>
         <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
         <ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)$(CC_SUFFIX)\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_AutoGenVersion>true</VerInfo_AutoGenVersion>
+        <VerInfo_Locale>2058</VerInfo_Locale>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
@@ -220,15 +223,23 @@
             <DependentOn>Unit8.h</DependentOn>
             <BuildOrder>10</BuildOrder>
         </CppCompile>
-        <FormResources Include="Unit3.fmx"/>
+        <CppCompile Include="Unit9.cpp">
+            <Form>Frame9</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+            <DependentOn>Unit9.h</DependentOn>
+            <BuildOrder>11</BuildOrder>
+        </CppCompile>
         <FormResources Include="Unit4.fmx"/>
         <FormResources Include="Unit5.fmx"/>
         <FormResources Include="Unit6.fmx"/>
-        <FormResources Include="Unit2.fmx"/>
-        <FormResources Include="MainWindow.fmx"/>
-        <FormResources Include="Unit1.fmx"/>
         <FormResources Include="Unit7.fmx"/>
         <FormResources Include="Unit8.fmx"/>
+        <FormResources Include="Unit3.fmx"/>
+        <FormResources Include="MainWindow.fmx"/>
+        <FormResources Include="Unit1.fmx"/>
+        <FormResources Include="Unit2.fmx"/>
+        <FormResources Include="Unit9.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -255,6 +266,10 @@
                 <Source>
                     <Source Name="MainSource">eTech.cpp</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k290.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp290.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
+                </Excluded_Packages>
             </CPlusPlusBuilder.Personality>
             <Deployment Version="4">
                 <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule">
