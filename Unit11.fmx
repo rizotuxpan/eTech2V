@@ -1,0 +1,438 @@
+object Frame11: TFrame11
+  Size.Width = 660.000000000000000000
+  Size.Height = 431.000000000000000000
+  Size.PlatformDefault = False
+  object Panel4: TPanel
+    Align = Top
+    Size.Width = 660.000000000000000000
+    Size.Height = 81.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'pushpanel'
+    TabOrder = 3
+    object LabelTitulo: TLabel
+      Align = Left
+      StyledSettings = [Family, Size]
+      Size.Width = 102.000000000000000000
+      Size.Height = 81.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.FontColor = claSlategray
+      TextSettings.HorzAlign = Center
+      TextSettings.Trimming = None
+      Text = 'C'#225'maras'
+      TabOrder = 1
+    end
+    object Panel7: TPanel
+      Align = Client
+      Size.Width = 558.000000000000000000
+      Size.Height = 81.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+    end
+  end
+  object Panel1: TPanel
+    Align = Bottom
+    Position.Y = 368.000000000000000000
+    Size.Width = 660.000000000000000000
+    Size.Height = 63.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    object Panel6: TPanel
+      Align = Bottom
+      Margins.Bottom = 10.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 660.000000000000000000
+      Size.Height = 45.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'pushpanel'
+      TabOrder = 0
+      object GridPanelLayout1: TGridPanelLayout
+        Align = HorzCenter
+        Position.X = 155.000000000000000000
+        Size.Width = 350.000000000000000000
+        Size.Height = 45.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        ColumnCollection = <
+          item
+            SizeStyle = Absolute
+            Value = 70.000000000000000000
+          end
+          item
+            SizeStyle = Absolute
+            Value = 70.000000000000000000
+          end
+          item
+            SizeStyle = Absolute
+            Value = 70.000000000000000000
+          end
+          item
+            SizeStyle = Absolute
+            Value = 70.000000000000000000
+          end
+          item
+            SizeStyle = Absolute
+            Value = 70.000000000000000000
+          end>
+        ControlCollection = <
+          item
+            Column = 0
+            Control = ButtonNew
+            Row = 0
+          end
+          item
+            Column = 1
+            Control = ButtonEdit
+            Row = 0
+          end
+          item
+            Column = 2
+            Control = ButtonSave
+            Row = 0
+          end
+          item
+            Column = 3
+            Control = ButtonDelete
+            Row = 0
+          end
+          item
+            Column = 4
+            Control = ButtonClose
+            Row = 0
+          end
+          item
+            Column = 1
+            Control = LabelButtonEdit
+            Row = 1
+          end
+          item
+            Column = 2
+            Control = Label3
+            Row = 1
+          end
+          item
+            Column = 3
+            Control = Label4
+            Row = 1
+          end
+          item
+            Column = 4
+            Control = Label5
+            Row = 1
+          end
+          item
+            Column = 0
+            Control = Label1
+            Row = 1
+          end>
+        RowCollection = <
+          item
+            Value = 100.000000000000000000
+          end
+          item
+            SizeStyle = Auto
+            Value = 20.000000000000000000
+          end
+          item
+            SizeStyle = Auto
+          end>
+        object ButtonNew: TButton
+          Align = HorzCenter
+          Position.X = 10.000000000000000000
+          Size.Width = 50.000000000000000000
+          Size.Height = 28.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'pagecurltoolbutton'
+          TabOrder = 0
+          Text = 'Nuevo'
+          TextSettings.Trimming = None
+        end
+        object ButtonEdit: TButton
+          Align = HorzCenter
+          Position.X = 80.000000000000000000
+          Size.Width = 50.000000000000000000
+          Size.Height = 28.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'composetoolbutton'
+          TabOrder = 1
+          Text = 'Editar'
+          TextSettings.Trimming = None
+        end
+        object ButtonSave: TButton
+          Align = HorzCenter
+          Position.X = 150.000000000000000000
+          Size.Width = 50.000000000000000000
+          Size.Height = 28.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'additembutton'
+          TabOrder = 2
+          Text = 'Guardar'
+          TextSettings.Trimming = None
+        end
+        object ButtonDelete: TButton
+          Align = HorzCenter
+          Position.X = 220.000000000000000000
+          Size.Width = 50.000000000000000000
+          Size.Height = 28.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'trashtoolbutton'
+          TabOrder = 3
+          Text = 'Borrar'
+          TextSettings.Trimming = None
+        end
+        object ButtonClose: TButton
+          Align = HorzCenter
+          Position.X = 290.000000000000000000
+          Size.Width = 50.000000000000000000
+          Size.Height = 28.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'escapetoolbutton'
+          TabOrder = 4
+          Text = 'Cerrar'
+          TextSettings.Trimming = None
+          OnClick = ButtonCloseClick
+        end
+        object LabelButtonEdit: TLabel
+          Align = Client
+          StyledSettings = [Family, Size, Style]
+          Size.Width = 70.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.FontColor = claDimgray
+          TextSettings.HorzAlign = Center
+          TextSettings.Trimming = None
+          Text = 'Editar'
+          TabOrder = 9
+        end
+        object Label3: TLabel
+          Align = Client
+          StyledSettings = [Family, Size, Style]
+          Size.Width = 70.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.FontColor = claDimgray
+          TextSettings.HorzAlign = Center
+          TextSettings.Trimming = None
+          Text = 'Guardar'
+          TabOrder = 8
+        end
+        object Label4: TLabel
+          Align = Client
+          StyledSettings = [Family, Size, Style]
+          Size.Width = 70.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.FontColor = claDimgray
+          TextSettings.HorzAlign = Center
+          TextSettings.Trimming = None
+          Text = 'Borrar'
+          TabOrder = 7
+        end
+        object Label5: TLabel
+          Align = Client
+          StyledSettings = [Family, Size, Style]
+          Size.Width = 70.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.FontColor = claDimgray
+          TextSettings.HorzAlign = Center
+          TextSettings.Trimming = None
+          Text = 'Cerrar'
+          TabOrder = 5
+        end
+        object Label1: TLabel
+          Align = Client
+          StyledSettings = [Family, Size, Style]
+          Size.Width = 70.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.FontColor = claDimgray
+          TextSettings.HorzAlign = Center
+          TextSettings.Trimming = None
+          Text = 'Nuevo'
+          TabOrder = 6
+        end
+      end
+    end
+  end
+  object Panel2: TPanel
+    Align = Client
+    Size.Width = 660.000000000000000000
+    Size.Height = 287.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 5
+    object Panel3: TPanel
+      Align = Bottom
+      Position.Y = 167.000000000000000000
+      Size.Width = 660.000000000000000000
+      Size.Height = 120.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object LabelId: TLabel
+        Position.X = 629.000000000000000000
+        Position.Y = 6.000000000000000000
+        Size.Width = 23.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Trimming = None
+        Text = 'Id'
+        TabOrder = 0
+      end
+      object Tipo: TLabel
+        Position.X = 8.000000000000000000
+        Position.Y = 44.000000000000000000
+        Size.Width = 73.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Trimming = None
+        Text = 'Tipo'
+        TabOrder = 1
+      end
+      object Label7: TLabel
+        Position.X = 8.000000000000000000
+        Position.Y = 13.000000000000000000
+        Size.Width = 73.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Trimming = None
+        Text = 'Marca'
+        TabOrder = 4
+      end
+      object Label8: TLabel
+        Position.X = 247.000000000000000000
+        Position.Y = 13.000000000000000000
+        Size.Width = 73.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Trimming = None
+        Text = 'Modelo'
+        TabOrder = 5
+      end
+      object ComboBoxMarca: TComboBox
+        Position.X = 89.000000000000000000
+        Position.Y = 13.000000000000000000
+        Size.Width = 136.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 8
+        OnChange = ComboBoxMarcaChange
+      end
+      object ComboBoxModelo: TComboBox
+        ItemIndex = 0
+        Position.X = 328.000000000000000000
+        Position.Y = 14.000000000000000000
+        Size.Width = 177.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 7
+      end
+      object ComboBoxTipo: TComboBox
+        Position.X = 89.000000000000000000
+        Position.Y = 44.000000000000000000
+        Size.Width = 136.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 6
+      end
+      object Edit1: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 10
+        Position.X = 328.000000000000000000
+        Position.Y = 44.000000000000000000
+        Size.Width = 177.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object Label2: TLabel
+        Position.X = 247.000000000000000000
+        Position.Y = 44.000000000000000000
+        Size.Width = 73.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Trimming = None
+        Text = 'No. de Serie'
+        TabOrder = 3
+      end
+      object Label6: TLabel
+        Position.X = 247.000000000000000000
+        Position.Y = 80.000000000000000000
+        Size.Width = 73.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Trimming = None
+        Text = 'Precio'
+        TabOrder = 2
+      end
+      object Edit2: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 9
+        KeyboardType = DecimalNumberPad
+        FilterChar = '1234567890.'
+        Position.X = 328.000000000000000000
+        Position.Y = 74.000000000000000000
+        Size.Width = 177.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object Panel5: TPanel
+      Align = Client
+      Size.Width = 660.000000000000000000
+      Size.Height = 167.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object StringGrid: TStringGrid
+        Align = Client
+        CanFocus = True
+        ClipChildren = True
+        Size.Width = 660.000000000000000000
+        Size.Height = 167.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Options = [AlternatingRowBackground, ColumnResize, ColumnMove, ColLines, RowLines, RowSelect, Tabs, Header, HeaderClick, AutoDisplacement]
+        Viewport.Width = 640.000000000000000000
+        Viewport.Height = 126.000000000000000000
+        object StringColumn1: TStringColumn
+          Header = 'id'
+          HeaderSettings.TextSettings.WordWrap = False
+        end
+        object StringColumn2: TStringColumn
+          Header = 'serie'
+          HeaderSettings.TextSettings.WordWrap = False
+        end
+        object StringColumn3: TStringColumn
+          Header = 'modelo_id'
+          HeaderSettings.TextSettings.WordWrap = False
+        end
+        object StringColumn4: TStringColumn
+          Header = 'modelo_clave'
+          HeaderSettings.TextSettings.WordWrap = False
+        end
+        object StringColumn5: TStringColumn
+          Header = 'modelodescr'
+          HeaderSettings.TextSettings.WordWrap = False
+        end
+        object StringColumn6: TStringColumn
+          Header = 'tipoclave'
+          HeaderSettings.TextSettings.WordWrap = False
+        end
+        object StringColumn7: TStringColumn
+          Header = 'tipodescr'
+          HeaderSettings.TextSettings.WordWrap = False
+        end
+        object StringColumn8: TStringColumn
+          Header = 'marcaclave'
+          HeaderSettings.TextSettings.WordWrap = False
+        end
+        object StringColumn9: TStringColumn
+          Header = 'marcadescr'
+          HeaderSettings.TextSettings.WordWrap = False
+        end
+        object CurrencyColumn1: TCurrencyColumn
+          Header = 'costofactura'
+          HeaderSettings.TextSettings.WordWrap = False
+        end
+      end
+    end
+  end
+end

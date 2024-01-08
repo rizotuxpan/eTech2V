@@ -33,7 +33,7 @@ object Form1: TForm1
         Text = 'Archivo'
         object MenuArchivoSalir: TMenuItem
           Locked = True
-          Text = 'Archivo'
+          Text = 'Salir'
           OnClick = MenuArchivoSalirClick
         end
       end
@@ -92,6 +92,15 @@ object Form1: TForm1
             Locked = True
             Text = 'Modelos'
             OnClick = MenuCatalogosCamarasModelosClick
+          end
+          object MenuCatalogosCamarasSep2: TMenuItem
+            Locked = True
+            Text = '-'
+          end
+          object MenuCatalogosCamarasCamaras: TMenuItem
+            Locked = True
+            Text = 'C'#225'maras'
+            OnClick = MenuCatalogosCamarasCamarasClick
           end
         end
         object MenuCatalogosGabinete: TMenuItem

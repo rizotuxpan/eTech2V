@@ -181,6 +181,13 @@
             <DependentOn>Unit10.h</DependentOn>
             <BuildOrder>12</BuildOrder>
         </CppCompile>
+        <CppCompile Include="Unit11.cpp">
+            <Form>Frame11</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+            <DependentOn>Unit11.h</DependentOn>
+            <BuildOrder>13</BuildOrder>
+        </CppCompile>
         <CppCompile Include="Unit2.cpp">
             <Form>Frame2</Form>
             <FormType>fmx</FormType>
@@ -248,6 +255,7 @@
         <FormResources Include="Unit2.fmx"/>
         <FormResources Include="Unit10.fmx"/>
         <FormResources Include="Unit1.fmx"/>
+        <FormResources Include="Unit11.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

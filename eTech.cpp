@@ -16,8 +16,9 @@ USEFORM("Unit7.cpp", Frame7); /* TFrame: File Type */
 USEFORM("Unit3.cpp", Frame3); /* TFrame: File Type */
 USEFORM("MainWindow.cpp", Form1);
 USEFORM("Unit2.cpp", Frame2); /* TFrame: File Type */
-USEFORM("Unit1.cpp", Frame1); /* TFrame: File Type */
 USEFORM("Unit10.cpp", Frame10); /* TFrame: File Type */
+USEFORM("Unit1.cpp", Frame1); /* TFrame: File Type */
+USEFORM("Unit11.cpp", Frame11); /* TFrame: File Type */
 //---------------------------------------------------------------------------
 extern "C" int FMXmain()
 {

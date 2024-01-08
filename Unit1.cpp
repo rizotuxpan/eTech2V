@@ -78,7 +78,6 @@ void TFrame1::PopulateStringGrid() {
 	} catch(const Exception &e) {
 		ShowMessage(e.Message);
 	}
-
 }
 //---------------------------------------------------------------------------
 void TFrame1::NewRecord() {
