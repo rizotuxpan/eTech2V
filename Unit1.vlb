@@ -34,9 +34,6 @@ Coordinates=10,454,73,58
 [LabelClave]
 Coordinates=723,10,79,58
 
-[Label2]
-Coordinates=680,386,53,58
-
 [Label1]
 Coordinates=454,10,53,58
 
@@ -81,4 +78,7 @@ Coordinates=345,10,99,58
 
 [LabelTitulo]
 Coordinates=173,454,53,58
+
+[LabelButtonEdit]
+Coordinates=680,386,53,58
 

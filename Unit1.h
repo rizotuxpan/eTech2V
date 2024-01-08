@@ -56,7 +56,7 @@ __published:	// IDE-managed Components
 	TEdit *EditClave;
 	TMemo *MemoDescr;
 	TLabel *LabelMsg;
-	TLabel *Label2;
+	TLabel *LabelButtonEdit;
 	TLabel *Label3;
 	TLabel *Label4;
 	TLabel *Label5;

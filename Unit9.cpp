@@ -19,6 +19,7 @@ __fastcall TFrame9::TFrame9(TComponent* Owner, String baseurl, String resource, 
 	RellenarComboBox(ComboBoxMarca, "camaramodelomarca");
 	RellenarComboBox(ComboBoxTipo, "camaramodelotipo");
 	PopulateStringGrid();
+	ButtonEdit->Enabled = false;
 }
 //---------------------------------------------------------------------------
 void __fastcall TFrame9::ButtonCloseClick(TObject *Sender)
@@ -71,6 +72,7 @@ void TFrame9::RellenarComboBox(TComboBox *ComboBox, const UnicodeString &resourc
 	delete RESTRequest;
 	delete RESTResponse;
 }
+//---------------------------------------------------------------------------
 void __fastcall TFrame9::ComboBoxMarcaChange(TObject *Sender)
 {
 	TComboBox *comboBox = dynamic_cast<TComboBox*>(Sender);
@@ -105,7 +107,12 @@ void __fastcall TFrame9::ComboBoxTipoChange(TObject *Sender)
 
 void __fastcall TFrame9::ButtonSaveClick(TObject *Sender)
 {
-	CreateRecord();
+    if (ButtonEdit->Enabled) {
+		UpdateRecord();
+	}
+	else {
+		CreateRecord();
+	}
 }
 //---------------------------------------------------------------------------
 void TFrame9::NewRecord()
@@ -121,7 +128,7 @@ void TFrame9::NewRecord()
 	ButtonDelete->Enabled = false;
 	ButtonEdit->Enabled = false;
 	ComboBoxMarca->Enabled = true;
-    ComboBoxTipo->Enabled = true;
+	ComboBoxTipo->Enabled = true;
 	ComboBoxMarca->ItemIndex = -1;
 	ComboBoxTipo->ItemIndex = -1;
 	LabelMarcaDescr->Text = "";
@@ -159,23 +166,35 @@ void TFrame9::CreateRecord() {
 		MemoDescr->Enabled = false;
 		ButtonSave->Enabled = false;
 		ButtonNew->Enabled = true;
+		ComboBoxMarca->Enabled = false;
+		ComboBoxTipo->Enabled = false;
+		ComboBoxMarca->ItemIndex = -1;
+		ComboBoxTipo->ItemIndex = -1;
+		LabelMarcaDescr->Text = "";
+        LabelTipoDescr->Text = "";
 
 		PopulateStringGrid();        
 	} else
 	{
 		LabelMsg->Text = "Debe seleccionar Marca y Tipo";
 	}
-	
-}
-void __fastcall TFrame9::ButtonNewClick(TObject *Sender)
-{
-    NewRecord();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TFrame9::StringGridSelectCell(TObject *Sender, const int ACol,
-          const int ARow, bool &CanSelect)
+void __fastcall TFrame9::ButtonNewClick(TObject *Sender)
 {
+	NewRecord();
+}
+
+//---------------------------------------------------------------------------
+
+void __fastcall TFrame9::StringGridSelectCell(TObject *Sender, const int ACol,
+		  const int ARow, bool &CanSelect)
+{
+	LabelId->Text = StringGrid->Cells[0][ARow];
+	EditClave->Text = StringGrid->Cells[1][ARow];
+	MemoDescr->Text = StringGrid->Cells[2][ARow];
+
 	LabelId->Text = StringGrid->Cells[0][ARow];
 	EditClave->Text = StringGrid->Cells[1][ARow];
 	MemoDescr->Text = StringGrid->Cells[2][ARow];
@@ -204,14 +223,15 @@ void __fastcall TFrame9::StringGridSelectCell(TObject *Sender, const int ACol,
 	} catch (...) {
 	}
 
-
 	ButtonDelete->Enabled = true;
 	ButtonNew->Enabled = true;
 	ButtonSave->Enabled = false;
 	ButtonEdit->Enabled = true;
-    LabelMsg->Text = "";
+	LabelMsg->Text = "";
 }
+
 //---------------------------------------------------------------------------
+
 void TFrame9::PopulateStringGrid()
 {
 	TRESTClient *RESTClient = new TRESTClient(NULL);
@@ -255,21 +275,119 @@ void TFrame9::PopulateStringGrid()
 		ShowMessage(e.Message);
 	}
 }
+
 //---------------------------------------------------------------------------
+
 void TFrame9::EditRecord()
 {
-    ButtonSave->Enabled = true;
+	ButtonSave->Enabled = true;
 	ButtonDelete->Enabled = false;
-	ButtonNew->Enabled = true;
+	ButtonNew->Enabled = false;
 	EditClave->Enabled = true;
 	MemoDescr->Enabled = true;
 	ComboBoxMarca->Enabled = true;
-    ComboBoxTipo->Enabled = true;
+	ComboBoxTipo->Enabled = true;
 	EditClave->SetFocus();
 }
-void __fastcall TFrame9::ButtonEditClick(TObject *Sender)
-{
-    EditRecord();
-}
+
 //---------------------------------------------------------------------------
 
+void __fastcall TFrame9::ButtonEditClick(TObject *Sender)
+{
+	if (LabelButtonEdit->Text == "Editar")
+	{
+		LabelButtonEdit->Text = "Cancelar";
+		EditRecord();
+	}
+	else
+	{
+		LabelButtonEdit->Text = "Editar";
+		EditClave->Enabled = false;
+		MemoDescr->Enabled = false;
+		EditClave->SetFocus();
+		ButtonSave->Enabled = true;
+		ButtonNew->Enabled = false;
+		ButtonDelete->Enabled = false;
+		ComboBoxMarca->Enabled = false;
+		ComboBoxTipo->Enabled = false;
+		LabelMsg->Text = "";
+
+	}
+}
+
+//---------------------------------------------------------------------------
+
+void __fastcall TFrame9::ButtonDeleteClick(TObject *Sender)
+{
+	DeleteRecord();
+}
+//---------------------------------------------------------------------------ç
+void TFrame9::DeleteRecord()
+{
+    TRESTClient *RESTClient = new TRESTClient(NULL);
+	TRESTRequest *RESTRequest = new TRESTRequest(NULL);
+	TRESTResponse *RESTResponse = new TRESTResponse(NULL);
+
+	RESTClient->BaseURL = baseurl;
+	RESTRequest->Response = RESTResponse;
+	RESTRequest->Client = RESTClient;
+
+	RESTRequest->Resource = resource+"?id="+LabelId->Text;
+	RESTRequest->Response->ContentType = "application/json";
+	RESTRequest->Response->ContentEncoding = "UTF-8";
+	RESTRequest->Method= TRESTRequestMethod::rmDELETE;
+	RESTRequest->Execute();
+
+	TJSONValue *jValue = RESTResponse->JSONValue;
+	TJSONArray *JSONArray = dynamic_cast<TJSONArray*>(jValue);
+	LabelMsg->Text = JSONArray->Items[1]->ToString() == "\"ok\"" ? "Registro borrado correctamente" : "El registro no se pudo guardar";
+
+	EditClave->Text = "";
+	MemoDescr->Text = "";
+	ComboBoxMarca->ItemIndex = -1;
+	ComboBoxTipo->ItemIndex = -1;
+	LabelMarcaDescr->Text = "";
+    LabelTipoDescr->Text = "";
+	EditClave->Enabled = false;
+	MemoDescr->Enabled = false;
+	ButtonSave->Enabled = false;
+	ComboBoxMarca->Enabled = false;
+    ComboBoxTipo->Enabled = false;
+	ButtonNew->Enabled = true;
+
+	PopulateStringGrid();
+}
+
+//---------------------------------------------------------------------------
+
+void TFrame9::UpdateRecord()
+{
+	TRESTClient *RESTClient = new TRESTClient(NULL);
+	TRESTRequest *RESTRequest = new TRESTRequest(NULL);
+	TRESTResponse *RESTResponse = new TRESTResponse(NULL);
+
+	auto marcaSeleccionada = ComboBoxMarca->ListItems[ComboBoxMarca->ItemIndex];
+	auto tipoSeleccionado = ComboBoxTipo->ListItems[ComboBoxTipo->ItemIndex];
+	RESTClient->BaseURL = baseurl;
+	RESTRequest->Response = RESTResponse;
+	RESTRequest->Client = RESTClient;
+	RESTRequest->Resource = resource+"?id="+LabelId->Text+"&clave="+EditClave->Text+"&descr="+MemoDescr->Text+"&camaramodelomarca_id="+marcaSeleccionada->Tag+"&camaramodelotipo_id="+tipoSeleccionado->Tag;;
+	RESTRequest->Response->ContentType = "application/json";
+	RESTRequest->Response->ContentEncoding = "UTF-8";
+	RESTRequest->Method= TRESTRequestMethod::rmPUT;
+	RESTRequest->Execute();
+
+	TJSONValue *jValue = RESTResponse->JSONValue;
+	TJSONArray *JSONArray = dynamic_cast<TJSONArray*>(jValue);
+	LabelMsg->Text = JSONArray->Items[1]->ToString() == "\"ok\"" ? "Registro actualizado correctamente" : "El registro no se pudo actualizar";
+
+	EditClave->Enabled = false;
+	MemoDescr->Enabled = false;
+	ButtonSave->Enabled = false;
+	ButtonNew->Enabled = true;
+	ComboBoxMarca->Enabled = false;
+	ComboBoxTipo->Enabled = false;
+	LabelButtonEdit->Text = "Editar";
+
+	PopulateStringGrid();
+}

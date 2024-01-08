@@ -35,7 +35,8 @@ void __fastcall TForm1::FormCreate(TObject* Sender)
 	Gabinete          = iniFile->ReadString("REST", "Gabinete", "");
 	PmiPosteMaterial  = iniFile->ReadString("REST", "PmiPosteMaterial", "");
 	ArcoEstructura    = iniFile->ReadString("REST", "ArcoEstructura", "");
-    CamaraModelo      = iniFile->ReadString("REST", "CamaraModelo", "");
+	CamaraModelo      = iniFile->ReadString("REST", "CamaraModelo", "");
+	SwitchModelo      = iniFile->ReadString("REST", "SwitchModelo", "");
 	delete iniFile;
 }
 //---------------------------------------------------------------------------
@@ -61,6 +62,7 @@ void __fastcall TForm1::MenuCatalogosRadiosMarcasClick(TObject* Sender)
 	Menu->Enabled = false;
 }
 //---------------------------------------------------------------------------
+
 void TForm1::EnableMenu(bool enable)
 {
 	Menu->Enabled = enable;
@@ -150,15 +152,20 @@ void __fastcall TForm1::MenuCatalogosCamarasModelosClick(TObject *Sender)
 	Frame9->Parent = PanelMain;
 	Frame9->Align = TAlignLayout::Client;
 	Frame9->Visible = true;
-    EnableMenu(false);
+	EnableMenu(false);
 }
 //---------------------------------------------------------------------------
-String TForm1::getCamaraModeloMarca()
+
+void __fastcall TForm1::MenuCatalogosSwitchesModelosClick(TObject *Sender)
 {
-    return CamaraModeloMarca;
+
+	resource = SwitchModelo;
+	Frame10 = new TFrame10(this, baseurl, resource, "Modelos de switches");
+	Frame10->Parent = PanelMain;
+	Frame10->Align = TAlignLayout::Client;
+	Frame10->Visible = true;
+	EnableMenu(false);
+
 }
 //---------------------------------------------------------------------------
-String TForm1::getCamaraModeloTipo()
-{
-	return CamaraModeloTipo;
-}
+

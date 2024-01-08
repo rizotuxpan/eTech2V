@@ -45,10 +45,9 @@ void __fastcall TFrame1::ButtonCloseClick(TObject *Sender) {
 }
 //---------------------------------------------------------------------------
 void TFrame1::PopulateStringGrid() {
-	TRESTClient *RESTClient = new TRESTClient(NULL);
-	TRESTRequest *RESTRequest = new TRESTRequest(NULL);
-
 	try {
+		TRESTClient *RESTClient = new TRESTClient(NULL);
+		TRESTRequest *RESTRequest = new TRESTRequest(NULL);
 		RESTClient->BaseURL = baseurl;
 		RESTRequest->Resource = resource;
 		RESTRequest->Method = TRESTRequestMethod::rmGET;

@@ -1,7 +1,7 @@
 ﻿//---------------------------------------------------------------------------
 
-#ifndef Unit9H
-#define Unit9H
+#ifndef Unit10H
+#define Unit10H
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <FMX.Controls.hpp>
@@ -12,51 +12,49 @@
 #include <FMX.Grid.hpp>
 #include <FMX.Grid.Style.hpp>
 #include <FMX.Layouts.hpp>
-#include <FMX.ListBox.hpp>
 #include <FMX.Memo.hpp>
 #include <FMX.Memo.Types.hpp>
 #include <FMX.ScrollBox.hpp>
 #include <FMX.StdCtrls.hpp>
 #include <FMX.Types.hpp>
 #include <System.Rtti.hpp>
+#include <FMX.ListBox.hpp>
 //---------------------------------------------------------------------------
-class TFrame9 : public TFrame1
+class TFrame10 : public TFrame1
 {
 __published:	// IDE-managed Components
-	TComboBox *ComboBoxMarca;
-	TComboBox *ComboBoxTipo;
-	TLabel *LabelMarca;
-	TLabel *LabelTipo;
-	TLabel *LabelMarcaDescr;
-	TLabel *LabelTipoDescr;
 	TStringColumn *StringColumn4;
 	TStringColumn *StringColumn5;
+	TLabel *LabelMarca;
+	TComboBox *ComboBoxMarca;
+	TLabel *LabelMarcaDescr;
+	TLabel *LabelTipo;
+	TComboBox *ComboBoxTipo;
+	TLabel *LabelTipoDescr;
 	void __fastcall ButtonCloseClick(TObject *Sender);
-	void __fastcall ComboBoxMarcaChange(TObject *Sender);
-	void __fastcall ComboBoxTipoChange(TObject *Sender);
-	void __fastcall ButtonSaveClick(TObject *Sender);
-	void __fastcall ButtonNewClick(TObject *Sender);
 	void __fastcall StringGridSelectCell(TObject *Sender, const int ACol, const int ARow,
           bool &CanSelect);
-	void __fastcall ButtonEditClick(TObject *Sender);
 	void __fastcall ButtonDeleteClick(TObject *Sender);
+	void __fastcall ButtonNewClick(TObject *Sender);
+	void __fastcall ButtonEditClick(TObject *Sender);
+	void __fastcall ButtonSaveClick(TObject *Sender);
+	void __fastcall ComboBoxMarcaChange(TObject *Sender);
+	void __fastcall ComboBoxTipoChange(TObject *Sender);
 private:	// User declarations
-	String baseurl  = "";
-	String resource = "";
-	String titulo   = "";
-	//String ComboMarca = "";
-    //String ComboTipo = "";
-    void PopulateStringGrid();
+	String baseurl="";
+	String resource="";
+	String titulo="";
+	void PopulateStringGrid();
 	void RellenarComboBox(TComboBox *ComboBox, const UnicodeString &resource);
-    void NewRecord();
-	void CreateRecord();
-	void EditRecord();
+	void NewRecord();
 	void DeleteRecord();
-    void UpdateRecord();
+	void UpdateRecord();
+    void EditRecord();
+    void CreateRecord();
 public:		// User declarations
-	__fastcall TFrame9(TComponent* Owner, String baseurl, String resource, String titulo);
+	__fastcall TFrame10(TComponent* Owner, String baseurl, String resource, String titulo);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TFrame9 *Frame9;
+extern PACKAGE TFrame10 *Frame10;
 //---------------------------------------------------------------------------
 #endif

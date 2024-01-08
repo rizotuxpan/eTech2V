@@ -1,10 +1,10 @@
-inherited Frame9: TFrame9
+inherited Frame10: TFrame10
   inherited Panel1: TPanel
     inherited StringGrid: TStringGrid
       Viewport.Width = 303.000000000000000000
       Viewport.Height = 352.000000000000000000
       inherited StringColumn1: TStringColumn
-        Header = 'ID'
+        Header = 'Id'
       end
       inherited StringColumn2: TStringColumn
         Header = 'Clave'
@@ -13,68 +13,29 @@ inherited Frame9: TFrame9
         Header = 'Descripci'#243'n'
       end
       object StringColumn4: TStringColumn
-        Header = 'Marca'
+        Header = 'switchmodelomarca_id'
         HeaderSettings.TextSettings.WordWrap = False
       end
       object StringColumn5: TStringColumn
-        Header = 'Tipo'
+        Header = 'switchmodelotipo_id'
         HeaderSettings.TextSettings.WordWrap = False
       end
     end
   end
   inherited Panel2: TPanel
-    inherited Panel3: TPanel
-      inherited GridPanelLayout1: TGridPanelLayout
-        inherited ButtonEdit: TButton
-          Enabled = False
-        end
-      end
-    end
     inherited Panel5: TPanel
-      inherited LabelClave: TLabel
-        Size.Width = 74.000000000000000000
-        Size.PlatformDefault = False
-      end
-      inherited LabelDescr: TLabel
-        Size.Width = 74.000000000000000000
-        Size.PlatformDefault = False
-      end
       inherited EditClave: TEdit
         MaxLength = 20
-        Size.Width = 210.000000000000000000
-        Size.PlatformDefault = False
+        CharCase = ecUpperCase
       end
       inherited MemoDescr: TMemo
+        CharCase = ecUpperCase
         Viewport.Width = 302.000000000000000000
         Viewport.Height = 50.000000000000000000
       end
       inherited LabelMsg: TLabel
         Position.Y = 202.000000000000000000
-        StyleLookup = 'speedbuttonstylelabel'
-        TabOrder = 5
-      end
-      object ComboBoxTipo: TComboBox
-        Anchors = [akLeft, akTop, akRight]
-        Enabled = False
-        ItemIndex = 0
-        Position.X = 98.000000000000000000
-        Position.Y = 147.000000000000000000
-        Size.Width = 303.000000000000000000
-        Size.Height = 22.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 6
-        OnChange = ComboBoxTipoChange
-      end
-      object ComboBoxMarca: TComboBox
-        Anchors = [akLeft, akTop, akRight]
-        Enabled = False
-        Position.X = 98.000000000000000000
-        Position.Y = 92.000000000000000000
-        Size.Width = 303.000000000000000000
-        Size.Height = 22.000000000000000000
-        Size.PlatformDefault = False
         TabOrder = 7
-        OnChange = ComboBoxMarcaChange
       end
       object LabelMarca: TLabel
         Position.X = 16.000000000000000000
@@ -84,7 +45,28 @@ inherited Frame9: TFrame9
         Size.PlatformDefault = False
         TextSettings.Trimming = None
         Text = 'Marca'
+        TabOrder = 10
+      end
+      object ComboBoxMarca: TComboBox
+        Anchors = [akLeft, akTop, akRight]
+        Position.X = 98.000000000000000000
+        Position.Y = 92.000000000000000000
+        Size.Width = 303.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
         TabOrder = 8
+        OnChange = ComboBoxMarcaChange
+      end
+      object LabelMarcaDescr: TLabel
+        Anchors = [akLeft, akTop, akRight]
+        Position.X = 98.000000000000000000
+        Position.Y = 122.000000000000000000
+        Size.Width = 303.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = 'listboxitemdetaillabel'
+        TextSettings.Trimming = None
+        TabOrder = 12
       end
       object LabelTipo: TLabel
         Position.X = 16.000000000000000000
@@ -96,16 +78,16 @@ inherited Frame9: TFrame9
         Text = 'Tipo'
         TabOrder = 9
       end
-      object LabelMarcaDescr: TLabel
+      object ComboBoxTipo: TComboBox
         Anchors = [akLeft, akTop, akRight]
+        ItemIndex = 0
         Position.X = 98.000000000000000000
-        Position.Y = 122.000000000000000000
+        Position.Y = 147.000000000000000000
         Size.Width = 303.000000000000000000
-        Size.Height = 17.000000000000000000
+        Size.Height = 22.000000000000000000
         Size.PlatformDefault = False
-        StyleLookup = 'listboxitemdetaillabel'
-        TextSettings.Trimming = None
-        TabOrder = 10
+        TabOrder = 6
+        OnChange = ComboBoxTipoChange
       end
       object LabelTipoDescr: TLabel
         Anchors = [akLeft, akTop, akRight]
@@ -116,7 +98,7 @@ inherited Frame9: TFrame9
         Size.PlatformDefault = False
         StyleLookup = 'listboxitemdetaillabel'
         TextSettings.Trimming = None
-        TabOrder = 12
+        TabOrder = 11
         TabStop = False
       end
     end
