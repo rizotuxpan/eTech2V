@@ -111,8 +111,8 @@ void TFrame1::UpdateRecord() {
 	RESTRequest->Response = RESTResponse;
 	RESTRequest->Client = RESTClient;
 	RESTRequest->Resource = resource+"?id="+LabelId->Text+"&clave="+EditClave->Text+"&descr="+MemoDescr->Text;
-	RESTRequest->Response->ContentType = "application/json";
-	RESTRequest->Response->ContentEncoding = "UTF-8";
+	//RESTRequest->Response->ContentType = "application/json";
+	//RESTRequest->Response->ContentEncoding = "UTF-8";
 	RESTRequest->Method= TRESTRequestMethod::rmPUT;
 	RESTRequest->Execute();
 
@@ -138,7 +138,7 @@ void TFrame1::CreateRecord() {
     RESTRequest->Client = RESTClient;
 	RESTRequest->Resource = resource+"?clave="+EditClave->Text+"&descr="+MemoDescr->Text;
 	//RESTRequest->Response->ContentType = "application/json";
-	RESTRequest->Response->ContentEncoding = "UTF-8";
+	//RESTRequest->Response->ContentEncoding = "UTF-8";
 	RESTRequest->Method = TRESTRequestMethod::rmPOST;
 	RESTRequest->Execute();
 
@@ -165,9 +165,16 @@ void TFrame1::DeleteRecord() {
 	RESTRequest->Response = RESTResponse;
 	RESTRequest->Client = RESTClient;
 
+	try {
+        RESTRequest->Resource = resource+"?id="+LabelId->Text;
+		RESTRequest->Method= TRESTRequestMethod::rmDELETE;
+		RESTRequest->Execute();
+	} catch (const EAccessViolation &e) {
+        ShowMessage("No se puede eliminar el registro: " + e.Message);
+	}
 	RESTRequest->Resource = resource+"?id="+LabelId->Text;
-	RESTRequest->Response->ContentType = "application/json";
-	RESTRequest->Response->ContentEncoding = "UTF-8";
+	//RESTRequest->Response->ContentType = "application/json";
+	//RESTRequest->Response->ContentEncoding = "UTF-8";
 	RESTRequest->Method= TRESTRequestMethod::rmDELETE;
 	RESTRequest->Execute();
 

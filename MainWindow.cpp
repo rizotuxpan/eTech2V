@@ -178,6 +178,17 @@ void __fastcall TForm1::MenuCatalogosCamarasCamarasClick(TObject *Sender)
 	Frame11->Parent = PanelMain;
 	Frame11->Align = TAlignLayout::Client;
 	Frame11->Visible = true;
+	EnableMenu(false);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::MenuCatalogosSwitchesSwitchesClick(TObject *Sender)
+{
+    resource = Camara;
+	Frame12 = new TFrame12(this, baseurl, resource, "Swiches");
+	Frame12->Parent = PanelMain;
+	Frame12->Align = TAlignLayout::Client;
+	Frame12->Visible = true;
     EnableMenu(false);
 }
 //---------------------------------------------------------------------------

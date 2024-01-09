@@ -22,6 +22,7 @@ object Form1: TForm1
     Size.Width = 752.000000000000000000
     Size.Height = 518.000000000000000000
     Size.PlatformDefault = False
+    StyleLookup = 'PanelMainStyle1'
     TabOrder = 1
     object Menu: TMenuBar
       Size.Width = 752.000000000000000000
@@ -60,6 +61,15 @@ object Form1: TForm1
             Locked = True
             Text = 'Modelos'
             OnClick = MenuCatalogosSwitchesModelosClick
+          end
+          object MenuCatalogosSwitchesSep2: TMenuItem
+            Locked = True
+            Text = '-'
+          end
+          object MenuCatalogosSwitchesSwitches: TMenuItem
+            Locked = True
+            Text = 'Switches'
+            OnClick = MenuCatalogosSwitchesSwitchesClick
           end
         end
         object MenuCatalogosRadios: TMenuItem
