@@ -16,12 +16,15 @@
 #include <FMX.Layouts.hpp>
 #include <FMX.Edit.hpp>
 #include <FMX.ListBox.hpp>
+#include <FMX.ComboTrackBar.hpp>
+#include <FMX.EditBox.hpp>
+#include <FMX.NumberBox.hpp>
+#include <FMX.Objects.hpp>
 //---------------------------------------------------------------------------
 class TFrame11 : public TFrame
 {
 __published:	// IDE-managed Components
 	TPanel *Panel4;
-	TLabel *LabelTitulo;
 	TPanel *Panel1;
 	TPanel *Panel2;
 	TPanel *Panel3;
@@ -57,19 +60,36 @@ __published:	// IDE-managed Components
 	TComboBox *ComboBoxMarca;
 	TComboBox *ComboBoxModelo;
 	TComboBox *ComboBoxTipo;
-	TEdit *Edit1;
+	TEdit *EditSerie;
 	TLabel *Label2;
-	TLabel *Label6;
-	TEdit *Edit2;
+	TLabel *Label9;
+	TComboBox *ComboBox1;
+	TLabel *Label10;
+	TComboBox *ComboBox2;
+	TImage *Image1;
+	TLabel *LabelMsg;
+	TStringColumn *StringColumn10;
+	TStringColumn *StringColumn11;
 	void __fastcall ButtonCloseClick(TObject *Sender);
 	void __fastcall ComboBoxMarcaChange(TObject *Sender);
+	void __fastcall ComboBoxTipoChange(TObject *Sender);
+	void __fastcall ButtonNewClick(TObject *Sender);
+	void __fastcall ButtonSaveClick(TObject *Sender);
+	void __fastcall StringGridSelectCell(TObject *Sender, const int ACol, const int ARow,
+          bool &CanSelect);
+	void __fastcall ButtonDeleteClick(TObject *Sender);
+	void __fastcall ButtonEditClick(TObject *Sender);
 private:	// User declarations
 	String baseurl  = "";
 	String resource = "";
 	String titulo   = "";
 	void PopulateStringGrid();
 	void RellenarComboBoxMarca(TComboBox *ComboBox, const UnicodeString &resource);
-    void RellenarComboBoxTipo(TComboBox *ComboBox, const UnicodeString &resource, int marca_id);
+	void RellenarComboBoxTipo(TComboBox *ComboBox, const UnicodeString &resource, int marca_id);
+	void RellenarComboBoxModelo(TComboBox *ComboBox, const UnicodeString &resource, int marca_id, int tipo_id);
+	void CreateRecord();
+	void DeleteRecord();
+	void eliminarFila(TStringGrid* grid, int numeroFila);
 public:		// User declarations
 	__fastcall TFrame11(TComponent* Owner, String baseurl, String resource, String titulo);
 };

@@ -244,18 +244,18 @@
             <DependentOn>Unit9.h</DependentOn>
             <BuildOrder>11</BuildOrder>
         </CppCompile>
-        <FormResources Include="Unit6.fmx"/>
         <FormResources Include="Unit5.fmx"/>
         <FormResources Include="Unit4.fmx"/>
+        <FormResources Include="Unit3.fmx"/>
+        <FormResources Include="Unit6.fmx"/>
         <FormResources Include="Unit9.fmx"/>
         <FormResources Include="Unit8.fmx"/>
         <FormResources Include="Unit7.fmx"/>
-        <FormResources Include="Unit3.fmx"/>
         <FormResources Include="MainWindow.fmx"/>
-        <FormResources Include="Unit2.fmx"/>
-        <FormResources Include="Unit10.fmx"/>
         <FormResources Include="Unit1.fmx"/>
+        <FormResources Include="Unit2.fmx"/>
         <FormResources Include="Unit11.fmx"/>
+        <FormResources Include="Unit10.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

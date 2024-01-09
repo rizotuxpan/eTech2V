@@ -151,7 +151,7 @@ void TFrame9::CreateRecord() {
 		RESTRequest->Response = RESTResponse;
 		RESTRequest->Client = RESTClient;
 		RESTRequest->Resource = resource+"?clave="+EditClave->Text+"&descr="+MemoDescr->Text+"&camaramodelomarca_id="+marcaSeleccionada->Tag+"&camaramodelotipo_id="+tipoSeleccionado->Tag;
-		RESTRequest->Response->ContentType = "application/json";
+		//RESTRequest->Response->ContentType = "application/json";
 		RESTRequest->Response->ContentEncoding = "UTF-8";
 		RESTRequest->Method = TRESTRequestMethod::rmPOST;
 		RESTRequest->Execute();
@@ -191,10 +191,6 @@ void __fastcall TFrame9::ButtonNewClick(TObject *Sender)
 void __fastcall TFrame9::StringGridSelectCell(TObject *Sender, const int ACol,
 		  const int ARow, bool &CanSelect)
 {
-	LabelId->Text = StringGrid->Cells[0][ARow];
-	EditClave->Text = StringGrid->Cells[1][ARow];
-	MemoDescr->Text = StringGrid->Cells[2][ARow];
-
 	LabelId->Text = StringGrid->Cells[0][ARow];
 	EditClave->Text = StringGrid->Cells[1][ARow];
 	MemoDescr->Text = StringGrid->Cells[2][ARow];

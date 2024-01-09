@@ -137,7 +137,7 @@ void TFrame1::CreateRecord() {
 	RESTRequest->Response = RESTResponse;
     RESTRequest->Client = RESTClient;
 	RESTRequest->Resource = resource+"?clave="+EditClave->Text+"&descr="+MemoDescr->Text;
-	RESTRequest->Response->ContentType = "application/json";
+	//RESTRequest->Response->ContentType = "application/json";
 	RESTRequest->Response->ContentEncoding = "UTF-8";
 	RESTRequest->Method = TRESTRequestMethod::rmPOST;
 	RESTRequest->Execute();

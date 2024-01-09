@@ -46,7 +46,7 @@ inherited Frame9: TFrame9
       end
       inherited MemoDescr: TMemo
         Viewport.Width = 302.000000000000000000
-        Viewport.Height = 50.000000000000000000
+        Viewport.Height = 90.000000000000000000
       end
       inherited LabelMsg: TLabel
         Position.Y = 202.000000000000000000
