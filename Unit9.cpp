@@ -367,7 +367,7 @@ void TFrame9::UpdateRecord()
 	RESTClient->BaseURL = baseurl;
 	RESTRequest->Response = RESTResponse;
 	RESTRequest->Client = RESTClient;
-	RESTRequest->Resource = resource+"?id="+LabelId->Text+"&clave="+EditClave->Text+"&descr="+MemoDescr->Text+"&camaramodelomarca_id="+marcaSeleccionada->Tag+"&camaramodelotipo_id="+tipoSeleccionado->Tag;;
+	RESTRequest->Resource = resource+"?id="+LabelId->Text+"&clave="+EditClave->Text+"&descr="+MemoDescr->Text+"&camaramodelomarca_id="+marcaSeleccionada->Tag+"&camaramodelotipo_id="+tipoSeleccionado->Tag;
 	RESTRequest->Response->ContentType = "application/json";
 	RESTRequest->Response->ContentEncoding = "UTF-8";
 	RESTRequest->Method= TRESTRequestMethod::rmPUT;

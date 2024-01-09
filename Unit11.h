@@ -89,6 +89,7 @@ private:	// User declarations
 	void RellenarComboBoxModelo(TComboBox *ComboBox, const UnicodeString &resource, int marca_id, int tipo_id);
 	void CreateRecord();
 	void DeleteRecord();
+    void UpdateRecord();
 	void eliminarFila(TStringGrid* grid, int numeroFila);
 public:		// User declarations
 	__fastcall TFrame11(TComponent* Owner, String baseurl, String resource, String titulo);

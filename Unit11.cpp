@@ -256,7 +256,21 @@ void __fastcall TFrame11::ButtonNewClick(TObject *Sender)
 
 void __fastcall TFrame11::ButtonSaveClick(TObject *Sender)
 {
-	CreateRecord();
+	if (LabelButtonEdit->Text == "Cancelar") {
+		// Actualiza
+        UpdateRecord();
+	}
+	else
+	{
+		// Inserta
+        CreateRecord();
+	}
+
+    LabelButtonEdit->Text = "Editar";
+	ComboBoxMarca->Enabled = false;
+	ComboBoxTipo->Enabled = false;
+	ComboBoxModelo->Enabled = false;
+	EditSerie->Enabled = false;
 }
 //---------------------------------------------------------------------------
 
@@ -417,13 +431,35 @@ void __fastcall TFrame11::ButtonEditClick(TObject *Sender)
 	}
 	else
 	{
-        ComboBoxMarca->Enabled = false;
+		ComboBoxMarca->Enabled = false;
 		ComboBoxTipo->Enabled = false;
 		ComboBoxModelo->Enabled = false;
 		EditSerie->Enabled = false;
-        LabelButtonEdit->Text = "Editar";
+		LabelButtonEdit->Text = "Editar";
 	}
 
 }
 //---------------------------------------------------------------------------
+void TFrame11::UpdateRecord()
+{
+    TRESTClient *RESTClient = new TRESTClient(NULL);
+	TRESTRequest *RESTRequest = new TRESTRequest(NULL);
+	TRESTResponse *RESTResponse = new TRESTResponse(NULL);
 
+	auto modeloSeleccionado = ComboBoxModelo->ListItems[ComboBoxModelo->ItemIndex];
+	RESTClient->BaseURL = baseurl;
+	RESTRequest->Response = RESTResponse;
+	RESTRequest->Client = RESTClient;
+	RESTRequest->Resource = resource+"?id="+LabelId->Text+"&serie="+EditSerie->Text+"&camaramodelo_id="+modeloSeleccionado->Tag;
+	//RESTRequest->Response->ContentType = "application/json";
+	//RESTRequest->Response->ContentEncoding = "UTF-8";
+	RESTRequest->Method= TRESTRequestMethod::rmPUT;
+	RESTRequest->Execute();
+
+	TJSONValue *jValue = RESTResponse->JSONValue;
+	TJSONArray *JSONArray = dynamic_cast<TJSONArray*>(jValue);
+	LabelMsg->Text = JSONArray->Items[1]->ToString() == "\"ok\"" ? "Registro actualizado correctamente" : "El registro no se pudo actualizar";
+
+	PopulateStringGrid();
+
+}
