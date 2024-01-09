@@ -87,7 +87,8 @@ private:	// User declarations
 	String ArcoEstructura = "";
 	String CamaraModelo = "";
 	String SwitchModelo = "";
-    String Camara = "";
+	String Camara = "";
+    String Switch = "";
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
    void EnableMenu(bool enable);

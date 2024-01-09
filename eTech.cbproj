@@ -6,10 +6,9 @@
         <MainSource>eTech.cpp</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
-        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <Platform Condition="'$(Platform)'==''">Win64</Platform>
         <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
-        <CC_Suffix Condition="'$(CC_Suffix)'==''">c</CC_Suffix>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -260,12 +259,12 @@
         <FormResources Include="Unit9.fmx"/>
         <FormResources Include="Unit8.fmx"/>
         <FormResources Include="Unit7.fmx"/>
+        <FormResources Include="Unit2.fmx"/>
         <FormResources Include="MainWindow.fmx"/>
         <FormResources Include="Unit1.fmx"/>
-        <FormResources Include="Unit2.fmx"/>
+        <FormResources Include="Unit12.fmx"/>
         <FormResources Include="Unit11.fmx"/>
         <FormResources Include="Unit10.fmx"/>
-        <FormResources Include="Unit12.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

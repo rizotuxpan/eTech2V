@@ -67,10 +67,27 @@ __published:	// IDE-managed Components
 	TLabel *Label10;
 	TComboBox *ComboBox2;
 	TImage *Image1;
+	void __fastcall ButtonCloseClick(TObject *Sender);
+	void __fastcall ComboBoxMarcaChange(TObject *Sender);
+	void __fastcall ComboBoxTipoChange(TObject *Sender);
+	void __fastcall ButtonNewClick(TObject *Sender);
+	void __fastcall ButtonSaveClick(TObject *Sender);
+	void __fastcall StringGridSelectCell(TObject *Sender, const int ACol, const int ARow,
+          bool &CanSelect);
+	void __fastcall ButtonDeleteClick(TObject *Sender);
+	void __fastcall ButtonEditClick(TObject *Sender);
 private:	// User declarations
-	String baseurl = "";
+    String baseurl  = "";
 	String resource = "";
-    String titulo = "";
+	String titulo   = "";
+	void PopulateStringGrid();
+	void RellenarComboBoxMarca(TComboBox *ComboBox, const UnicodeString &resource);
+	void RellenarComboBoxTipo(TComboBox *ComboBox, const UnicodeString &resource, int marca_id);
+	void RellenarComboBoxModelo(TComboBox *ComboBox, const UnicodeString &resource, int marca_id, int tipo_id);
+	void CreateRecord();
+	void DeleteRecord();
+    void UpdateRecord();
+	void eliminarFila(TStringGrid* grid, int numeroFila);
 public:		// User declarations
 	__fastcall TFrame12(TComponent* Owner, String baseurl, String resource, String titulo);
 };

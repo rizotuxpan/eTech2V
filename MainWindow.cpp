@@ -29,16 +29,16 @@ void __fastcall TForm1::FormCreate(TObject* Sender)
 	baseurl = iniFile->ReadString("REST", "BaseURL", "");
 	SwitchModeloMarca = iniFile->ReadString("REST", "SwitchModeloMarca", "");
 	SwitchModeloTipo  = iniFile->ReadString("REST", "SwitchModeloTipo", "");
+	SwitchModelo      = iniFile->ReadString("REST", "SwitchModelo", "");
+	Switch            = iniFile->ReadString("REST", "Switch", "");
 	RadioModeloMarca  = iniFile->ReadString("REST", "RadioModeloMarca", "");
 	CamaraModeloMarca = iniFile->ReadString("REST", "CamaraModeloMarca", "");
 	CamaraModeloTipo  = iniFile->ReadString("REST", "CamaraModeloTipo", "");
-    Camara            = iniFile->ReadString("REST", "Camara", "");
+	CamaraModelo      = iniFile->ReadString("REST", "CamaraModelo", "");
+	Camara            = iniFile->ReadString("REST", "Camara", "");
 	Gabinete          = iniFile->ReadString("REST", "Gabinete", "");
 	PmiPosteMaterial  = iniFile->ReadString("REST", "PmiPosteMaterial", "");
 	ArcoEstructura    = iniFile->ReadString("REST", "ArcoEstructura", "");
-	CamaraModelo      = iniFile->ReadString("REST", "CamaraModelo", "");
-	SwitchModelo      = iniFile->ReadString("REST", "SwitchModelo", "");
-
 	delete iniFile;
 }
 //---------------------------------------------------------------------------
@@ -184,7 +184,7 @@ void __fastcall TForm1::MenuCatalogosCamarasCamarasClick(TObject *Sender)
 
 void __fastcall TForm1::MenuCatalogosSwitchesSwitchesClick(TObject *Sender)
 {
-    resource = Camara;
+    resource = Switch;
 	Frame12 = new TFrame12(this, baseurl, resource, "Swiches");
 	Frame12->Parent = PanelMain;
 	Frame12->Align = TAlignLayout::Client;
