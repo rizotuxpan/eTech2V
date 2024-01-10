@@ -341,6 +341,27 @@ object Frame12: TFrame12
         Text = 'LabelMsg'
         TabOrder = 9
       end
+      object LabelPuertos: TLabel
+        Position.X = 245.000000000000000000
+        Position.Y = 74.000000000000000000
+        Size.Width = 75.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Trimming = None
+        Text = 'Puertos'
+        TabOrder = 10
+      end
+      object EditPuertos: TNumberBox
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 11
+        Cursor = crIBeam
+        Max = 48.000000000000000000
+        Position.X = 328.000000000000000000
+        Position.Y = 74.000000000000000000
+        Size.Width = 47.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
     end
     object Panel5: TPanel
       Align = Client
@@ -358,8 +379,8 @@ object Frame12: TFrame12
         TabOrder = 0
         Options = [ColumnResize, ColLines, RowLines, RowSelect, Header, AutoDisplacement]
         OnSelectCell = StringGridSelectCell
-        Viewport.Width = 681.000000000000000000
-        Viewport.Height = 210.000000000000000000
+        Viewport.Width = 661.000000000000000000
+        Viewport.Height = 169.000000000000000000
         object StringColumn1: TStringColumn
           Header = 'id'
           HeaderSettings.TextSettings.WordWrap = False
@@ -392,6 +413,10 @@ object Frame12: TFrame12
           Header = 'Serie'
           HeaderSettings.TextSettings.WordWrap = False
         end
+        object StringColumn12: TStringColumn
+          Header = 'Puertos'
+          HeaderSettings.TextSettings.WordWrap = False
+        end
         object StringColumn11: TStringColumn
           Header = 'Descripci'#243'n de marca'
           HeaderSettings.TextSettings.WordWrap = False
@@ -402,10 +427,6 @@ object Frame12: TFrame12
         end
         object StringColumn9: TStringColumn
           Header = 'Descripci'#243'n de modelo'
-          HeaderSettings.TextSettings.WordWrap = False
-        end
-        object CurrencyColumn1: TCurrencyColumn
-          Header = 'costofactura'
           HeaderSettings.TextSettings.WordWrap = False
         end
       end

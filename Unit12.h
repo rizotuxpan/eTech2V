@@ -17,6 +17,8 @@
 #include <FMX.StdCtrls.hpp>
 #include <FMX.Types.hpp>
 #include <System.Rtti.hpp>
+#include <FMX.EditBox.hpp>
+#include <FMX.NumberBox.hpp>
 //---------------------------------------------------------------------------
 class TFrame12 : public TFrame
 {
@@ -59,7 +61,6 @@ __published:	// IDE-managed Components
 	TStringColumn *StringColumn11;
 	TStringColumn *StringColumn8;
 	TStringColumn *StringColumn9;
-	TCurrencyColumn *CurrencyColumn1;
 	TPanel *Panel4;
 	TPanel *Panel7;
 	TLabel *Label9;
@@ -67,6 +68,9 @@ __published:	// IDE-managed Components
 	TLabel *Label10;
 	TComboBox *ComboBox2;
 	TImage *Image1;
+	TLabel *LabelPuertos;
+	TNumberBox *EditPuertos;
+	TStringColumn *StringColumn12;
 	void __fastcall ButtonCloseClick(TObject *Sender);
 	void __fastcall ComboBoxMarcaChange(TObject *Sender);
 	void __fastcall ComboBoxTipoChange(TObject *Sender);

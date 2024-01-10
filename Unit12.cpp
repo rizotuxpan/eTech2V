@@ -22,9 +22,8 @@ __fastcall TFrame12::TFrame12(TComponent* Owner, String baseurl, String resource
 	StringGrid->Columns[2]->Visible  = false; // tipo
 	StringGrid->Columns[3]->Visible  = false; // modelo
 
-	StringGrid->Columns[11]->Visible = false; // costofactura
-
 	StringGrid->Columns[2]->Width = 180;
+	ButtonNew->OnClick(ButtonNew);
 }
 //---------------------------------------------------------------------------
 void __fastcall TFrame12::ButtonCloseClick(TObject *Sender)
@@ -78,7 +77,8 @@ void TFrame12::PopulateStringGrid()
 					TJSONValue* JSONObjectTipoId       = JSONObject->GetValue("tipo_id");
 					TJSONValue* JSONObjectMarcaClave   = JSONObject->GetValue("marcaclave");
 					TJSONValue* JSONObjectMarcaDescr   = JSONObject->GetValue("marcadescr");
-					TJSONValue* JSONObjectCostoFactura = JSONObject->GetValue("costofactura");
+                    TJSONValue* JSONObjectPuertos      = JSONObject->GetValue("puertos");
+					//TJSONValue* JSONObjectCostoFactura = JSONObject->GetValue("costofactura");
 					StringGrid->RowCount = i+1;
 
 					StringGrid->Cells[0][i]  = JSONObjectId->Value();
@@ -90,12 +90,12 @@ void TFrame12::PopulateStringGrid()
 					StringGrid->Cells[5][i]  = JSONObjectTipoClave->Value(); // Tipo
 					StringGrid->Cells[6][i]  = JSONObjectModeloClave->Value(); // Modelo
 					StringGrid->Cells[7][i]  = JSONObjectSerie->Value(); // Serie
+					StringGrid->Cells[8][i]  = JSONObjectPuertos->Value(); // Puertos
 
-					StringGrid->Cells[8][i] = JSONObjectMarcaDescr->Value();
-					StringGrid->Cells[9][i]  = JSONObjectTipoDescr->Value();
-					StringGrid->Cells[10][i]  = JSONObjectModeloDescr->Value();
+					StringGrid->Cells[9][i] = JSONObjectMarcaDescr->Value();
+					StringGrid->Cells[10][i]  = JSONObjectTipoDescr->Value();
+					StringGrid->Cells[11][i]  = JSONObjectModeloDescr->Value();
 
-					StringGrid->Cells[11][i] = JSONObjectCostoFactura->Value();
 				}
 			}
 
@@ -248,10 +248,14 @@ void __fastcall TFrame12::ComboBoxTipoChange(TObject *Sender)
 
 void __fastcall TFrame12::ButtonNewClick(TObject *Sender)
 {
-    ComboBoxMarca->ItemIndex  = -1;
-	ComboBoxTipo->ItemIndex   = -1;
+	ComboBoxMarca->ItemIndex = -1;
+	ComboBoxMarca->Enabled = true;
+	ComboBoxTipo->ItemIndex = -1;
+	ComboBoxTipo->Enabled = true;
 	ComboBoxModelo->ItemIndex = -1;
+    ComboBoxModelo->Enabled = -1;
 	EditSerie->Text = "";
+    EditSerie->Enabled = "";
     ComboBoxMarca->SetFocus();
 }
 //---------------------------------------------------------------------------
@@ -290,9 +294,9 @@ void TFrame12::CreateRecord()
 		RESTClient->BaseURL = baseurl;
 		RESTRequest->Response = RESTResponse;
 		RESTRequest->Client = RESTClient;
-		RESTRequest->Resource = resource+"?serie="+EditSerie->Text+"&switchmodelo_id="+modeloSeleccionado->Tag;
-		//RESTRequest->Response->ContentType = "application/json";
-		//RESTRequest->Response->ContentEncoding = "UTF-8";
+		RESTRequest->Resource = resource+"?serie="+EditSerie->Text+"&switchmodelo_id="+modeloSeleccionado->Tag+"&puertos="+EditPuertos->Text;
+		RESTRequest->Response->ContentType = "application/json";
+		RESTRequest->Response->ContentEncoding = "UTF-8";
 		RESTRequest->Method = TRESTRequestMethod::rmPOST;
 		RESTRequest->Execute();
 
@@ -314,6 +318,7 @@ void __fastcall TFrame12::StringGridSelectCell(TObject *Sender, const int ACol,
 {
     LabelId->Text = StringGrid->Cells[0][ARow];
 	EditSerie->Text = StringGrid->Cells[7][ARow];
+    EditPuertos->Text = StringGrid->Cells[8][ARow];
 
 	// Selecciona en ComboBoxMarca la marca que corresponde al elemento seleccionado en el StrinGrid
 	try {
@@ -360,6 +365,7 @@ void __fastcall TFrame12::StringGridSelectCell(TObject *Sender, const int ACol,
 	ComboBoxTipo->Enabled = false;
 	ComboBoxModelo->Enabled = false;
 	EditSerie->Enabled = false;
+    EditPuertos->Enabled = false;
 }
 //---------------------------------------------------------------------------
 
@@ -427,6 +433,7 @@ void __fastcall TFrame12::ButtonEditClick(TObject *Sender)
 		ComboBoxTipo->Enabled = true;
 		ComboBoxModelo->Enabled = true;
 		EditSerie->Enabled = true;
+		EditPuertos->Enabled = true;
 		LabelButtonEdit->Text = "Cancelar";
 	}
 	else
@@ -435,6 +442,7 @@ void __fastcall TFrame12::ButtonEditClick(TObject *Sender)
 		ComboBoxTipo->Enabled = false;
 		ComboBoxModelo->Enabled = false;
 		EditSerie->Enabled = false;
+        EditPuertos->Enabled = false;
 		LabelButtonEdit->Text = "Editar";
 	}
 }
@@ -450,9 +458,9 @@ void TFrame12::UpdateRecord()
 	RESTClient->BaseURL = baseurl;
 	RESTRequest->Response = RESTResponse;
 	RESTRequest->Client = RESTClient;
-	RESTRequest->Resource = resource+"?id="+LabelId->Text+"&serie="+EditSerie->Text+"&camaramodelo_id="+modeloSeleccionado->Tag;
-	//RESTRequest->Response->ContentType = "application/json";
-	//RESTRequest->Response->ContentEncoding = "UTF-8";
+	RESTRequest->Resource = resource+"?id="+LabelId->Text+"&serie="+EditSerie->Text+"&switchmodelo_id="+modeloSeleccionado->Tag;
+	RESTRequest->Response->ContentType = "application/json";
+	RESTRequest->Response->ContentEncoding = "UTF-8";
 	RESTRequest->Method= TRESTRequestMethod::rmPUT;
 	RESTRequest->Execute();
 
