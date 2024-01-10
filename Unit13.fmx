@@ -1,0 +1,51 @@
+inherited Frame13: TFrame13
+  inherited Panel1: TPanel
+    inherited StringGrid: TStringGrid
+      Viewport.Width = 303.000000000000000000
+      Viewport.Height = 352.000000000000000000
+      object StringColumn4: TStringColumn
+        Header = 'Marca'
+        HeaderSettings.TextSettings.WordWrap = False
+      end
+      object StringColumn5: TStringColumn
+        Header = 'marca_id'
+        HeaderSettings.TextSettings.WordWrap = False
+      end
+    end
+  end
+  inherited Panel2: TPanel
+    inherited Panel5: TPanel
+      inherited MemoDescr: TMemo
+        Viewport.Width = 302.000000000000000000
+        Viewport.Height = 90.000000000000000000
+      end
+      inherited LabelMsg: TLabel
+        Position.Y = 168.000000000000000000
+      end
+      object ComboBoxMarca: TComboBox
+        Enabled = False
+        Position.X = 98.000000000000000000
+        Position.Y = 132.000000000000000000
+        Size.Width = 303.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 7
+      end
+      object Label2: TLabel
+        Position.X = 16.000000000000000000
+        Position.Y = 132.000000000000000000
+        Size.Width = 74.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Trimming = None
+        Text = 'Marca'
+        TabOrder = 8
+      end
+    end
+  end
+  inherited Panel4: TPanel
+    inherited LabelTitulo: TLabel
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+  end
+end

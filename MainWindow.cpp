@@ -39,6 +39,7 @@ void __fastcall TForm1::FormCreate(TObject* Sender)
 	Gabinete          = iniFile->ReadString("REST", "Gabinete", "");
 	PmiPosteMaterial  = iniFile->ReadString("REST", "PmiPosteMaterial", "");
 	ArcoEstructura    = iniFile->ReadString("REST", "ArcoEstructura", "");
+    RadioModelo       = iniFile->ReadString("REST", "RadioModelo", "");
 	delete iniFile;
 }
 //---------------------------------------------------------------------------
@@ -184,12 +185,23 @@ void __fastcall TForm1::MenuCatalogosCamarasCamarasClick(TObject *Sender)
 
 void __fastcall TForm1::MenuCatalogosSwitchesSwitchesClick(TObject *Sender)
 {
-    resource = Switch;
+	resource = Switch;
 	Frame12 = new TFrame12(this, baseurl, resource, "Swiches");
 	Frame12->Parent = PanelMain;
 	Frame12->Align = TAlignLayout::Client;
 	Frame12->Visible = true;
-    EnableMenu(false);
+	EnableMenu(false);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::MenuCatalogosRadiosModelosClick(TObject *Sender)
+{
+	resource = RadioModelo;
+	Frame13 = new TFrame13(this, baseurl, resource, "Modelos de radios");
+	Frame13->Parent = PanelMain;
+	Frame13->Align = TAlignLayout::Client;
+	Frame13->Visible = true;
+	EnableMenu(false);
 }
 //---------------------------------------------------------------------------
 

@@ -262,14 +262,14 @@ void __fastcall TFrame12::ButtonNewClick(TObject *Sender)
 
 void __fastcall TFrame12::ButtonSaveClick(TObject *Sender)
 {
-    if (LabelButtonEdit->Text == "Cancelar") {
+	if (LabelButtonEdit->Text == "Cancelar") {
 		// Actualiza
 		UpdateRecord();
 	}
 	else
 	{
 		// Inserta
-        CreateRecord();
+		CreateRecord();
 	}
 
 	LabelButtonEdit->Text = "Editar";
@@ -312,13 +312,12 @@ void TFrame12::CreateRecord()
 }
 //---------------------------------------------------------------------------
 
-//---------------------------------------------------------------------------
 void __fastcall TFrame12::StringGridSelectCell(TObject *Sender, const int ACol,
-          const int ARow, bool &CanSelect)
+		  const int ARow, bool &CanSelect)
 {
-    LabelId->Text = StringGrid->Cells[0][ARow];
+	LabelId->Text = StringGrid->Cells[0][ARow];
 	EditSerie->Text = StringGrid->Cells[7][ARow];
-    EditPuertos->Text = StringGrid->Cells[8][ARow];
+	EditPuertos->Text = StringGrid->Cells[8][ARow];
 
 	// Selecciona en ComboBoxMarca la marca que corresponde al elemento seleccionado en el StrinGrid
 	try {
@@ -365,18 +364,18 @@ void __fastcall TFrame12::StringGridSelectCell(TObject *Sender, const int ACol,
 	ComboBoxTipo->Enabled = false;
 	ComboBoxModelo->Enabled = false;
 	EditSerie->Enabled = false;
-    EditPuertos->Enabled = false;
+	EditPuertos->Enabled = false;
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TFrame12::ButtonDeleteClick(TObject *Sender)
 {
-    DeleteRecord();
+	DeleteRecord();
 }
 //---------------------------------------------------------------------------
 void TFrame12::DeleteRecord()
 {
-    TRESTClient *RESTClient = new TRESTClient(NULL);
+	TRESTClient *RESTClient = new TRESTClient(NULL);
 	TRESTRequest *RESTRequest = new TRESTRequest(NULL);
 	TRESTResponse *RESTResponse = new TRESTResponse(NULL);
 
@@ -446,7 +445,6 @@ void __fastcall TFrame12::ButtonEditClick(TObject *Sender)
 		LabelButtonEdit->Text = "Editar";
 	}
 }
-//---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 void TFrame12::UpdateRecord()
 {

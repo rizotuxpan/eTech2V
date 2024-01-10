@@ -14,12 +14,13 @@ USEFORM("Unit6.cpp", Frame6); /* TFrame: File Type */
 USEFORM("Unit9.cpp", Frame9); /* TFrame: File Type */
 USEFORM("Unit8.cpp", Frame8); /* TFrame: File Type */
 USEFORM("Unit7.cpp", Frame7); /* TFrame: File Type */
+USEFORM("Unit2.cpp", Frame2); /* TFrame: File Type */
 USEFORM("MainWindow.cpp", Form1);
 USEFORM("Unit1.cpp", Frame1); /* TFrame: File Type */
-USEFORM("Unit2.cpp", Frame2); /* TFrame: File Type */
+USEFORM("Unit12.cpp", Frame12); /* TFrame: File Type */
 USEFORM("Unit11.cpp", Frame11); /* TFrame: File Type */
 USEFORM("Unit10.cpp", Frame10); /* TFrame: File Type */
-USEFORM("Unit12.cpp", Frame12); /* TFrame: File Type */
+USEFORM("Unit13.cpp", Frame13); /* TFrame: File Type */
 //---------------------------------------------------------------------------
 extern "C" int FMXmain()
 {
