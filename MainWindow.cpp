@@ -39,7 +39,11 @@ void __fastcall TForm1::FormCreate(TObject* Sender)
 	Gabinete          = iniFile->ReadString("REST", "Gabinete", "");
 	PmiPosteMaterial  = iniFile->ReadString("REST", "PmiPosteMaterial", "");
 	ArcoEstructura    = iniFile->ReadString("REST", "ArcoEstructura", "");
-    RadioModelo       = iniFile->ReadString("REST", "RadioModelo", "");
+	RadioModelo       = iniFile->ReadString("REST", "RadioModelo", "");
+	PMIGrupo1         = iniFile->ReadString("REST", "PMIGrupo1", "");
+	PMIGrupo2         = iniFile->ReadString("REST", "PMIGrupo2", "");
+	PMIGrupo3         = iniFile->ReadString("REST", "PMIGrupo3", "");
+
 	delete iniFile;
 }
 //---------------------------------------------------------------------------
@@ -201,6 +205,42 @@ void __fastcall TForm1::MenuCatalogosRadiosModelosClick(TObject *Sender)
 	Frame13->Parent = PanelMain;
 	Frame13->Align = TAlignLayout::Client;
 	Frame13->Visible = true;
+	EnableMenu(false);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::MenusCatalogosPMISsGruposGrupo1Click(TObject *Sender)
+
+{
+	resource = PMIGrupo1;
+	Frame14 = new TFrame14(this, baseurl, resource, "Grupo 1");
+	Frame14->Parent = PanelMain;
+	Frame14->Align = TAlignLayout::Client;
+	Frame14->Visible = true;
+	EnableMenu(false);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::MenusCatalogosPMISsGruposGrupo2Click(TObject *Sender)
+
+{
+	resource = PMIGrupo2;
+	Frame15 = new TFrame15(this, baseurl, resource, "Grupo 2");
+	Frame15->Parent = PanelMain;
+	Frame15->Align = TAlignLayout::Client;
+	Frame15->Visible = true;
+	EnableMenu(false);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::MenusCatalogosPMISsGruposGrupo3Click(TObject *Sender)
+
+{
+	resource = PMIGrupo3;
+	Frame16 = new TFrame16(this, baseurl, resource, "Grupo 3");
+	Frame16->Parent = PanelMain;
+	Frame16->Align = TAlignLayout::Client;
+	Frame16->Visible = true;
 	EnableMenu(false);
 }
 //---------------------------------------------------------------------------

@@ -131,6 +131,25 @@ object Form1: TForm1
             Text = 'Material de postes'
             OnClick = MenuCatalogosPMIPostesMaterialClick
           end
+          object MenusCatalogosPMIsGrupos: TMenuItem
+            Locked = True
+            Text = 'Grupos'
+            object MenusCatalogosPMISsGruposGrupo1: TMenuItem
+              Locked = True
+              Text = 'Grupo 1'
+              OnClick = MenusCatalogosPMISsGruposGrupo1Click
+            end
+            object MenusCatalogosPMISsGruposGrupo2: TMenuItem
+              Locked = True
+              Text = 'Grupo 2'
+              OnClick = MenusCatalogosPMISsGruposGrupo2Click
+            end
+            object MenusCatalogosPMISsGruposGrupo3: TMenuItem
+              Locked = True
+              Text = 'Grupo 3'
+              OnClick = MenusCatalogosPMISsGruposGrupo3Click
+            end
+          end
         end
         object MenuCatalogosArcos: TMenuItem
           Locked = True

@@ -30,6 +30,9 @@
 #include "Unit11.h"
 #include "Unit12.h"
 #include "Unit13.h"
+#include "Unit14.h"
+#include "Unit15.h"
+#include "Unit16.h"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -62,6 +65,10 @@ __published:	// IDE-managed Components
 	TMenuItem *MenuCatalogosSwitchesSep2;
 	TMenuItem *MenuCatalogosSwitchesSwitches;
 	TMenuItem *MenuCatalogosRadiosModelos;
+	TMenuItem *MenusCatalogosPMIsGrupos;
+	TMenuItem *MenusCatalogosPMISsGruposGrupo1;
+	TMenuItem *MenusCatalogosPMISsGruposGrupo2;
+	TMenuItem *MenusCatalogosPMISsGruposGrupo3;
 	void __fastcall MenuCatalogosSwitchesMarcasClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall MenuCatalogosSwitchesTiposClick(TObject *Sender);
@@ -77,6 +84,9 @@ __published:	// IDE-managed Components
 	void __fastcall MenuCatalogosCamarasCamarasClick(TObject *Sender);
 	void __fastcall MenuCatalogosSwitchesSwitchesClick(TObject *Sender);
 	void __fastcall MenuCatalogosRadiosModelosClick(TObject *Sender);
+	void __fastcall MenusCatalogosPMISsGruposGrupo1Click(TObject *Sender);
+	void __fastcall MenusCatalogosPMISsGruposGrupo2Click(TObject *Sender);
+	void __fastcall MenusCatalogosPMISsGruposGrupo3Click(TObject *Sender);
 private:	// User declarations
 	String baseurl = "";
 	String resource = "";
@@ -92,7 +102,10 @@ private:	// User declarations
 	String SwitchModelo = "";
 	String Camara = "";
 	String Switch = "";
-    String RadioModelo = "";
+	String RadioModelo = "";
+	String PMIGrupo1 = "";
+	String PMIGrupo2 = "";
+    String PMIGrupo3 = "";
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
    void EnableMenu(bool enable);
