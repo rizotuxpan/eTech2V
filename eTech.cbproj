@@ -225,6 +225,13 @@
             <DependentOn>Unit16.h</DependentOn>
             <BuildOrder>18</BuildOrder>
         </CppCompile>
+        <CppCompile Include="Unit17.cpp">
+            <Form>Frame17</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+            <DependentOn>Unit17.h</DependentOn>
+            <BuildOrder>19</BuildOrder>
+        </CppCompile>
         <CppCompile Include="Unit2.cpp">
             <Form>Frame2</Form>
             <FormType>fmx</FormType>
@@ -285,19 +292,20 @@
         <FormResources Include="Unit3.fmx"/>
         <FormResources Include="Unit2.fmx"/>
         <FormResources Include="Unit16.fmx"/>
-        <FormResources Include="Unit5.fmx"/>
         <FormResources Include="Unit9.fmx"/>
         <FormResources Include="Unit8.fmx"/>
         <FormResources Include="Unit7.fmx"/>
         <FormResources Include="Unit6.fmx"/>
-        <FormResources Include="Unit15.fmx"/>
+        <FormResources Include="Unit5.fmx"/>
+        <FormResources Include="Unit10.fmx"/>
         <FormResources Include="Unit1.fmx"/>
         <FormResources Include="MainWindow.fmx"/>
-        <FormResources Include="Unit10.fmx"/>
+        <FormResources Include="Unit15.fmx"/>
         <FormResources Include="Unit14.fmx"/>
         <FormResources Include="Unit13.fmx"/>
         <FormResources Include="Unit12.fmx"/>
         <FormResources Include="Unit11.fmx"/>
+        <FormResources Include="Unit17.fmx"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

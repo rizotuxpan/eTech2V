@@ -419,7 +419,7 @@ void TFrame11::eliminarFila(TStringGrid *grid, int numeroFila) {
     // Opcional: Actualizar el grid si es necesario
     grid->Repaint();
 }
-
+//---------------------------------------------------------------------------
 void __fastcall TFrame11::ButtonEditClick(TObject *Sender)
 {
 	if (LabelButtonEdit->Text == "Editar") {

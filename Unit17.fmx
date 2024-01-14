@@ -1,0 +1,103 @@
+inherited Frame17: TFrame17
+  inherited Panel1: TPanel
+    inherited StringGrid: TStringGrid
+      Viewport.Width = 303.000000000000000000
+      Viewport.Height = 352.000000000000000000
+      inherited StringColumn2: TStringColumn
+        Header = 'Clave'
+      end
+      inherited StringColumn3: TStringColumn
+        Header = 'Descripci'#243'n'
+      end
+      object IntegerColumn1: TIntegerColumn
+        Header = 'material_id'
+        HeaderSettings.TextSettings.WordWrap = False
+      end
+      object StringColumn4: TStringColumn
+        Header = 'Altura'
+        HeaderSettings.TextSettings.WordWrap = False
+      end
+      object StringColumn5: TStringColumn
+        Header = 'Material'
+        HeaderSettings.TextSettings.WordWrap = False
+      end
+      object StringColumn6: TStringColumn
+        HeaderSettings.TextSettings.WordWrap = False
+      end
+    end
+  end
+  inherited Panel2: TPanel
+    inherited Panel5: TPanel
+      inherited LabelClave: TLabel
+        Position.X = 12.000000000000000000
+        Position.Y = 9.000000000000000000
+        Size.Width = 78.000000000000000000
+        Size.PlatformDefault = False
+      end
+      inherited LabelDescr: TLabel
+        Position.X = 12.000000000000000000
+        Size.Width = 78.000000000000000000
+        Size.PlatformDefault = False
+      end
+      inherited MemoDescr: TMemo
+        Size.Width = 303.000000000000000000
+        Viewport.Width = 303.000000000000000000
+        Viewport.Height = 90.000000000000000000
+      end
+      inherited LabelMsg: TLabel
+        Position.Y = 244.000000000000000000
+      end
+      object Label2: TLabel
+        Position.X = 12.000000000000000000
+        Position.Y = 162.000000000000000000
+        Size.Width = 78.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Trimming = None
+        Text = 'Material'
+        TabOrder = 7
+      end
+      object ComboBoxMaterial: TComboBox
+        Enabled = False
+        Position.X = 98.000000000000000000
+        Position.Y = 162.000000000000000000
+        Size.Width = 303.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 8
+      end
+      object LabelMaterialDescr: TLabel
+        Position.X = 98.000000000000000000
+        Position.Y = 192.000000000000000000
+        Size.Width = 303.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Trimming = None
+        TabOrder = 9
+      end
+      object Label6: TLabel
+        Position.X = 12.000000000000000000
+        Position.Y = 137.000000000000000000
+        Size.Width = 78.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Trimming = None
+        Text = 'Altura'
+        TabOrder = 10
+      end
+      object EditAltura: TNumberBox
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 11
+        Cursor = crIBeam
+        Position.X = 98.000000000000000000
+        Position.Y = 132.000000000000000000
+        Enabled = False
+      end
+    end
+  end
+  inherited Panel4: TPanel
+    inherited LabelTitulo: TLabel
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+  end
+end

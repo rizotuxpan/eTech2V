@@ -43,6 +43,7 @@ void __fastcall TForm1::FormCreate(TObject* Sender)
 	PMIGrupo1         = iniFile->ReadString("REST", "PMIGrupo1", "");
 	PMIGrupo2         = iniFile->ReadString("REST", "PMIGrupo2", "");
 	PMIGrupo3         = iniFile->ReadString("REST", "PMIGrupo3", "");
+    PMIPoste          = iniFile->ReadString("REST", "PMIPoste", "");
 
 	delete iniFile;
 }
@@ -241,6 +242,17 @@ void __fastcall TForm1::MenusCatalogosPMISsGruposGrupo3Click(TObject *Sender)
 	Frame16->Parent = PanelMain;
 	Frame16->Align = TAlignLayout::Client;
 	Frame16->Visible = true;
+	EnableMenu(false);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::MenuCatalogosPMIsPostesClick(TObject *Sender)
+{
+    resource = PMIPoste;
+	Frame17 = new TFrame17(this, baseurl, resource, "Postes de PMI");
+	Frame17->Parent = PanelMain;
+	Frame17->Align = TAlignLayout::Client;
+	Frame17->Visible = true;
 	EnableMenu(false);
 }
 //---------------------------------------------------------------------------

@@ -3,24 +3,22 @@
 #include <fmx.h>
 #pragma hdrstop
 
-#include "Unit13.h"
+#include "Unit17.h"
 #include "MainWindow.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "Unit1"
 #pragma resource "*.fmx"
-TFrame13 *Frame13;
+TFrame17 *Frame17;
 //---------------------------------------------------------------------------
-__fastcall TFrame13::TFrame13(TComponent* Owner, String baseurl, String resource, String titulo)
+__fastcall TFrame17::TFrame17(TComponent* Owner, String baseurl, String resource, String titulo)
 	: TFrame1(Owner, baseurl, resource, titulo), baseurl(baseurl), resource(resource), titulo(titulo)
 {
-	RellenarComboBoxMarca(ComboBoxMarca, "radiomodelomarca");
-
-    PopulateStringGrid();
-	LabelTitulo->Text = titulo;
+	RellenarComboBoxMarca(ComboBoxMaterial, "pmipostematerial");
+	PopulateStringGrid();
 }
 //---------------------------------------------------------------------------
-void __fastcall TFrame13::ButtonCloseClick(TObject *Sender)
+void __fastcall TFrame17::ButtonCloseClick(TObject *Sender)
 {
 	// Activa el menu
 	Form1->EnableMenu(true);
@@ -35,13 +33,13 @@ void __fastcall TFrame13::ButtonCloseClick(TObject *Sender)
 			TThread::Queue(NULL,
 				[]()
 				{
-					Frame13->DisposeOf();
+					Frame17->DisposeOf();
 				});
 		}
 	)->Start();
 }
 //---------------------------------------------------------------------------
-void TFrame13::PopulateStringGrid() {
+void TFrame17::PopulateStringGrid() {
 	try {
 		TRESTClient *RESTClient = new TRESTClient(NULL);
 		TRESTRequest *RESTRequest = new TRESTRequest(NULL);
@@ -62,14 +60,19 @@ void TFrame13::PopulateStringGrid() {
 					TJSONValue* JSONObjectId = JSONObject->GetValue("id");
 					TJSONValue* JSONObjectClave = JSONObject->GetValue("clave");
 					TJSONValue* JSONObjectDescr = JSONObject->GetValue("descr");
-					TJSONValue* JSONObjectMarca = JSONObject->GetValue("marca");
-					TJSONValue* JSONObjectMarcaId = JSONObject->GetValue("marca_id");
+					TJSONValue* JSONObjectAltura = JSONObject->GetValue("altura");
+					TJSONValue* JSONObjectMaterialId = JSONObject->GetValue("material_id");
+					TJSONValue* JSONObjectMaterial = JSONObject->GetValue("material");
+					TJSONValue* JSONObjectMaterialDescr = JSONObject->GetValue("materialdescr");
+
 					StringGrid->RowCount = i+1;
 					StringGrid->Cells[0][i] = JSONObjectId->Value();
 					StringGrid->Cells[1][i] = JSONObjectClave->Value();
 					StringGrid->Cells[2][i] = JSONObjectDescr->Value();
-					StringGrid->Cells[3][i] = JSONObjectMarca->Value();
-					StringGrid->Cells[4][i] = JSONObjectMarcaId->Value();
+					StringGrid->Cells[3][i] = JSONObjectAltura->Value();
+					StringGrid->Cells[4][i] = JSONObjectMaterialId->Value();
+					StringGrid->Cells[5][i] = JSONObjectMaterial->Value();
+					StringGrid->Cells[6][i] = JSONObjectMaterialDescr->Value();
 					StringGrid->Columns[0]->Visible = false;
 					StringGrid->Columns[2]->Width = 180;
 				}
@@ -81,7 +84,7 @@ void TFrame13::PopulateStringGrid() {
 	}
 }
 //---------------------------------------------------------------------------
-void TFrame13::RellenarComboBoxMarca(TComboBox *ComboBox, const UnicodeString &resource)
+void TFrame17::RellenarComboBoxMarca(TComboBox *ComboBox, const UnicodeString &resource)
 {
 	TRESTClient *RESTClient = new TRESTClient(nullptr);
 	TRESTRequest *RESTRequest = new TRESTRequest(nullptr);
@@ -116,20 +119,22 @@ void TFrame13::RellenarComboBoxMarca(TComboBox *ComboBox, const UnicodeString &r
 	delete RESTResponse;
 }
 //---------------------------------------------------------------------------
-void __fastcall TFrame13::StringGridSelectCell(TObject *Sender, const int ACol,
-		  const int ARow, bool &CanSelect)
+void __fastcall TFrame17::StringGridSelectCell(TObject *Sender, const int ACol,
+          const int ARow, bool &CanSelect)
 {
-	LabelId->Text = StringGrid->Cells[0][ARow];
+    LabelId->Text = StringGrid->Cells[0][ARow];
 	EditClave->Text = StringGrid->Cells[1][ARow];
 	MemoDescr->Text = StringGrid->Cells[2][ARow];
+	EditAltura->Text = StringGrid->Cells[3][ARow];
+    LabelMaterialDescr->Text = StringGrid->Cells[6][ARow];
 	// Selecciona en ComboBoxMarca la marca que corresponde al elemento seleccionado en el StrinGrid
 	try {
 		int x = StrToInt(StringGrid->Cells[4][ARow]);
 
-		for (int i = 0; i < ComboBoxMarca->Items->Count; i++) {
-			TListBoxItem* selectedItem = static_cast<TListBoxItem*>(ComboBoxMarca->ListItems[i]);
+		for (int i = 0; i < ComboBoxMaterial->Items->Count; i++) {
+			TListBoxItem* selectedItem = static_cast<TListBoxItem*>(ComboBoxMaterial->ListItems[i]);
 			if (selectedItem->Tag == x) {
-				ComboBoxMarca->ItemIndex = i;
+				ComboBoxMaterial->ItemIndex = i;
 			}
 		}
 	} catch (...) {
@@ -138,17 +143,34 @@ void __fastcall TFrame13::StringGridSelectCell(TObject *Sender, const int ACol,
 	ButtonNew->Enabled = true;
 	ButtonSave->Enabled = false;
 	ButtonEdit->Enabled = true;
+
+	EditClave->Enabled = false;
+	MemoDescr->Enabled = false;
+	EditAltura->Enabled = false;
+	ComboBoxMaterial->Enabled = false;
+	ButtonSave->Enabled = false;
+	ButtonNew->Enabled = true;
+	ButtonDelete->Enabled = true;
+	ButtonEdit->Enabled = true;
 }
 //---------------------------------------------------------------------------
-void TFrame13::NewRecord() {
+
+void __fastcall TFrame17::ButtonNewClick(TObject *Sender)
+{
+    NewRecord();
+}
+//---------------------------------------------------------------------------
+void TFrame17::NewRecord() {
 	LabelId->Text = "";
 	EditClave->Text = "";
 	MemoDescr->Text = "";
-	ComboBoxMarca->ItemIndex = -1;
-	ComboBoxMarca->Enabled = true;
+	EditAltura->Text = "";
+	ComboBoxMaterial->ItemIndex = -1;
 
 	EditClave->Enabled = true;
 	MemoDescr->Enabled = true;
+	EditAltura->Enabled = true;
+	ComboBoxMaterial->Enabled = true;
 	EditClave->SetFocus();
 	ButtonSave->Enabled = true;
 	ButtonNew->Enabled = false;
@@ -156,28 +178,85 @@ void TFrame13::NewRecord() {
 	ButtonEdit->Enabled = false;
 }
 //---------------------------------------------------------------------------
-void __fastcall TFrame13::ButtonEditClick(TObject *Sender)
+void __fastcall TFrame17::ButtonEditClick(TObject *Sender)
 {
-	if (LabelButtonEdit->Text == "Editar") {
-		ComboBoxMarca->Enabled = true;
+    if (LabelButtonEdit->Text == "Editar") {
+		ComboBoxMaterial->Enabled = true;
 		EditClave->Enabled = true;
 		MemoDescr->Enabled = true;
+		EditAltura->Enabled = true;
 		LabelButtonEdit->Text = "Cancelar";
 	}
 	else
 	{
-		ComboBoxMarca->Enabled = false;
+		ComboBoxMaterial->Enabled = false;
 		EditClave->Enabled = false;
 		MemoDescr->Enabled = false;
+        EditAltura->Enabled = false;
 		LabelButtonEdit->Text = "Editar";
 	}
 
 	ButtonSave->Enabled = true;
 }
 //---------------------------------------------------------------------------
-void __fastcall TFrame13::ButtonSaveClick(TObject *Sender)
+void TFrame17::DeleteRecord()
 {
-	if (LabelButtonEdit->Text == "Cancelar") {
+    TRESTClient *RESTClient = new TRESTClient(NULL);
+	TRESTRequest *RESTRequest = new TRESTRequest(NULL);
+	TRESTResponse *RESTResponse = new TRESTResponse(NULL);
+
+	RESTClient->BaseURL = baseurl;
+	RESTRequest->Response = RESTResponse;
+	RESTRequest->Client = RESTClient;
+
+	RESTRequest->Resource = resource+"?id="+LabelId->Text;
+	RESTRequest->Method= TRESTRequestMethod::rmDELETE;
+	RESTRequest->Execute();
+
+	TJSONValue *jValue = RESTResponse->JSONValue;
+	TJSONArray *JSONArray = dynamic_cast<TJSONArray*>(jValue);
+	LabelMsg->Text = JSONArray->Items[1]->ToString() == "\"ok\"" ? "Registro borrado correctamente" : "El registro no se pudo guardar";
+
+	EditClave->Text = "";
+	MemoDescr->Text = "";
+	EditAltura->Text = "";
+	ComboBoxMaterial->ItemIndex  = -1;
+
+	//PopulateStringGrid();
+    eliminarFila(StringGrid, StringGrid->Selected);
+}
+//---------------------------------------------------------------------------
+void __fastcall TFrame17::ButtonDeleteClick(TObject *Sender)
+{
+    DeleteRecord();
+}
+//---------------------------------------------------------------------------
+void TFrame17::eliminarFila(TStringGrid *grid, int numeroFila) {
+    if (grid == nullptr || numeroFila < 0 || numeroFila >= grid->RowCount) {
+        // Verifica si el grid es válido y el número de fila está en rango
+        return;
+    }
+
+    grid->BeginUpdate(); // Comienza la actualización del grid
+    try {
+        // Mover los datos de las filas siguientes hacia arriba
+        for (int i = numeroFila; i < grid->RowCount - 1; i++) {
+            for (int j = 0; j < grid->ColumnCount; j++) {
+                grid->Cells[j][i] = grid->Cells[j][i + 1];
+            }
+        }
+        grid->RowCount--; // Disminuir el conteo de filas
+    } catch (const Exception& e) {
+        ShowMessage(e.Message); // Mostrar mensaje de error si ocurre una excepción
+    }
+    grid->EndUpdate(); // Finalizar la actualización del grid
+
+    // Opcional: Actualizar el grid si es necesario
+    grid->Repaint();
+}
+void __fastcall TFrame17::ButtonSaveClick(TObject *Sender)
+{
+    if (LabelButtonEdit->Text == "Cancelar") {
 		// Actualiza
 		UpdateRecord();
 	}
@@ -188,27 +267,28 @@ void __fastcall TFrame13::ButtonSaveClick(TObject *Sender)
 	}
 
 	LabelButtonEdit->Text = "Editar";
-	ComboBoxMarca->Enabled = false;
+	ComboBoxMaterial->Enabled = false;
 	EditClave->Enabled = false;
 	MemoDescr->Enabled = false;
+	EditAltura->Enabled = false;
 }
 //---------------------------------------------------------------------------
-void TFrame13::CreateRecord()
+void TFrame17::CreateRecord()
 {
 	//Validar que haya seleccionado el modelo
-	if (ComboBoxMarca->ItemIndex != -1)
+	if (ComboBoxMaterial->ItemIndex != -1)
 	{
 		TRESTClient *RESTClient = new TRESTClient(NULL);
 		TRESTRequest *RESTRequest = new TRESTRequest(NULL);
 		TRESTResponse *RESTResponse = new TRESTResponse(NULL);
 
 		//Obtiene tag de los elementos seccionados en Marca y Tipo
-		auto marcaSeleccionada = ComboBoxMarca->ListItems[ComboBoxMarca->ItemIndex];
+		auto materialSeleccionado = ComboBoxMaterial->ListItems[ComboBoxMaterial->ItemIndex];
 
 		RESTClient->BaseURL = baseurl;
 		RESTRequest->Response = RESTResponse;
 		RESTRequest->Client = RESTClient;
-		RESTRequest->Resource = resource+"?clave="+EditClave->Text+"&descr="+MemoDescr->Text+"&radiomodelomarca_id="+marcaSeleccionada->Tag;
+		RESTRequest->Resource = resource+"?clave="+EditClave->Text+"&descr="+MemoDescr->Text+"&altura="+EditAltura->Text+"&postematerial_id="+materialSeleccionado->Tag;
 		RESTRequest->Response->ContentType = "application/json";
 		RESTRequest->Response->ContentEncoding = "UTF-8";
 		RESTRequest->Method = TRESTRequestMethod::rmPOST;
@@ -225,17 +305,17 @@ void TFrame13::CreateRecord()
 	}
 }
 //---------------------------------------------------------------------------
-void TFrame13::UpdateRecord()
+void TFrame17::UpdateRecord()
 {
 	TRESTClient *RESTClient = new TRESTClient(NULL);
 	TRESTRequest *RESTRequest = new TRESTRequest(NULL);
 	TRESTResponse *RESTResponse = new TRESTResponse(NULL);
 
-	auto marcaSeleccionada = ComboBoxMarca->ListItems[ComboBoxMarca->ItemIndex];
+	auto materialSeleccionado = ComboBoxMaterial->ListItems[ComboBoxMaterial->ItemIndex];
 	RESTClient->BaseURL = baseurl;
 	RESTRequest->Response = RESTResponse;
 	RESTRequest->Client = RESTClient;
-	RESTRequest->Resource = resource+"?id="+LabelId->Text+"&clave="+EditClave->Text+"&radiomodelomarca_id="+marcaSeleccionada->Tag+"&descr="+MemoDescr->Text;
+	RESTRequest->Resource = resource+"?id="+LabelId->Text+"&clave="+EditClave->Text+"&postematerial_id="+materialSeleccionado->Tag+"&descr="+MemoDescr->Text+"&altura="+EditAltura->Text;
 	//RESTRequest->Response->ContentType = "application/json";
 	RESTRequest->Response->ContentEncoding = "UTF-8";
 	RESTRequest->Method= TRESTRequestMethod::rmPUT;

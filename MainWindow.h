@@ -33,6 +33,7 @@
 #include "Unit14.h"
 #include "Unit15.h"
 #include "Unit16.h"
+#include "Unit17.h"
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -69,6 +70,8 @@ __published:	// IDE-managed Components
 	TMenuItem *MenusCatalogosPMISsGruposGrupo1;
 	TMenuItem *MenusCatalogosPMISsGruposGrupo2;
 	TMenuItem *MenusCatalogosPMISsGruposGrupo3;
+	TMenuItem *MenuCatalogosPMIsSep1;
+	TMenuItem *MenuCatalogosPMIsPostes;
 	void __fastcall MenuCatalogosSwitchesMarcasClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall MenuCatalogosSwitchesTiposClick(TObject *Sender);
@@ -87,6 +90,7 @@ __published:	// IDE-managed Components
 	void __fastcall MenusCatalogosPMISsGruposGrupo1Click(TObject *Sender);
 	void __fastcall MenusCatalogosPMISsGruposGrupo2Click(TObject *Sender);
 	void __fastcall MenusCatalogosPMISsGruposGrupo3Click(TObject *Sender);
+	void __fastcall MenuCatalogosPMIsPostesClick(TObject *Sender);
 private:	// User declarations
 	String baseurl = "";
 	String resource = "";
@@ -105,7 +109,8 @@ private:	// User declarations
 	String RadioModelo = "";
 	String PMIGrupo1 = "";
 	String PMIGrupo2 = "";
-    String PMIGrupo3 = "";
+	String PMIGrupo3 = "";
+    String PMIPoste = "";
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
    void EnableMenu(bool enable);

@@ -45,8 +45,9 @@ inherited Frame9: TFrame9
         Size.PlatformDefault = False
       end
       inherited MemoDescr: TMemo
+        Size.Height = 80.000000000000000000
         Viewport.Width = 302.000000000000000000
-        Viewport.Height = 90.000000000000000000
+        Viewport.Height = 80.000000000000000000
       end
       inherited LabelMsg: TLabel
         Position.Y = 202.000000000000000000
@@ -58,7 +59,7 @@ inherited Frame9: TFrame9
         Enabled = False
         ItemIndex = 0
         Position.X = 98.000000000000000000
-        Position.Y = 147.000000000000000000
+        Position.Y = 177.000000000000000000
         Size.Width = 303.000000000000000000
         Size.Height = 22.000000000000000000
         Size.PlatformDefault = False
@@ -69,7 +70,7 @@ inherited Frame9: TFrame9
         Anchors = [akLeft, akTop, akRight]
         Enabled = False
         Position.X = 98.000000000000000000
-        Position.Y = 92.000000000000000000
+        Position.Y = 122.000000000000000000
         Size.Width = 303.000000000000000000
         Size.Height = 22.000000000000000000
         Size.PlatformDefault = False
@@ -78,7 +79,7 @@ inherited Frame9: TFrame9
       end
       object LabelMarca: TLabel
         Position.X = 16.000000000000000000
-        Position.Y = 97.000000000000000000
+        Position.Y = 127.000000000000000000
         Size.Width = 74.000000000000000000
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False
@@ -88,7 +89,7 @@ inherited Frame9: TFrame9
       end
       object LabelTipo: TLabel
         Position.X = 16.000000000000000000
-        Position.Y = 152.000000000000000000
+        Position.Y = 182.000000000000000000
         Size.Width = 74.000000000000000000
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False
@@ -99,7 +100,7 @@ inherited Frame9: TFrame9
       object LabelMarcaDescr: TLabel
         Anchors = [akLeft, akTop, akRight]
         Position.X = 98.000000000000000000
-        Position.Y = 122.000000000000000000
+        Position.Y = 152.000000000000000000
         Size.Width = 303.000000000000000000
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False
@@ -110,7 +111,7 @@ inherited Frame9: TFrame9
       object LabelTipoDescr: TLabel
         Anchors = [akLeft, akTop, akRight]
         Position.X = 98.000000000000000000
-        Position.Y = 177.000000000000000000
+        Position.Y = 239.000000000000000000
         Size.Width = 295.000000000000000000
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False

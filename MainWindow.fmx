@@ -150,6 +150,15 @@ object Form1: TForm1
               OnClick = MenusCatalogosPMISsGruposGrupo3Click
             end
           end
+          object MenuCatalogosPMIsSep1: TMenuItem
+            Locked = True
+            Text = '-'
+          end
+          object MenuCatalogosPMIsPostes: TMenuItem
+            Locked = True
+            Text = 'Postes'
+            OnClick = MenuCatalogosPMIsPostesClick
+          end
         end
         object MenuCatalogosArcos: TMenuItem
           Locked = True
