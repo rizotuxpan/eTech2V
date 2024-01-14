@@ -43,7 +43,8 @@ void __fastcall TForm1::FormCreate(TObject* Sender)
 	PMIGrupo1         = iniFile->ReadString("REST", "PMIGrupo1", "");
 	PMIGrupo2         = iniFile->ReadString("REST", "PMIGrupo2", "");
 	PMIGrupo3         = iniFile->ReadString("REST", "PMIGrupo3", "");
-    PMIPoste          = iniFile->ReadString("REST", "PMIPoste", "");
+	PMIPoste          = iniFile->ReadString("REST", "PMIPoste", "");
+    Radio             = iniFile->ReadString("REST", "Radio", "");
 
 	delete iniFile;
 }
@@ -248,11 +249,22 @@ void __fastcall TForm1::MenusCatalogosPMISsGruposGrupo3Click(TObject *Sender)
 
 void __fastcall TForm1::MenuCatalogosPMIsPostesClick(TObject *Sender)
 {
-    resource = PMIPoste;
+	resource = PMIPoste;
 	Frame17 = new TFrame17(this, baseurl, resource, "Postes de PMI");
 	Frame17->Parent = PanelMain;
 	Frame17->Align = TAlignLayout::Client;
 	Frame17->Visible = true;
+	EnableMenu(false);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::MenuCatalogosRadiosRadiosClick(TObject *Sender)
+{
+	resource = Radio;
+	Frame18 = new TFrame18(this, baseurl, resource, "Radio");
+	Frame18->Parent = PanelMain;
+	Frame18->Align = TAlignLayout::Client;
+	Frame18->Visible = true;
 	EnableMenu(false);
 }
 //---------------------------------------------------------------------------

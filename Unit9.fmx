@@ -41,7 +41,7 @@ inherited Frame9: TFrame9
       end
       inherited EditClave: TEdit
         MaxLength = 20
-        Size.Width = 210.000000000000000000
+        Size.Width = 303.000000000000000000
         Size.PlatformDefault = False
       end
       inherited MemoDescr: TMemo
@@ -50,7 +50,7 @@ inherited Frame9: TFrame9
         Viewport.Height = 80.000000000000000000
       end
       inherited LabelMsg: TLabel
-        Position.Y = 202.000000000000000000
+        Position.Y = 232.000000000000000000
         StyleLookup = 'speedbuttonstylelabel'
         TabOrder = 5
       end
@@ -111,7 +111,7 @@ inherited Frame9: TFrame9
       object LabelTipoDescr: TLabel
         Anchors = [akLeft, akTop, akRight]
         Position.X = 98.000000000000000000
-        Position.Y = 239.000000000000000000
+        Position.Y = 207.000000000000000000
         Size.Width = 295.000000000000000000
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False

@@ -31,36 +31,36 @@ inherited Frame10: TFrame10
       inherited MemoDescr: TMemo
         CharCase = ecUpperCase
         Viewport.Width = 302.000000000000000000
-        Viewport.Height = 50.000000000000000000
+        Viewport.Height = 90.000000000000000000
       end
       inherited LabelMsg: TLabel
-        Position.Y = 202.000000000000000000
-        TabOrder = 7
+        Position.Y = 242.000000000000000000
+        TabOrder = 5
       end
       object LabelMarca: TLabel
         Position.X = 16.000000000000000000
-        Position.Y = 97.000000000000000000
+        Position.Y = 137.000000000000000000
         Size.Width = 74.000000000000000000
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Trimming = None
         Text = 'Marca'
-        TabOrder = 10
+        TabOrder = 9
       end
       object ComboBoxMarca: TComboBox
         Anchors = [akLeft, akTop, akRight]
         Position.X = 98.000000000000000000
-        Position.Y = 92.000000000000000000
+        Position.Y = 132.000000000000000000
         Size.Width = 303.000000000000000000
         Size.Height = 22.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 8
+        TabOrder = 7
         OnChange = ComboBoxMarcaChange
       end
       object LabelMarcaDescr: TLabel
         Anchors = [akLeft, akTop, akRight]
         Position.X = 98.000000000000000000
-        Position.Y = 122.000000000000000000
+        Position.Y = 162.000000000000000000
         Size.Width = 303.000000000000000000
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False
@@ -70,19 +70,19 @@ inherited Frame10: TFrame10
       end
       object LabelTipo: TLabel
         Position.X = 16.000000000000000000
-        Position.Y = 152.000000000000000000
+        Position.Y = 192.000000000000000000
         Size.Width = 74.000000000000000000
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Trimming = None
         Text = 'Tipo'
-        TabOrder = 9
+        TabOrder = 8
       end
       object ComboBoxTipo: TComboBox
         Anchors = [akLeft, akTop, akRight]
         ItemIndex = 0
         Position.X = 98.000000000000000000
-        Position.Y = 147.000000000000000000
+        Position.Y = 187.000000000000000000
         Size.Width = 303.000000000000000000
         Size.Height = 22.000000000000000000
         Size.PlatformDefault = False
@@ -92,7 +92,7 @@ inherited Frame10: TFrame10
       object LabelTipoDescr: TLabel
         Anchors = [akLeft, akTop, akRight]
         Position.X = 98.000000000000000000
-        Position.Y = 177.000000000000000000
+        Position.Y = 217.000000000000000000
         Size.Width = 295.000000000000000000
         Size.Height = 17.000000000000000000
         Size.PlatformDefault = False
