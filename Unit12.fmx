@@ -379,8 +379,8 @@ object Frame12: TFrame12
         TabOrder = 0
         Options = [ColumnResize, ColLines, RowLines, RowSelect, Header, AutoDisplacement]
         OnSelectCell = StringGridSelectCell
-        Viewport.Width = 681.000000000000000000
-        Viewport.Height = 210.000000000000000000
+        Viewport.Width = 661.000000000000000000
+        Viewport.Height = 169.000000000000000000
         object StringColumn1: TStringColumn
           Header = 'id'
           HeaderSettings.TextSettings.WordWrap = False

@@ -6,26 +6,73 @@
 #include <System.Classes.hpp>
 #include <FMX.Controls.hpp>
 #include <FMX.Forms.hpp>
-#include "Unit1.h"
 #include <FMX.Controls.Presentation.hpp>
 #include <FMX.Edit.hpp>
+#include <FMX.EditBox.hpp>
 #include <FMX.Grid.hpp>
 #include <FMX.Grid.Style.hpp>
 #include <FMX.Layouts.hpp>
-#include <FMX.Memo.hpp>
-#include <FMX.Memo.Types.hpp>
+#include <FMX.ListBox.hpp>
+#include <FMX.NumberBox.hpp>
+#include <FMX.Objects.hpp>
 #include <FMX.ScrollBox.hpp>
 #include <FMX.StdCtrls.hpp>
 #include <FMX.Types.hpp>
 #include <System.Rtti.hpp>
+#include <FMX.Memo.hpp>
+#include <FMX.Memo.Types.hpp>
 //---------------------------------------------------------------------------
-class TFrame18 : public TFrame1
+class TFrame18 : public TFrame
 {
 __published:	// IDE-managed Components
+	TPanel *Panel1;
+	TPanel *Panel6;
+	TGridPanelLayout *GridPanelLayout1;
+	TButton *ButtonNew;
+	TButton *ButtonEdit;
+	TButton *ButtonSave;
+	TButton *ButtonDelete;
+	TButton *ButtonClose;
+	TLabel *LabelButtonEdit;
+	TLabel *Label3;
+	TLabel *Label4;
+	TLabel *Label5;
+	TLabel *Label1;
+	TPanel *Panel2;
+	TPanel *Panel3;
+	TLabel *LabelId;
+	TLabel *Label7;
+	TLabel *Label8;
+	TComboBox *ComboBoxMarca;
+	TComboBox *ComboBoxModelo;
+	TEdit *EditSerie;
+	TLabel *Label2;
+	TLabel *LabelMsg;
+	TLabel *LabelDescripcion;
+	TPanel *Panel5;
+	TStringGrid *StringGrid;
+	TStringColumn *StringColumn1;
+	TStringColumn *StringColumn2;
+	TStringColumn *StringColumn3;
+	TStringColumn *StringColumn4;
+	TStringColumn *StringColumn5;
+	TStringColumn *StringColumn7;
+	TStringColumn *StringColumn10;
+	TStringColumn *StringColumn12;
+	TStringColumn *StringColumn11;
+	TStringColumn *StringColumn9;
+	TPanel *Panel4;
+	TPanel *Panel7;
+	TLabel *Label9;
+	TComboBox *ComboBox1;
+	TLabel *Label10;
+	TComboBox *ComboBox2;
+	TImage *Image1;
+	TMemo *MemoDescr;
 private:	// User declarations
-	String baseurl = "";
+	String baseurl  = "";
 	String resource = "";
-    String titulo = "";
+	String titulo   = "";
 public:		// User declarations
 	__fastcall TFrame18(TComponent* Owner, String baseurl, String resource, String titulo);
 };
