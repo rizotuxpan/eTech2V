@@ -175,7 +175,6 @@ void __fastcall TFrame18::ComboBoxMarcaChange(TObject *Sender)
 		TListBoxItem* selectedItem = static_cast<TListBoxItem*>(comboBox->ListItems[comboBox->ItemIndex]);
 		if (selectedItem != nullptr) {
 			int marca_id = selectedItem->Tag;
-
 			RellenarComboBoxModelo(ComboBoxModelo, "radiomodelo", marca_id);
 		}
 	}
@@ -191,7 +190,7 @@ void TFrame18::RellenarComboBoxModelo(TComboBox *ComboBox, const UnicodeString &
 	RESTRequest->Response = RESTResponse;
 
 	RESTClient->BaseURL = baseurl;
-	RESTRequest->Resource = resource+"?radiomodelomarca_id="+IntToStr(marca_id);
+	RESTRequest->Resource = resource+"?id="+IntToStr(marca_id);
 	RESTRequest->Execute();
 
 	TJSONArray *jsonArray = (TJSONArray*)TJSONObject::ParseJSONValue(RESTResponse->Content);
@@ -208,6 +207,7 @@ void TFrame18::RellenarComboBoxModelo(TComboBox *ComboBox, const UnicodeString &
 			item->TagString = descr;
 
 			ComboBox->AddObject(item);
+            ComboBox->ItemIndex=0;
 		}
 	}
 
@@ -272,14 +272,114 @@ void TFrame18::DeleteRecord()
 
 	TJSONValue *jValue = RESTResponse->JSONValue;
 	TJSONArray *JSONArray = dynamic_cast<TJSONArray*>(jValue);
-	LabelMsg->Text = JSONArray->Items[1]->ToString() == "\"ok\"" ? "Registro borrado correctamente" : "El registro no se pudo guardar";
+    ShowMessage(JSONArray->Items[1]->ToString());
+	//LabelMsg->Text = JSONArray->Items[1]->ToString() == "\"ok\"" ? "Registro borrado correctamente" : "El registro no se pudo guardar";
 
 	EditSerie->Text = "";
+	MemoDescr->Text = "";
 	ComboBoxMarca->ItemIndex  = -1;
-	ComboBoxTipo->ItemIndex   = -1;
 	ComboBoxModelo->ItemIndex = -1;
 
 	//PopulateStringGrid();
     eliminarFila(StringGrid, StringGrid->Selected);
+}
+//---------------------------------------------------------------------------
+void __fastcall TFrame18::ButtonSaveClick(TObject *Sender)
+{
+    if (LabelButtonEdit->Text == "Cancelar") {
+		// Actualiza
+		UpdateRecord();
+	}
+	else
+	{
+		// Inserta
+		CreateRecord();
+	}
+
+	LabelButtonEdit->Text = "Editar";
+	ComboBoxMarca->Enabled = false;
+	ComboBoxModelo->Enabled = false;
+	EditSerie->Enabled = false;
+    MemoDescr->Enabled = "";
+}
+//---------------------------------------------------------------------------
+void TFrame18::CreateRecord()
+{
+	//Validar que haya seleccionado el modelo
+	if (ComboBoxModelo->ItemIndex != -1)
+	{
+		TRESTClient *RESTClient = new TRESTClient(NULL);
+		TRESTRequest *RESTRequest = new TRESTRequest(NULL);
+		TRESTResponse *RESTResponse = new TRESTResponse(NULL);
+
+		//Obtiene tag de los elementos seccionados en Marca y Tipo
+		auto modeloSeleccionado = ComboBoxModelo->ListItems[ComboBoxModelo->ItemIndex];
+
+		RESTClient->BaseURL = baseurl;
+		RESTRequest->Response = RESTResponse;
+		RESTRequest->Client = RESTClient;
+		RESTRequest->Resource = resource+"?serie="+EditSerie->Text+"&radiomodelo_id="+modeloSeleccionado->Tag+"&descr="+MemoDescr->Text;
+		RESTRequest->Response->ContentType = "application/json";
+		RESTRequest->Response->ContentEncoding = "UTF-8";
+		RESTRequest->Method = TRESTRequestMethod::rmPOST;
+		RESTRequest->Execute();
+
+		TJSONValue *jValue = RESTResponse->JSONValue;
+		TJSONArray *JSONArray = dynamic_cast<TJSONArray*>(jValue);
+		LabelMsg->Text = JSONArray->Items[1]->ToString() == "\"ok\"" ? "Registro guardado correctamente" : "El registro no se pudo guardar";
+
+		PopulateStringGrid();
+	} else
+	{
+		LabelMsg->Text = "Debe seleccionar Marca y Tipo";
+	}
+}
+//---------------------------------------------------------------------------
+void TFrame18::eliminarFila(TStringGrid *grid, int numeroFila) {
+    if (grid == nullptr || numeroFila < 0 || numeroFila >= grid->RowCount) {
+        // Verifica si el grid es válido y el número de fila está en rango
+        return;
+    }
+
+    grid->BeginUpdate(); // Comienza la actualización del grid
+	try {
+        // Mover los datos de las filas siguientes hacia arriba
+        for (int i = numeroFila; i < grid->RowCount - 1; i++) {
+            for (int j = 0; j < grid->ColumnCount; j++) {
+                grid->Cells[j][i] = grid->Cells[j][i + 1];
+            }
+        }
+        grid->RowCount--; // Disminuir el conteo de filas
+    } catch (const Exception& e) {
+        ShowMessage(e.Message); // Mostrar mensaje de error si ocurre una excepción
+    }
+    grid->EndUpdate(); // Finalizar la actualización del grid
+
+    // Opcional: Actualizar el grid si es necesario
+    grid->Repaint();
+}
+//---------------------------------------------------------------------------
+void TFrame18::UpdateRecord()
+{
+	TRESTClient *RESTClient = new TRESTClient(NULL);
+	TRESTRequest *RESTRequest = new TRESTRequest(NULL);
+	TRESTResponse *RESTResponse = new TRESTResponse(NULL);
+
+	auto modeloSeleccionado = ComboBoxModelo->ListItems[ComboBoxModelo->ItemIndex];
+	RESTClient->BaseURL = baseurl;
+	RESTRequest->Response = RESTResponse;
+	RESTRequest->Client = RESTClient;
+	RESTRequest->Resource = resource+"?id="+LabelId->Text+"&serie="+EditSerie->Text+"&radiomodelo_id="+modeloSeleccionado->Tag+"&descr="+MemoDescr->Text;
+	RESTRequest->Response->ContentType = "application/json";
+	RESTRequest->Response->ContentEncoding = "UTF-8";
+	RESTRequest->Method= TRESTRequestMethod::rmPUT;
+	RESTRequest->Execute();
+
+	TJSONValue *jValue = RESTResponse->JSONValue;
+	TJSONArray *JSONArray = dynamic_cast<TJSONArray*>(jValue);
+	LabelMsg->Text = JSONArray->Items[1]->ToString() == "\"ok\"" ? "Registro actualizado correctamente" : "El registro no se pudo actualizar";
+
+	PopulateStringGrid();
+
 }
 //---------------------------------------------------------------------------

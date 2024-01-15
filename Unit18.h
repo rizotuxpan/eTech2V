@@ -75,6 +75,7 @@ __published:	// IDE-managed Components
 	void __fastcall ButtonNewClick(TObject *Sender);
 	void __fastcall ButtonEditClick(TObject *Sender);
 	void __fastcall ButtonDeleteClick(TObject *Sender);
+	void __fastcall ButtonSaveClick(TObject *Sender);
 private:	// User declarations
 	String baseurl  = "";
 	String resource = "";

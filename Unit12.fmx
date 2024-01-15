@@ -1,11 +1,11 @@
 object Frame12: TFrame12
-  Size.Width = 681.000000000000000000
+  Size.Width = 682.000000000000000000
   Size.Height = 466.000000000000000000
   Size.PlatformDefault = False
   object Panel1: TPanel
     Align = Bottom
     Position.Y = 403.000000000000000000
-    Size.Width = 681.000000000000000000
+    Size.Width = 682.000000000000000000
     Size.Height = 63.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 4
@@ -13,14 +13,14 @@ object Frame12: TFrame12
       Align = Bottom
       Margins.Bottom = 10.000000000000000000
       Position.Y = 8.000000000000000000
-      Size.Width = 681.000000000000000000
+      Size.Width = 682.000000000000000000
       Size.Height = 45.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'pushpanel'
       TabOrder = 0
       object GridPanelLayout1: TGridPanelLayout
         Align = HorzCenter
-        Position.X = 165.000000000000000000
+        Position.X = 166.000000000000000000
         Size.Width = 350.000000000000000000
         Size.Height = 45.000000000000000000
         Size.PlatformDefault = False
@@ -233,14 +233,14 @@ object Frame12: TFrame12
   end
   object Panel2: TPanel
     Align = Client
-    Size.Width = 681.000000000000000000
+    Size.Width = 682.000000000000000000
     Size.Height = 330.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 5
     object Panel3: TPanel
       Align = Bottom
       Position.Y = 210.000000000000000000
-      Size.Width = 681.000000000000000000
+      Size.Width = 682.000000000000000000
       Size.Height = 120.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
@@ -365,7 +365,7 @@ object Frame12: TFrame12
     end
     object Panel5: TPanel
       Align = Client
-      Size.Width = 681.000000000000000000
+      Size.Width = 682.000000000000000000
       Size.Height = 210.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
@@ -373,13 +373,13 @@ object Frame12: TFrame12
         Align = Client
         CanFocus = True
         ClipChildren = True
-        Size.Width = 681.000000000000000000
+        Size.Width = 682.000000000000000000
         Size.Height = 210.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         Options = [ColumnResize, ColLines, RowLines, RowSelect, Header, AutoDisplacement]
         OnSelectCell = StringGridSelectCell
-        Viewport.Width = 681.000000000000000000
+        Viewport.Width = 682.000000000000000000
         Viewport.Height = 210.000000000000000000
         object StringColumn1: TStringColumn
           Header = 'id'
@@ -434,14 +434,14 @@ object Frame12: TFrame12
   end
   object Panel4: TPanel
     Align = Top
-    Size.Width = 681.000000000000000000
+    Size.Width = 682.000000000000000000
     Size.Height = 73.000000000000000000
     Size.PlatformDefault = False
     StyleLookup = 'pushpanel'
     TabOrder = 3
     object Panel7: TPanel
       Align = Client
-      Size.Width = 579.000000000000000000
+      Size.Width = 580.000000000000000000
       Size.Height = 73.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
