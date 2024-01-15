@@ -118,6 +118,7 @@ object Frame18: TFrame18
           TabOrder = 0
           Text = 'Nuevo'
           TextSettings.Trimming = None
+          OnClick = ButtonNewClick
         end
         object ButtonEdit: TButton
           Align = HorzCenter
@@ -129,6 +130,7 @@ object Frame18: TFrame18
           TabOrder = 1
           Text = 'Editar'
           TextSettings.Trimming = None
+          OnClick = ButtonEditClick
         end
         object ButtonSave: TButton
           Align = HorzCenter
@@ -151,6 +153,7 @@ object Frame18: TFrame18
           TabOrder = 3
           Text = 'Borrar'
           TextSettings.Trimming = None
+          OnClick = ButtonDeleteClick
         end
         object ButtonClose: TButton
           Align = HorzCenter
@@ -162,6 +165,7 @@ object Frame18: TFrame18
           TabOrder = 4
           Text = 'Cerrar'
           TextSettings.Trimming = None
+          OnClick = ButtonCloseClick
         end
         object LabelButtonEdit: TLabel
           Align = Client
@@ -277,6 +281,7 @@ object Frame18: TFrame18
         Size.Height = 22.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 5
+        OnChange = ComboBoxMarcaChange
       end
       object ComboBoxModelo: TComboBox
         ItemIndex = 0
@@ -354,6 +359,7 @@ object Frame18: TFrame18
         Size.PlatformDefault = False
         TabOrder = 0
         Options = [ColumnResize, ColLines, RowLines, RowSelect, Header, AutoDisplacement]
+        OnSelectCell = StringGridSelectCell
         Viewport.Width = 661.000000000000000000
         Viewport.Height = 169.000000000000000000
         object StringColumn1: TStringColumn
@@ -361,7 +367,7 @@ object Frame18: TFrame18
           HeaderSettings.TextSettings.WordWrap = False
         end
         object StringColumn2: TStringColumn
-          Header = 'Serie'
+          Header = 'marca_id'
           HeaderSettings.TextSettings.WordWrap = False
         end
         object StringColumn3: TStringColumn
@@ -369,31 +375,27 @@ object Frame18: TFrame18
           HeaderSettings.TextSettings.WordWrap = False
         end
         object StringColumn4: TStringColumn
-          Header = 'Modelo'
-          HeaderSettings.TextSettings.WordWrap = False
-        end
-        object StringColumn5: TStringColumn
           Header = 'Marca'
           HeaderSettings.TextSettings.WordWrap = False
         end
-        object StringColumn7: TStringColumn
+        object StringColumn5: TStringColumn
           Header = 'Modelo'
           HeaderSettings.TextSettings.WordWrap = False
         end
-        object StringColumn10: TStringColumn
+        object StringColumn7: TStringColumn
           Header = 'Serie'
           HeaderSettings.TextSettings.WordWrap = False
         end
-        object StringColumn12: TStringColumn
+        object StringColumn10: TStringColumn
           Header = 'Descripci'#243'n'
           HeaderSettings.TextSettings.WordWrap = False
         end
         object StringColumn11: TStringColumn
-          Header = 'Descripci'#243'n de marca'
+          Header = 'Descripci'#243'n marca'
           HeaderSettings.TextSettings.WordWrap = False
         end
         object StringColumn9: TStringColumn
-          Header = 'Descripci'#243'n de modelo'
+          Header = 'Descripci'#243'n modelo'
           HeaderSettings.TextSettings.WordWrap = False
         end
       end

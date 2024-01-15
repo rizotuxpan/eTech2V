@@ -255,7 +255,7 @@ void __fastcall TFrame12::ButtonNewClick(TObject *Sender)
 	ComboBoxModelo->ItemIndex = -1;
     ComboBoxModelo->Enabled = -1;
 	EditSerie->Text = "";
-    EditSerie->Enabled = "";
+    EditSerie->Enabled = true;
     ComboBoxMarca->SetFocus();
 }
 //---------------------------------------------------------------------------
