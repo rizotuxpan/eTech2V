@@ -1,0 +1,5 @@
+object Frame19: TFrame19
+  Size.Width = 632.000000000000000000
+  Size.Height = 456.000000000000000000
+  Size.PlatformDefault = False
+end

@@ -1,0 +1,5 @@
+object Frame20: TFrame20
+  Size.Width = 712.000000000000000000
+  Size.Height = 502.000000000000000000
+  Size.PlatformDefault = False
+end
