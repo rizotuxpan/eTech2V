@@ -44,7 +44,8 @@ void __fastcall TForm1::FormCreate(TObject* Sender)
 	PMIGrupo2         = iniFile->ReadString("REST", "PMIGrupo2", "");
 	PMIGrupo3         = iniFile->ReadString("REST", "PMIGrupo3", "");
 	PMIPoste          = iniFile->ReadString("REST", "PMIPoste", "");
-    Radio             = iniFile->ReadString("REST", "Radio", "");
+	Radio             = iniFile->ReadString("REST", "Radio", "");
+    PMI               = iniFile->ReadString("REST", "PMI", "");
 
 	delete iniFile;
 }
@@ -265,6 +266,17 @@ void __fastcall TForm1::MenuCatalogosRadiosRadiosClick(TObject *Sender)
 	Frame18->Parent = PanelMain;
 	Frame18->Align = TAlignLayout::Client;
 	Frame18->Visible = true;
+	EnableMenu(false);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::MenuCatalogosPMIsPMIClick(TObject *Sender)
+{
+    resource = PMI;
+	Frame19 = new TFrame19(this, baseurl, resource, "Puntos de Monitoreo Inteligente");
+	Frame19->Parent = PanelMain;
+	Frame19->Align = TAlignLayout::Client;
+	Frame19->Visible = true;
 	EnableMenu(false);
 }
 //---------------------------------------------------------------------------

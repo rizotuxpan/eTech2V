@@ -53,8 +53,8 @@
     <Transaction>2024/01/14 14:13:32.000.702,=C:\Users\erizoTech\Devel\eTech\Unit18.cpp</Transaction>
     <Transaction>2024/01/14 14:44:04.000.829,C:\Users\erizoTech\Devel\eTech\Unit18.cpp=</Transaction>
     <Transaction>2024/01/14 14:45:43.000.343,=C:\Users\erizoTech\Devel\eTech\Unit18.cpp</Transaction>
-    <Transaction>2024/01/15 20:18:56.938,=C:\Users\erizoTech\Devel\eTech\Unit19.cpp</Transaction>
-    <Transaction>2024/01/15 20:19:13.546,=C:\Users\erizoTech\Devel\eTech\Unit20.cpp</Transaction>
+    <Transaction>2024/01/15 20:18:56.000.938,=C:\Users\erizoTech\Devel\eTech\Unit19.cpp</Transaction>
+    <Transaction>2024/01/15 20:19:13.000.546,=C:\Users\erizoTech\Devel\eTech\Unit20.cpp</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="eTech.cpp"/>

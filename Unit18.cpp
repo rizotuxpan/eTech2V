@@ -19,7 +19,7 @@ __fastcall TFrame18::TFrame18(TComponent* Owner, String baseurl, String resource
 //---------------------------------------------------------------------------
 void __fastcall TFrame18::ButtonCloseClick(TObject *Sender)
 {
-         // Activa el menu
+	// Activa el menu
 	Form1->EnableMenu(true);
 	// Crear un hilo anónimo para cerrar la aplicación
 	TThread::CreateAnonymousThread(

@@ -134,7 +134,7 @@ object Form1: TForm1
         end
         object MenuCatalogosPMIs: TMenuItem
           Locked = True
-          Text = 'PMIs'
+          Text = 'Puntos de Monitoreo'
           object MenuCatalogosPMIPostesMaterial: TMenuItem
             Locked = True
             Text = 'Material de postes'
@@ -167,6 +167,15 @@ object Form1: TForm1
             Locked = True
             Text = 'Postes'
             OnClick = MenuCatalogosPMIsPostesClick
+          end
+          object MenuCatalogosPMIsSeo2: TMenuItem
+            Locked = True
+            Text = '-'
+          end
+          object MenuCatalogosPMIsPMI: TMenuItem
+            Locked = True
+            Text = 'Punto de monitoreo'
+            OnClick = MenuCatalogosPMIsPMIClick
           end
         end
         object MenuCatalogosArcos: TMenuItem
