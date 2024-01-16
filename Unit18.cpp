@@ -190,7 +190,7 @@ void TFrame18::RellenarComboBoxModelo(TComboBox *ComboBox, const UnicodeString &
 	RESTRequest->Response = RESTResponse;
 
 	RESTClient->BaseURL = baseurl;
-	RESTRequest->Resource = resource+"?id="+IntToStr(marca_id);
+	RESTRequest->Resource = resource+"?radiomodelomarca_id="+IntToStr(marca_id);
 	RESTRequest->Execute();
 
 	TJSONArray *jsonArray = (TJSONArray*)TJSONObject::ParseJSONValue(RESTResponse->Content);
@@ -207,7 +207,6 @@ void TFrame18::RellenarComboBoxModelo(TComboBox *ComboBox, const UnicodeString &
 			item->TagString = descr;
 
 			ComboBox->AddObject(item);
-            ComboBox->ItemIndex=0;
 		}
 	}
 
@@ -272,8 +271,8 @@ void TFrame18::DeleteRecord()
 
 	TJSONValue *jValue = RESTResponse->JSONValue;
 	TJSONArray *JSONArray = dynamic_cast<TJSONArray*>(jValue);
-    ShowMessage(JSONArray->Items[1]->ToString());
-	//LabelMsg->Text = JSONArray->Items[1]->ToString() == "\"ok\"" ? "Registro borrado correctamente" : "El registro no se pudo guardar";
+
+	LabelMsg->Text = JSONArray->Items[1]->ToString() == "\"ok\"" ? "Registro borrado correctamente" : "El registro no se pudo guardar";
 
 	EditSerie->Text = "";
 	MemoDescr->Text = "";
