@@ -28,7 +28,7 @@ __fastcall TFrame19::TFrame19(TComponent* Owner, String baseurl, String resource
 	// Agregar el marcador al mapa
 	MapView1->AddMarker(desc);
 
-	// AIzaSyA-VY8JG4VS28BgMwqlg-oJ_1GRw7NfxT0
+	//
 }
 //---------------------------------------------------------------------------
 void __fastcall TFrame19::ButtonCloseClick(TObject *Sender)
