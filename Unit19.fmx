@@ -235,80 +235,193 @@ object Frame19: TFrame19
     TabOrder = 5
     object Panel3: TPanel
       Align = Bottom
-      Position.Y = 272.000000000000000000
+      Position.Y = 224.000000000000000000
       Size.Width = 718.000000000000000000
-      Size.Height = 158.000000000000000000
+      Size.Height = 206.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
       object TabControl1: TTabControl
         Align = Client
         Size.Width = 718.000000000000000000
-        Size.Height = 158.000000000000000000
+        Size.Height = 206.000000000000000000
         Size.PlatformDefault = False
         TabIndex = 0
         TabOrder = 1
         TabPosition = PlatformDefault
         Sizes = (
           718s
-          132s
+          180s
           718s
-          132s
+          180s
           718s
-          132s
+          180s
           718s
-          132s
+          180s
           718s
-          132s)
-        object TabItem1: TTabItem
+          180s
+          718s
+          180s)
+        object TabItem4: TTabItem
           CustomIcon = <
             item
             end>
           TextSettings.Trimming = None
           IsSelected = True
-          Size.Width = 49.000000000000000000
+          Size.Width = 73.000000000000000000
           Size.Height = 26.000000000000000000
           Size.PlatformDefault = False
           StyleLookup = ''
           TabOrder = 0
-          Text = 'Poste'
-          ExplicitSize.cx = 49.000000000000000000
+          Text = 'Ubicaci'#243'n'
+          ExplicitSize.cx = 73.000000000000000000
           ExplicitSize.cy = 26.000000000000000000
-          object Panel8: TPanel
-            Align = Top
-            Size.Width = 718.000000000000000000
-            Size.Height = 36.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 0
-            object Edit1: TEdit
-              Touch.InteractiveGestures = [LongTap, DoubleTap]
-              Align = Right
-              TabOrder = 1
-              Position.X = 415.000000000000000000
-              Position.Y = 5.000000000000000000
-              Margins.Top = 5.000000000000000000
-              Margins.Right = 20.000000000000000000
-              Margins.Bottom = 5.000000000000000000
-              Size.Width = 283.000000000000000000
-              Size.Height = 26.000000000000000000
-              Size.PlatformDefault = False
-            end
-          end
-          object Panel9: TPanel
-            Align = Client
-            Size.Width = 718.000000000000000000
-            Size.Height = 96.000000000000000000
+          object Panel13: TPanel
+            Align = Left
+            Size.Width = 374.000000000000000000
+            Size.Height = 180.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
+            object WebBrowser1: TWebBrowser
+              Align = Client
+              Size.Width = 374.000000000000000000
+              Size.Height = 180.000000000000000000
+              Size.PlatformDefault = False
+              WindowsEngine = EdgeIfAvailable
+              URL = 'https://google.com'
+            end
+          end
+          object Panel14: TPanel
+            Align = Client
+            Size.Width = 336.000000000000000000
+            Size.Height = 180.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object MapView1: TMapView
+              Align = Client
+              Size.Width = 336.000000000000000000
+              Size.Height = 180.000000000000000000
+              Size.PlatformDefault = False
+              Zoom = 14.000000000000000000
+              MapType = Satellite
+              LayerOptions = [PointsOfInterest, UserLocation]
+            end
+          end
+          object Splitter2: TSplitter
+            Align = Left
+            Cursor = crHSplit
+            MinSize = 20.000000000000000000
+            Position.X = 374.000000000000000000
+            Size.Width = 8.000000000000000000
+            Size.Height = 180.000000000000000000
+            Size.PlatformDefault = False
+          end
+        end
+        object TabItem1: TTabItem
+          CustomIcon = <
+            item
+            end>
+          TextSettings.Trimming = None
+          IsSelected = False
+          Size.Width = 54.000000000000000000
+          Size.Height = 26.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = ''
+          TabOrder = 0
+          Text = 'Postes'
+          ExplicitSize.cx = 49.000000000000000000
+          ExplicitSize.cy = 26.000000000000000000
+          object GridPanelLayout2: TGridPanelLayout
+            Align = Client
+            Size.Width = 718.000000000000000000
+            Size.Height = 180.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            ColumnCollection = <
+              item
+                Value = 49.500000000000000000
+              end
+              item
+                Value = 5.500000000000000000
+              end
+              item
+                Value = 45.000000000000000000
+              end>
+            ControlCollection = <
+              item
+                Column = 0
+                Control = StringGrid1
+                Row = 0
+              end
+              item
+                Column = 1
+                Control = Panel8
+                Row = 0
+              end
+              item
+                Column = 2
+                Control = StringGrid2
+                Row = 0
+              end>
+            RowCollection = <
+              item
+                Value = 100.000000000000000000
+              end>
             object StringGrid1: TStringGrid
               Align = Client
               CanFocus = True
               ClipChildren = True
-              Size.Width = 718.000000000000000000
-              Size.Height = 96.000000000000000000
+              Size.Width = 355.410003662109400000
+              Size.Height = 180.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              Viewport.Width = 355.400000000000000000
+              Viewport.Height = 180.000000000000000000
+              object StringColumn6: TStringColumn
+                Header = 'Disponibles'
+                HeaderSettings.TextSettings.WordWrap = False
+              end
+            end
+            object Panel8: TPanel
+              Align = Client
+              Size.Width = 39.489990234375000000
+              Size.Height = 180.000000000000000000
               Size.PlatformDefault = False
               TabOrder = 1
-              Viewport.Width = 714.000000000000000000
-              Viewport.Height = 71.000000000000000000
+              object SpeedButton1: TSpeedButton
+                Position.X = 8.000000000000000000
+                Position.Y = 24.000000000000000000
+                Size.Width = 23.000000000000000000
+                Size.Height = 22.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'arrowrighttoolbutton'
+                Text = 'SpeedButton1'
+                TextSettings.Trimming = None
+              end
+              object SpeedButton2: TSpeedButton
+                Position.X = 7.000000000000000000
+                Position.Y = 70.000000000000000000
+                Size.Width = 23.000000000000000000
+                Size.Height = 22.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'arrowlefttoolbutton'
+                Text = 'SpeedButton1'
+                TextSettings.Trimming = None
+              end
+            end
+            object StringGrid2: TStringGrid
+              Align = Client
+              CanFocus = True
+              ClipChildren = True
+              Size.Width = 323.100006103515600000
+              Size.Height = 180.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 2
+              Viewport.Width = 323.100000000000000000
+              Viewport.Height = 180.000000000000000000
+              object StringColumn8: TStringColumn
+                Header = 'Asignado'
+                HeaderSettings.TextSettings.WordWrap = False
+              end
             end
           end
         end
@@ -326,6 +439,100 @@ object Frame19: TFrame19
           Text = 'Switches'
           ExplicitSize.cx = 66.000000000000000000
           ExplicitSize.cy = 26.000000000000000000
+          object GridPanelLayout3: TGridPanelLayout
+            Align = Client
+            Size.Width = 718.000000000000000000
+            Size.Height = 180.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            ColumnCollection = <
+              item
+                Value = 49.500000000000000000
+              end
+              item
+                Value = 5.500000000000000000
+              end
+              item
+                Value = 45.000000000000000000
+              end>
+            ControlCollection = <
+              item
+                Column = 0
+                Control = StringGrid3
+                Row = 0
+              end
+              item
+                Column = 1
+                Control = Panel9
+                Row = 0
+              end
+              item
+                Column = 2
+                Control = StringGrid4
+                Row = 0
+              end>
+            RowCollection = <
+              item
+                Value = 100.000000000000000000
+              end>
+            object StringGrid3: TStringGrid
+              Align = Client
+              CanFocus = True
+              ClipChildren = True
+              Size.Width = 355.410003662109400000
+              Size.Height = 180.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              Viewport.Width = 355.400000000000000000
+              Viewport.Height = 180.000000000000000000
+              object StringColumn12: TStringColumn
+                Header = 'Disponibles'
+                HeaderSettings.TextSettings.WordWrap = False
+              end
+            end
+            object Panel9: TPanel
+              Align = Client
+              Size.Width = 39.489990234375000000
+              Size.Height = 180.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              object SpeedButton3: TSpeedButton
+                Position.X = 8.000000000000000000
+                Position.Y = 24.000000000000000000
+                Size.Width = 23.000000000000000000
+                Size.Height = 22.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'arrowrighttoolbutton'
+                Text = 'SpeedButton1'
+                TextSettings.Trimming = None
+              end
+              object SpeedButton4: TSpeedButton
+                Position.X = 7.000000000000000000
+                Position.Y = 70.000000000000000000
+                Size.Width = 23.000000000000000000
+                Size.Height = 22.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'arrowlefttoolbutton'
+                Text = 'SpeedButton1'
+                TextSettings.Trimming = None
+              end
+            end
+            object StringGrid4: TStringGrid
+              Align = Client
+              CanFocus = True
+              ClipChildren = True
+              Size.Width = 323.100006103515600000
+              Size.Height = 180.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 2
+              Viewport.Width = 323.100000000000000000
+              Viewport.Height = 180.000000000000000000
+              object StringColumn13: TStringColumn
+                Header = 'Asignado'
+                HeaderSettings.TextSettings.WordWrap = False
+              end
+            end
+          end
         end
         object TabItem3: TTabItem
           CustomIcon = <
@@ -341,6 +548,100 @@ object Frame19: TFrame19
           Text = 'Radios'
           ExplicitSize.cx = 56.000000000000000000
           ExplicitSize.cy = 26.000000000000000000
+          object GridPanelLayout4: TGridPanelLayout
+            Align = Client
+            Size.Width = 718.000000000000000000
+            Size.Height = 180.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            ColumnCollection = <
+              item
+                Value = 49.500000000000000000
+              end
+              item
+                Value = 5.500000000000000000
+              end
+              item
+                Value = 45.000000000000000000
+              end>
+            ControlCollection = <
+              item
+                Column = 0
+                Control = StringGrid5
+                Row = 0
+              end
+              item
+                Column = 1
+                Control = Panel10
+                Row = 0
+              end
+              item
+                Column = 2
+                Control = StringGrid6
+                Row = 0
+              end>
+            RowCollection = <
+              item
+                Value = 100.000000000000000000
+              end>
+            object StringGrid5: TStringGrid
+              Align = Client
+              CanFocus = True
+              ClipChildren = True
+              Size.Width = 355.410003662109400000
+              Size.Height = 180.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              Viewport.Width = 355.400000000000000000
+              Viewport.Height = 180.000000000000000000
+              object StringColumn14: TStringColumn
+                Header = 'Disponibles'
+                HeaderSettings.TextSettings.WordWrap = False
+              end
+            end
+            object Panel10: TPanel
+              Align = Client
+              Size.Width = 39.489990234375000000
+              Size.Height = 180.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              object SpeedButton5: TSpeedButton
+                Position.X = 8.000000000000000000
+                Position.Y = 24.000000000000000000
+                Size.Width = 23.000000000000000000
+                Size.Height = 22.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'arrowrighttoolbutton'
+                Text = 'SpeedButton1'
+                TextSettings.Trimming = None
+              end
+              object SpeedButton6: TSpeedButton
+                Position.X = 7.000000000000000000
+                Position.Y = 70.000000000000000000
+                Size.Width = 23.000000000000000000
+                Size.Height = 22.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'arrowlefttoolbutton'
+                Text = 'SpeedButton1'
+                TextSettings.Trimming = None
+              end
+            end
+            object StringGrid6: TStringGrid
+              Align = Client
+              CanFocus = True
+              ClipChildren = True
+              Size.Width = 323.100006103515600000
+              Size.Height = 180.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 2
+              Viewport.Width = 323.100000000000000000
+              Viewport.Height = 180.000000000000000000
+              object StringColumn15: TStringColumn
+                Header = 'Asignado'
+                HeaderSettings.TextSettings.WordWrap = False
+              end
+            end
+          end
         end
         object Gabinetes: TTabItem
           CustomIcon = <
@@ -356,6 +657,100 @@ object Frame19: TFrame19
           Text = 'Gabinetes'
           ExplicitSize.cx = 73.000000000000000000
           ExplicitSize.cy = 26.000000000000000000
+          object GridPanelLayout5: TGridPanelLayout
+            Align = Client
+            Size.Width = 718.000000000000000000
+            Size.Height = 180.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            ColumnCollection = <
+              item
+                Value = 49.500000000000000000
+              end
+              item
+                Value = 5.500000000000000000
+              end
+              item
+                Value = 45.000000000000000000
+              end>
+            ControlCollection = <
+              item
+                Column = 0
+                Control = StringGrid7
+                Row = 0
+              end
+              item
+                Column = 1
+                Control = Panel11
+                Row = 0
+              end
+              item
+                Column = 2
+                Control = StringGrid8
+                Row = 0
+              end>
+            RowCollection = <
+              item
+                Value = 100.000000000000000000
+              end>
+            object StringGrid7: TStringGrid
+              Align = Client
+              CanFocus = True
+              ClipChildren = True
+              Size.Width = 355.410003662109400000
+              Size.Height = 180.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              Viewport.Width = 355.400000000000000000
+              Viewport.Height = 180.000000000000000000
+              object StringColumn16: TStringColumn
+                Header = 'Disponibles'
+                HeaderSettings.TextSettings.WordWrap = False
+              end
+            end
+            object Panel11: TPanel
+              Align = Client
+              Size.Width = 39.489990234375000000
+              Size.Height = 180.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              object SpeedButton7: TSpeedButton
+                Position.X = 8.000000000000000000
+                Position.Y = 24.000000000000000000
+                Size.Width = 23.000000000000000000
+                Size.Height = 22.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'arrowrighttoolbutton'
+                Text = 'SpeedButton1'
+                TextSettings.Trimming = None
+              end
+              object SpeedButton8: TSpeedButton
+                Position.X = 7.000000000000000000
+                Position.Y = 70.000000000000000000
+                Size.Width = 23.000000000000000000
+                Size.Height = 22.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'arrowlefttoolbutton'
+                Text = 'SpeedButton1'
+                TextSettings.Trimming = None
+              end
+            end
+            object StringGrid8: TStringGrid
+              Align = Client
+              CanFocus = True
+              ClipChildren = True
+              Size.Width = 323.100006103515600000
+              Size.Height = 180.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 2
+              Viewport.Width = 323.100000000000000000
+              Viewport.Height = 180.000000000000000000
+              object StringColumn17: TStringColumn
+                Header = 'Asignado'
+                HeaderSettings.TextSettings.WordWrap = False
+              end
+            end
+          end
         end
         object TabItem5: TTabItem
           CustomIcon = <
@@ -371,13 +766,107 @@ object Frame19: TFrame19
           Text = 'C'#225'maras'
           ExplicitSize.cx = 66.000000000000000000
           ExplicitSize.cy = 26.000000000000000000
+          object GridPanelLayout6: TGridPanelLayout
+            Align = Client
+            Size.Width = 718.000000000000000000
+            Size.Height = 180.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            ColumnCollection = <
+              item
+                Value = 49.500000000000000000
+              end
+              item
+                Value = 5.500000000000000000
+              end
+              item
+                Value = 45.000000000000000000
+              end>
+            ControlCollection = <
+              item
+                Column = 0
+                Control = StringGrid9
+                Row = 0
+              end
+              item
+                Column = 1
+                Control = Panel12
+                Row = 0
+              end
+              item
+                Column = 2
+                Control = StringGrid10
+                Row = 0
+              end>
+            RowCollection = <
+              item
+                Value = 100.000000000000000000
+              end>
+            object StringGrid9: TStringGrid
+              Align = Client
+              CanFocus = True
+              ClipChildren = True
+              Size.Width = 355.410003662109400000
+              Size.Height = 180.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              Viewport.Width = 355.400000000000000000
+              Viewport.Height = 180.000000000000000000
+              object StringColumn18: TStringColumn
+                Header = 'Disponibles'
+                HeaderSettings.TextSettings.WordWrap = False
+              end
+            end
+            object Panel12: TPanel
+              Align = Client
+              Size.Width = 39.489990234375000000
+              Size.Height = 180.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 1
+              object SpeedButton9: TSpeedButton
+                Position.X = 8.000000000000000000
+                Position.Y = 24.000000000000000000
+                Size.Width = 23.000000000000000000
+                Size.Height = 22.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'arrowrighttoolbutton'
+                Text = 'SpeedButton1'
+                TextSettings.Trimming = None
+              end
+              object SpeedButton10: TSpeedButton
+                Position.X = 7.000000000000000000
+                Position.Y = 70.000000000000000000
+                Size.Width = 23.000000000000000000
+                Size.Height = 22.000000000000000000
+                Size.PlatformDefault = False
+                StyleLookup = 'arrowlefttoolbutton'
+                Text = 'SpeedButton1'
+                TextSettings.Trimming = None
+              end
+            end
+            object StringGrid10: TStringGrid
+              Align = Client
+              CanFocus = True
+              ClipChildren = True
+              Size.Width = 323.100006103515600000
+              Size.Height = 180.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 2
+              Viewport.Width = 323.100000000000000000
+              Viewport.Height = 180.000000000000000000
+              object StringColumn19: TStringColumn
+                Header = 'Asignado'
+                HeaderSettings.TextSettings.WordWrap = False
+              end
+            end
+          end
         end
       end
     end
     object Panel5: TPanel
       Align = Client
       Size.Width = 718.000000000000000000
-      Size.Height = 264.000000000000000000
+      Size.Height = 216.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
       object StringGrid: TStringGrid
@@ -385,12 +874,12 @@ object Frame19: TFrame19
         CanFocus = True
         ClipChildren = True
         Size.Width = 718.000000000000000000
-        Size.Height = 264.000000000000000000
+        Size.Height = 216.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         Options = [ColumnResize, ColLines, RowLines, RowSelect, Header, AutoDisplacement]
         Viewport.Width = 698.000000000000000000
-        Viewport.Height = 223.000000000000000000
+        Viewport.Height = 175.000000000000000000
         object StringColumn1: TStringColumn
           Header = 'id'
           HeaderSettings.TextSettings.WordWrap = False
@@ -433,7 +922,7 @@ object Frame19: TFrame19
       Align = Bottom
       Cursor = crVSplit
       MinSize = 20.000000000000000000
-      Position.Y = 264.000000000000000000
+      Position.Y = 216.000000000000000000
       Size.Width = 718.000000000000000000
       Size.Height = 8.000000000000000000
       Size.PlatformDefault = False

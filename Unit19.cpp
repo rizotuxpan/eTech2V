@@ -5,6 +5,8 @@
 
 #include "Unit19.h"
 #include "MainWindow.h"
+#include <IdURI.hpp>
+
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.fmx"
@@ -13,6 +15,20 @@ TFrame19 *Frame19;
 __fastcall TFrame19::TFrame19(TComponent* Owner, String baseurl, String resource, String titulo)
 	: TFrame(Owner), baseurl(baseurl), resource(resource), titulo(titulo)
 {
+    TMapCoordinate pos;
+	pos.Latitude = 40.712776;
+	pos.Longitude = -74.005974;
+
+	// Crear un descriptor de marcador
+	TMapMarkerDescriptor desc;
+	desc.Position = pos;
+	desc.Title = "Mi Ubicación";
+	desc.Draggable = false;
+
+	// Agregar el marcador al mapa
+	MapView1->AddMarker(desc);
+
+	// AIzaSyA-VY8JG4VS28BgMwqlg-oJ_1GRw7NfxT0
 }
 //---------------------------------------------------------------------------
 void __fastcall TFrame19::ButtonCloseClick(TObject *Sender)

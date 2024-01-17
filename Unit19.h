@@ -20,6 +20,8 @@
 #include <FMX.ScrollBox.hpp>
 #include <System.Rtti.hpp>
 #include <FMX.TabControl.hpp>
+#include <FMX.Maps.hpp>
+#include <FMX.WebBrowser.hpp>
 //---------------------------------------------------------------------------
 class TFrame19 : public TFrame
 {
@@ -63,11 +65,53 @@ __published:	// IDE-managed Components
 	TTabItem *TabItem3;
 	TTabItem *Gabinetes;
 	TTabItem *TabItem5;
-	TPanel *Panel8;
-	TPanel *Panel9;
-	TEdit *Edit1;
-	TStringGrid *StringGrid1;
 	TSplitter *Splitter1;
+	TGridPanelLayout *GridPanelLayout2;
+	TStringGrid *StringGrid1;
+	TPanel *Panel8;
+	TStringGrid *StringGrid2;
+	TSpeedButton *SpeedButton1;
+	TSpeedButton *SpeedButton2;
+	TStringColumn *StringColumn6;
+	TStringColumn *StringColumn8;
+	TTabItem *TabItem4;
+	TGridPanelLayout *GridPanelLayout3;
+	TStringGrid *StringGrid3;
+	TStringColumn *StringColumn12;
+	TPanel *Panel9;
+	TSpeedButton *SpeedButton3;
+	TSpeedButton *SpeedButton4;
+	TStringGrid *StringGrid4;
+	TStringColumn *StringColumn13;
+	TGridPanelLayout *GridPanelLayout4;
+	TStringGrid *StringGrid5;
+	TStringColumn *StringColumn14;
+	TPanel *Panel10;
+	TSpeedButton *SpeedButton5;
+	TSpeedButton *SpeedButton6;
+	TStringGrid *StringGrid6;
+	TStringColumn *StringColumn15;
+	TGridPanelLayout *GridPanelLayout5;
+	TStringGrid *StringGrid7;
+	TStringColumn *StringColumn16;
+	TPanel *Panel11;
+	TSpeedButton *SpeedButton7;
+	TSpeedButton *SpeedButton8;
+	TStringGrid *StringGrid8;
+	TStringColumn *StringColumn17;
+	TGridPanelLayout *GridPanelLayout6;
+	TStringGrid *StringGrid9;
+	TStringColumn *StringColumn18;
+	TPanel *Panel12;
+	TSpeedButton *SpeedButton9;
+	TSpeedButton *SpeedButton10;
+	TStringGrid *StringGrid10;
+	TStringColumn *StringColumn19;
+	TPanel *Panel13;
+	TPanel *Panel14;
+	TMapView *MapView1;
+	TWebBrowser *WebBrowser1;
+	TSplitter *Splitter2;
 	void __fastcall ButtonCloseClick(TObject *Sender);
 private:	// User declarations
 	String baseurl = "";
