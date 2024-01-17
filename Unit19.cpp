@@ -15,20 +15,17 @@ TFrame19 *Frame19;
 __fastcall TFrame19::TFrame19(TComponent* Owner, String baseurl, String resource, String titulo)
 	: TFrame(Owner), baseurl(baseurl), resource(resource), titulo(titulo)
 {
-    TMapCoordinate pos;
-	pos.Latitude = 40.712776;
-	pos.Longitude = -74.005974;
+	TMapCoordinate mapCenter = TMapCoordinate::Create(40.712776,-74.005974);
+	MapView1->Location = mapCenter;
 
-	// Crear un descriptor de marcador
-	TMapMarkerDescriptor desc;
-	desc.Position = pos;
-	desc.Title = "Mi Ubicación";
-	desc.Draggable = false;
 
-	// Agregar el marcador al mapa
-	MapView1->AddMarker(desc);
+	TMapMarkerDescriptor myMarker = TMapMarkerDescriptor::Create(mapCenter, "MyMarker");
+	// Make a marker draggable
+	myMarker.Draggable = true;
+	// Make a marker visible
+	myMarker.Visible = true;
+	MapView1->AddMarker(myMarker);
 
-	//
 }
 //---------------------------------------------------------------------------
 void __fastcall TFrame19::ButtonCloseClick(TObject *Sender)
