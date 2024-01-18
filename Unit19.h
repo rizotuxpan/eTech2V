@@ -22,6 +22,16 @@
 #include <FMX.TabControl.hpp>
 #include <FMX.Maps.hpp>
 #include <FMX.WebBrowser.hpp>
+#include "FMX.TMSFNCCustomControl.hpp"
+#include "FMX.TMSFNCGoogleMaps.hpp"
+#include "FMX.TMSFNCGraphics.hpp"
+#include "FMX.TMSFNCGraphicsTypes.hpp"
+#include "FMX.TMSFNCMaps.hpp"
+#include "FMX.TMSFNCTypes.hpp"
+#include "FMX.TMSFNCUtils.hpp"
+#include "FMX.TMSFNCWebBrowser.hpp"
+#include "FMX.TMSFNCOpenLayers.hpp"
+#include "FMX.TMSFNCMapsCommonTypes.hpp"
 //---------------------------------------------------------------------------
 class TFrame19 : public TFrame
 {
@@ -109,9 +119,9 @@ __published:	// IDE-managed Components
 	TStringColumn *StringColumn19;
 	TPanel *Panel13;
 	TPanel *Panel14;
-	TMapView *MapView1;
-	TWebBrowser *WebBrowser1;
 	TSplitter *Splitter2;
+	TButton *Button1;
+	TTMSFNCMaps *TMSFNCMaps1;
 	void __fastcall ButtonCloseClick(TObject *Sender);
 private:	// User declarations
 	String baseurl = "";

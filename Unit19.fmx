@@ -281,13 +281,12 @@ object Frame19: TFrame19
             Size.Height = 180.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 1
-            object WebBrowser1: TWebBrowser
-              Align = Client
-              Size.Width = 374.000000000000000000
-              Size.Height = 180.000000000000000000
-              Size.PlatformDefault = False
-              WindowsEngine = EdgeIfAvailable
-              URL = 'https://google.com'
+            object Button1: TButton
+              Position.X = 264.000000000000000000
+              Position.Y = 32.000000000000000000
+              TabOrder = 1
+              Text = 'Button1'
+              TextSettings.Trimming = None
             end
           end
           object Panel14: TPanel
@@ -296,14 +295,24 @@ object Frame19: TFrame19
             Size.Height = 180.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
-            object MapView1: TMapView
-              Align = Client
-              Size.Width = 336.000000000000000000
-              Size.Height = 180.000000000000000000
+            object TMSFNCMaps1: TTMSFNCMaps
+              Position.X = 88.000000000000000000
+              Position.Y = 64.000000000000000000
+              Size.Width = 500.000000000000000000
+              Size.Height = 350.000000000000000000
               Size.PlatformDefault = False
-              Zoom = 14.000000000000000000
-              MapType = Satellite
-              LayerOptions = [PointsOfInterest, UserLocation]
+              TabOrder = 2
+              Polylines = <>
+              Polygons = <>
+              Circles = <>
+              Rectangles = <>
+              Markers = <>
+              ElementContainers = <>
+              Labels = <>
+              HeadLinks = <>
+              Options.DefaultLatitude = 40.689247000000000000
+              Options.DefaultLongitude = -74.044501999999990000
+              Options.DefaultZoomLevel = 12.000000000000000000
             end
           end
           object Splitter2: TSplitter

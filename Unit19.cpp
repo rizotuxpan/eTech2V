@@ -9,23 +9,22 @@
 
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
+#pragma link "FMX.TMSFNCCustomControl"
+#pragma link "FMX.TMSFNCGoogleMaps"
+#pragma link "FMX.TMSFNCGraphics"
+#pragma link "FMX.TMSFNCGraphicsTypes"
+#pragma link "FMX.TMSFNCMaps"
+#pragma link "FMX.TMSFNCTypes"
+#pragma link "FMX.TMSFNCUtils"
+#pragma link "FMX.TMSFNCWebBrowser"
+#pragma link "FMX.TMSFNCOpenLayers"
+#pragma link "FMX.TMSFNCMapsCommonTypes"
 #pragma resource "*.fmx"
 TFrame19 *Frame19;
 //---------------------------------------------------------------------------
 __fastcall TFrame19::TFrame19(TComponent* Owner, String baseurl, String resource, String titulo)
 	: TFrame(Owner), baseurl(baseurl), resource(resource), titulo(titulo)
 {
-	TMapCoordinate mapCenter = TMapCoordinate::Create(40.712776,-74.005974);
-	MapView1->Location = mapCenter;
-
-
-	TMapMarkerDescriptor myMarker = TMapMarkerDescriptor::Create(mapCenter, "MyMarker");
-	// Make a marker draggable
-	myMarker.Draggable = true;
-	// Make a marker visible
-	myMarker.Visible = true;
-	MapView1->AddMarker(myMarker);
-
 }
 //---------------------------------------------------------------------------
 void __fastcall TFrame19::ButtonCloseClick(TObject *Sender)
@@ -49,4 +48,5 @@ void __fastcall TFrame19::ButtonCloseClick(TObject *Sender)
 	)->Start();
 }
 //---------------------------------------------------------------------------
+
 
